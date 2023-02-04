@@ -1,0 +1,70 @@
+[gd_scene load_steps=10 format=3 uid="uid://cx25ioy07iibp"]
+
+[ext_resource type="Texture2D" uid="uid://b836w3h88y88o" path="res://icon.svg" id="1_uw8f1"]
+[ext_resource type="Script" path="res://game/player.gd" id="2_w2uax"]
+
+[sub_resource type="Gradient" id="Gradient_3834j"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 1, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_w34id"]
+gradient = SubResource("Gradient_3834j")
+width = 1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j6121"]
+size = Vector2(50, 50)
+
+[sub_resource type="Gradient" id="Gradient_mhu85"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(1, 0.239216, 0.239216, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_0nmfm"]
+gradient = SubResource("Gradient_mhu85")
+width = 1
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0voet"]
+friction = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4wk6f"]
+size = Vector2(50, 50)
+
+[node name="game" type="Node"]
+
+[node name="Garden" type="Node2D" parent="."]
+
+[node name="Test Background" type="Sprite2D" parent="Garden"]
+scale = Vector2(2048, 1536)
+texture = SubResource("GradientTexture1D_w34id")
+
+[node name="Objects" type="Node2D" parent="Garden"]
+y_sort_enabled = true
+
+[node name="Test Rock" type="StaticBody2D" parent="Garden/Objects"]
+position = Vector2(100, 0)
+
+[node name="CollisionShape" type="CollisionShape2D" parent="Garden/Objects/Test Rock"]
+shape = SubResource("RectangleShape2D_j6121")
+
+[node name="Sprite" type="Sprite2D" parent="Garden/Objects/Test Rock"]
+scale = Vector2(50, 50)
+texture = SubResource("GradientTexture1D_0nmfm")
+
+[node name="Player" type="RigidBody2D" parent="Garden/Objects"]
+physics_material_override = SubResource("PhysicsMaterial_0voet")
+max_contacts_reported = 10
+contact_monitor = true
+can_sleep = false
+lock_rotation = true
+script = ExtResource("2_w2uax")
+force_multiplier = 2000.0
+
+[node name="CollisionShape" type="CollisionShape2D" parent="Garden/Objects/Player"]
+shape = SubResource("RectangleShape2D_4wk6f")
+
+[node name="Sprite" type="Sprite2D" parent="Garden/Objects/Player"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_uw8f1")
+
+[node name="Camera" type="Camera2D" parent="."]
