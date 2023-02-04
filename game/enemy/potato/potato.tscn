@@ -1,24 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://ba7ivojxn0clg"]
+[gd_scene load_steps=4 format=3 uid="uid://dbssse540sc70"]
 
-[ext_resource type="PackedScene" uid="uid://liqctyvacpda" path="res://game/enemy/enemy.tscn" id="1_84ehe"]
+[ext_resource type="PackedScene" uid="uid://bq2b7d3bnhwiv" path="res://game/enemy/enemy.tscn" id="1_84ehe"]
 
-[sub_resource type="Gradient" id="Gradient_ylvr8"]
+[sub_resource type="Gradient" id="Gradient_qcl23"]
 interpolation_mode = 1
 offsets = PackedFloat32Array(0)
-colors = PackedColorArray(0.701961, 0.458824, 0, 1)
+colors = PackedColorArray(1, 0.313726, 0, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_0k2hm"]
-gradient = SubResource("Gradient_ylvr8")
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_hwvhf"]
+gradient = SubResource("Gradient_qcl23")
 width = 1
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_dgoet"]
-radius = 25.0
-
-[node name="enemy" instance=ExtResource("1_84ehe")]
+[node name="Potato" instance=ExtResource("1_84ehe")]
 
 [node name="Sprite" parent="." index="0"]
 scale = Vector2(50, 50)
-texture = SubResource("GradientTexture1D_0k2hm")
-
-[node name="CollisionShape" parent="." index="1"]
-shape = SubResource("CircleShape2D_dgoet")
+texture = SubResource("GradientTexture1D_hwvhf")

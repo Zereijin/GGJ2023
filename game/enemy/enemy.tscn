@@ -1,18 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://liqctyvacpda"]
+[gd_scene load_steps=3 format=3 uid="uid://bq2b7d3bnhwiv"]
 
+[ext_resource type="PackedScene" uid="uid://cu40kuw6mlex7" path="res://game/plant.tscn" id="1_8y5jb"]
 [ext_resource type="Script" path="res://game/enemy/enemy.gd" id="1_oaf8f"]
-[ext_resource type="PackedScene" uid="uid://b40ra17s41m0v" path="res://game/damageable.tscn" id="1_yrs8i"]
 
-[node name="Enemy" type="RigidBody2D"]
-collision_layer = 2
-collision_mask = 27
-lock_rotation = true
+[node name="Enemy" instance=ExtResource("1_8y5jb")]
 script = ExtResource("1_oaf8f")
-
-[node name="Sprite" type="Sprite2D" parent="."]
-
-[node name="CollisionShape" type="CollisionShape2D" parent="."]
-
-[node name="Damageable" parent="." instance=ExtResource("1_yrs8i")]
-
-[connection signal="dead" from="Damageable" to="." method="_on_dead"]
