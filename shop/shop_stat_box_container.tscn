@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://d0ysxh4jpyavx"]
+[gd_scene load_steps=3 format=3 uid="uid://d0ysxh4jpyavx"]
 
 [ext_resource type="Script" path="res://shop/shop_stat_box_container.gd" id="1_m208k"]
+[ext_resource type="PackedScene" uid="uid://d064aesxxrh8c" path="res://shop/shop_cost_container.tscn" id="2_mkan3"]
 
 [node name="HBoxContainer" type="HBoxContainer"]
 script = ExtResource("1_m208k")
@@ -16,11 +17,12 @@ text = "Upgrade"
 layout_mode = 2
 
 [node name="StatNameLabel" type="Label" parent="."]
+custom_minimum_size = Vector2(90, 0)
 layout_mode = 2
-text = "Max Health"
+text = "Stat"
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
-custom_minimum_size = Vector2(100, 32)
+custom_minimum_size = Vector2(80, 32)
 layout_mode = 2
 max_value = 10.0
 step = 1.0
@@ -29,15 +31,20 @@ rounded = true
 show_percentage = false
 
 [node name="CostsContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 
-[node name="RCostTextureRect" type="TextureRect" parent="CostsContainer"]
+[node name="RCostContainer" parent="CostsContainer" instance=ExtResource("2_mkan3")]
 layout_mode = 2
+cost_color = Color(1, 0, 0, 1)
+cost_value = 99
 
-[node name="RCostLabel" type="Label" parent="CostsContainer"]
+[node name="GCostContainer" parent="CostsContainer" instance=ExtResource("2_mkan3")]
 layout_mode = 2
-size_flags_horizontal = 8
-theme_override_colors/font_color = Color(1, 0, 0, 1)
-text = "999"
-horizontal_alignment = 2
-vertical_alignment = 1
+cost_color = Color(0, 1, 0, 1)
+cost_value = 99
+
+[node name="BCostContainer" parent="CostsContainer" instance=ExtResource("2_mkan3")]
+layout_mode = 2
+cost_color = Color(0.145098, 0.380392, 1, 1)
+cost_value = 99
