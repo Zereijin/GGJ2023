@@ -56,6 +56,9 @@ layout_mode = 2
 focus_neighbor_top = NodePath(".")
 stat_name = "Health"
 stat_level = 5
+upgrade_cost_r = Array[int]([10, 20, 30, 40, 50, 60, 70, 80, 90, 100])
+upgrade_cost_g = Array[int]([30, 60, 90, 120, 150, 180, 210, 240, 270, 300])
+upgrade_cost_b = Array[int]([10, 20, 30, 40, 50, 60, 70, 80, 90, 100])
 
 [node name="UpgradeButton" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/BodyVBoxContainer/HealthStatContainer" index="0"]
 focus_neighbor_top = NodePath("../../../../CloseButtonMarginContainer/CloseButton")
@@ -64,21 +67,28 @@ focus_neighbor_top = NodePath("../../../../CloseButtonMarginContainer/CloseButto
 layout_mode = 2
 stat_name = "Defense"
 stat_level = 5
+upgrade_cost_g = Array[int]([50, 100, 150, 200, 250, 300, 350, 400, 450, 500])
 
 [node name="MovementSpeedStatContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/BodyVBoxContainer" instance=ExtResource("1_gf714")]
 layout_mode = 2
 stat_name = "Speed"
 stat_level = 5
+upgrade_cost_b = Array[int]([50, 100, 150, 200, 250, 300, 350, 400, 450, 500])
 
 [node name="DodgeStatContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/BodyVBoxContainer" instance=ExtResource("1_gf714")]
 layout_mode = 2
 stat_name = "Dodge"
 stat_level = 5
+upgrade_cost_g = Array[int]([15, 30, 45, 60, 75, 90, 105, 120, 135, 150])
+upgrade_cost_b = Array[int]([35, 70, 105, 140, 175, 210, 245, 280, 315, 350])
 
 [node name="LuckStatContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/BodyVBoxContainer" instance=ExtResource("1_gf714")]
 layout_mode = 2
 stat_name = "Luck"
 stat_level = 5
+upgrade_cost_r = Array[int]([15, 30, 45, 60, 75, 90, 105, 120, 135, 150])
+upgrade_cost_g = Array[int]([70, 140, 210, 280, 350, 420, 490, 560, 630, 700])
+upgrade_cost_b = Array[int]([15, 30, 45, 60, 75, 90, 105, 120, 135, 150])
 
 [node name="GunVBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
@@ -92,6 +102,7 @@ horizontal_alignment = 1
 layout_mode = 2
 stat_name = "Damage"
 stat_level = 5
+upgrade_cost_r = Array[int]([50, 100, 150, 200, 250, 300, 350, 400, 450, 500])
 
 [node name="UpgradeButton" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/GunVBoxContainer/ProjectileDamageStatContainer" index="0"]
 focus_neighbor_top = NodePath("../../../../CloseButtonMarginContainer/CloseButton")
@@ -100,21 +111,30 @@ focus_neighbor_top = NodePath("../../../../CloseButtonMarginContainer/CloseButto
 layout_mode = 2
 stat_name = "Speed"
 stat_level = 5
+upgrade_cost_r = Array[int]([15, 30, 45, 60, 75, 90, 105, 120, 135, 150])
+upgrade_cost_b = Array[int]([35, 70, 105, 140, 175, 210, 245, 280, 315, 350])
 
 [node name="CritStatContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/GunVBoxContainer" instance=ExtResource("1_gf714")]
 layout_mode = 2
 stat_name = "Crit %"
 stat_level = 5
+upgrade_cost_r = Array[int]([35, 70, 105, 140, 175, 210, 245, 280, 315, 350])
+upgrade_cost_b = Array[int]([15, 30, 45, 60, 75, 90, 105, 120, 135, 150])
 
 [node name="ProjectileCountStatContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/GunVBoxContainer" instance=ExtResource("1_gf714")]
 layout_mode = 2
 stat_name = "Count"
 stat_level = 5
+upgrade_cost_r = Array[int]([70, 140, 210, 280, 350, 420, 490, 560, 630, 700])
+upgrade_cost_g = Array[int]([15, 30, 45, 60, 75, 90, 105, 120, 135, 150])
+upgrade_cost_b = Array[int]([15, 30, 45, 60, 75, 90, 105, 120, 135, 150])
 
 [node name="AccuracyStatContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/GunVBoxContainer" instance=ExtResource("1_gf714")]
 layout_mode = 2
 stat_name = "Accuracy"
 stat_level = 5
+upgrade_cost_r = Array[int]([35, 70, 105, 140, 175, 210, 245, 280, 315, 350])
+upgrade_cost_g = Array[int]([15, 30, 45, 60, 75, 90, 105, 120, 135, 150])
 
 [node name="ScreamVBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
@@ -128,26 +148,39 @@ horizontal_alignment = 1
 layout_mode = 2
 stat_name = "Damage"
 stat_level = 5
+upgrade_cost_r = Array[int]([30, 60, 90, 120, 150, 180, 210, 240, 270, 300])
+upgrade_cost_g = Array[int]([10, 20, 30, 40, 50, 60, 70, 80, 90, 100])
+upgrade_cost_b = Array[int]([10, 20, 30, 40, 50, 60, 70, 80, 90, 100])
 
 [node name="ParalysisDurationStatContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/ScreamVBoxContainer" instance=ExtResource("1_gf714")]
 layout_mode = 2
 stat_name = "Paralysis"
 stat_level = 5
+upgrade_cost_r = Array[int]([15, 30, 45, 60, 75, 90, 105, 120, 135, 150])
+upgrade_cost_g = Array[int]([35, 70, 105, 140, 175, 210, 245, 280, 315, 350])
 
 [node name="ChargeSpeedStatContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/ScreamVBoxContainer" instance=ExtResource("1_gf714")]
 layout_mode = 2
 stat_name = "Rate"
 stat_level = 5
+upgrade_cost_r = Array[int]([15, 30, 45, 60, 75, 90, 105, 120, 135, 150])
+upgrade_cost_g = Array[int]([15, 30, 45, 60, 75, 90, 105, 120, 135, 150])
+upgrade_cost_b = Array[int]([70, 140, 210, 280, 350, 420, 490, 560, 630, 700])
 
 [node name="ChargeMaxStatContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/ScreamVBoxContainer" instance=ExtResource("1_gf714")]
 layout_mode = 2
 stat_name = "Max"
 stat_level = 5
+upgrade_cost_r = Array[int]([10, 20, 30, 40, 50, 60, 70, 80, 90, 100])
+upgrade_cost_g = Array[int]([10, 20, 30, 40, 50, 60, 70, 80, 90, 100])
+upgrade_cost_b = Array[int]([30, 60, 90, 120, 150, 180, 210, 240, 270, 300])
 
 [node name="HealthRegenStatContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/ScreamVBoxContainer" instance=ExtResource("1_gf714")]
 layout_mode = 2
 stat_name = "Regen"
 stat_level = 5
+upgrade_cost_g = Array[int]([35, 70, 105, 140, 175, 210, 245, 280, 315, 350])
+upgrade_cost_b = Array[int]([15, 30, 45, 60, 75, 90, 105, 120, 135, 150])
 
 [node name="CloseButtonMarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
