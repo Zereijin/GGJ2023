@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://cx25ioy07iibp"]
+[gd_scene load_steps=11 format=3 uid="uid://cx25ioy07iibp"]
 
 [ext_resource type="Texture2D" uid="uid://b836w3h88y88o" path="res://icon.svg" id="1_uw8f1"]
 [ext_resource type="Script" path="res://game/player.gd" id="2_w2uax"]
+[ext_resource type="Script" path="res://game/camera.gd" id="3_1xqbk"]
 
 [sub_resource type="Gradient" id="Gradient_3834j"]
 interpolation_mode = 1
@@ -67,4 +68,7 @@ shape = SubResource("RectangleShape2D_4wk6f")
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_uw8f1")
 
-[node name="Camera" type="Camera2D" parent="."]
+[node name="Camera" type="Camera2D" parent="Garden/Objects/Player"]
+position_smoothing_enabled = true
+script = ExtResource("3_1xqbk")
+lookahead = 1.0
