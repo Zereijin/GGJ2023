@@ -14,7 +14,15 @@ var force_multiplier: float
 @export_range(0, 10) var projectile_attack_speed_level: int = 0
 @export_range(0, 10) var projectile_crit_chance_level: int = 0
 @export_range(0, 10) var projectile_count_level: int = 0
-@export_range(0, 10) var projectile_accuracy_level: int = 0
+
+@export_range(0, 10)
+var projectile_accuracy_level: int = 0:
+	get:
+		return projectile_accuracy_level
+	set(value):
+		projectile_accuracy_level = value
+		gun.angle_range = PI / 40 * (10 - value)
+
 @export_range(0, 10) var scream_damage_level: int = 0
 @export_range(0, 10) var scream_paralysis_duration_level: int = 0
 @export_range(0, 10) var scream_charge_speed_level: int = 0
@@ -28,6 +36,25 @@ var _mouse_recent := true
 ## The player’s gun
 @onready
 var gun := $Gun
+
+
+func _ready() -> void:
+	# Set every level property to itself, to invoke the setters and push the side effects.
+	maximum_health_level = maximum_health_level
+	defense_level = defense_level
+	movement_speed_level = movement_speed_level
+	dodge_level = dodge_level
+	luck_level = luck_level
+	projectile_damage_level = projectile_damage_level
+	projectile_attack_speed_level = projectile_attack_speed_level
+	projectile_crit_chance_level = projectile_crit_chance_level
+	projectile_count_level = projectile_count_level
+	projectile_accuracy_level = projectile_accuracy_level
+	scream_damage_level = scream_damage_level
+	scream_paralysis_duration_level = scream_paralysis_duration_level
+	scream_charge_speed_level = scream_charge_speed_level
+	scream_charge_maximum_level = scream_charge_maximum_level
+	health_regen_level = health_regen_level
 
 
 func _unhandled_input(event: InputEvent) -> void:

@@ -8,17 +8,15 @@ var projectile : PackedScene
 @export_range(0, 1000)
 var projectile_count := 1
 
-## The projectile accuracy parameter
-@export_range(0, 9)
-var accuracy := 0
-
 ## The plant that owns the gun
 @export
 var plant : Node
 
+## How far left or right of the nominal direction the gun may fire, in radians
+var angle_range
+
 
 func _fire() -> void:
-	var angle_range := (45 - 5 * accuracy) / 360.0 * TAU
 	for i in range(projectile_count):
 		var proj := projectile.instantiate() as RigidBody2D
 		proj.position = plant.position
