@@ -91,6 +91,15 @@ shop={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="player"
+2d_physics/layer_2="enemy"
+2d_physics/layer_3="projectile"
+2d_physics/layer_4="rock"
+2d_physics/layer_5="wall"
+2d_physics/layer_6="resource"
+
 [physics]
 
 2d/default_gravity=0.0

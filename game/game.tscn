@@ -44,6 +44,8 @@ y_sort_enabled = true
 
 [node name="Test Rock" type="StaticBody2D" parent="Garden/Objects"]
 position = Vector2(100, 0)
+collision_layer = 8
+collision_mask = 0
 
 [node name="CollisionShape" type="CollisionShape2D" parent="Garden/Objects/Test Rock"]
 shape = SubResource("RectangleShape2D_j6121")
@@ -53,6 +55,7 @@ scale = Vector2(50, 50)
 texture = SubResource("GradientTexture1D_0nmfm")
 
 [node name="Player" type="RigidBody2D" parent="Garden/Objects"]
+collision_mask = 26
 physics_material_override = SubResource("PhysicsMaterial_0voet")
 max_contacts_reported = 10
 contact_monitor = true
