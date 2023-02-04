@@ -24,6 +24,7 @@ linear_damp_mode = 1
 script = ExtResource("1_o01i3")
 
 [node name="Sprite" type="Sprite2D" parent="."]
+z_index = 1
 scale = Vector2(10, 10)
 texture = SubResource("GradientTexture1D_klqrn")
 
