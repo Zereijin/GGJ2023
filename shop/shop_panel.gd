@@ -44,3 +44,77 @@ func update_shop_items():
 	screamChargeSpeedStatContainer.set_level(player.scream_charge_speed_level)
 	screamChargeMaximumStatContainer.set_level(player.scream_charge_maximum_level)
 	healthRegenStatContainer.set_level(player.health_regen_level)
+
+func _on_maximum_health_upgrade_button_pressed():
+	player.maximum_health_level += 1
+	update_shop_items()
+
+
+func _on_defense_upgrade_button_pressed():
+	player.defense_level += 1
+	update_shop_items()
+
+
+func _on_movement_speed_upgrade_button_pressed():
+	player.movement_speed_level += 1
+	update_shop_items()
+
+
+func _on_dodge_upgrade_button_pressed():
+	player.dodge_level += 1
+	update_shop_items()
+
+
+func _on_luck_upgrade_button_pressed():
+	player.luck_level += 1
+	update_shop_items()
+
+
+func _on_projectile_damage_upgrade_button_pressed():
+	player.projectile_damage_level += 1
+	update_shop_items()
+
+
+func _on_projectile_attack_speed_upgrade_button_pressed():
+	player.projectile_attack_speed_level += 1
+	update_shop_items()
+
+
+func _on_projectile_crit_chance_upgrade_button_pressed():
+	player.projectile_crit_chance_level += 1
+	update_shop_items()
+
+
+func _on_projectile_count_upgrade_button_pressed():
+	player.projectile_count_level += 1
+	update_shop_items()
+
+
+func _on_projectile_accuracy_upgrade_button_pressed():
+	player.projectile_accuracy_level += 1
+	update_shop_items()
+
+
+func _on_scream_damage_upgrade_button_pressed():
+	player.scream_damage_level += 1
+	update_shop_items()
+
+
+func _on_scream_paralysis_duration_upgrade_button_pressed():
+	player.scream_paralysis_duration_level += 1
+	update_shop_items()
+
+
+func _on_scream_charge_speed_upgrade_button_pressed():
+	player.scream_charge_speed_level += 1
+	update_shop_items()
+
+
+func _on_scream_charge_maximum_upgrade_button_pressed():
+	player.scream_charge_maximum_level += 1
+	update_shop_items()
+
+
+func _on_health_regen_upgrade_button_pressed():
+	player.health_regen_level += 1
+	update_shop_items()
