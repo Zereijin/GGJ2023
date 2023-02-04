@@ -1,4 +1,5 @@
 extends HBoxContainer
+class_name ShopStatContainer
 
 @export var stat_name = "Stat" ## User-facing name of the stat
 @export var stat_icon: Texture2D
@@ -25,7 +26,10 @@ func _ready():
 	
 	_statNameLabel.text = stat_name
 	_statIcon.texture = stat_icon
-	_progressBar.value = stat_level
+	set_level(stat_level)
+
+func set_level(newLevel):
+	stat_level = newLevel
 	update_costs()
 
 func update_costs():
