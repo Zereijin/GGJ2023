@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cxstjq63yeytk"]
+[gd_scene load_steps=17 format=3 uid="uid://cxstjq63yeytk"]
 
 [ext_resource type="Script" path="res://game/player/player.gd" id="1_f0o2r"]
 [ext_resource type="Texture2D" uid="uid://b836w3h88y88o" path="res://icon.svg" id="1_uw8f1"]
@@ -12,6 +12,18 @@ colors = PackedColorArray(0, 1, 0, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_w34id"]
 gradient = SubResource("Gradient_3834j")
+width = 1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g6qmg"]
+size = Vector2(100, 2000)
+
+[sub_resource type="Gradient" id="Gradient_g3xyl"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.2, 0.2, 0.2, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_rfxx4"]
+gradient = SubResource("Gradient_g3xyl")
 width = 1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j6121"]
@@ -51,6 +63,18 @@ texture = SubResource("GradientTexture1D_w34id")
 
 [node name="Objects" type="Node2D" parent="Garden"]
 y_sort_enabled = true
+
+[node name="Wall" type="StaticBody2D" parent="Garden/Objects"]
+position = Vector2(-1000, 0)
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Garden/Objects/Wall"]
+shape = SubResource("RectangleShape2D_g6qmg")
+
+[node name="Sprite" type="Sprite2D" parent="Garden/Objects/Wall"]
+scale = Vector2(100, 2000)
+texture = SubResource("GradientTexture1D_rfxx4")
 
 [node name="Test Rock" type="StaticBody2D" parent="Garden/Objects"]
 position = Vector2(100, 0)
