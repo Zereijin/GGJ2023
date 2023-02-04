@@ -71,4 +71,4 @@ texture = ExtResource("1_uw8f1")
 [node name="Camera" type="Camera2D" parent="Garden/Objects/Player"]
 position_smoothing_enabled = true
 script = ExtResource("3_1xqbk")
-lookahead = 1.0
+lookahead = 100.0
