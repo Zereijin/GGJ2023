@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://fsgx46hh0sib"]
+
+[ext_resource type="PackedScene" uid="uid://cu40kuw6mlex7" path="res://game/plant.tscn" id="1_5nkbc"]
+[ext_resource type="Script" path="res://game/player/player.gd" id="2_8fw0q"]
+[ext_resource type="Script" path="res://game/camera.gd" id="3_64l3u"]
+[ext_resource type="Texture2D" uid="uid://b836w3h88y88o" path="res://icon.svg" id="3_fmx3n"]
+[ext_resource type="PackedScene" uid="uid://bepqps3b2gmbp" path="res://game/player/projectile.tscn" id="5_excqi"]
+
+[node name="Player" instance=ExtResource("1_5nkbc")]
+collision_layer = 1
+collision_mask = 26
+script = ExtResource("2_8fw0q")
+force_multiplier = 2000.0
+
+[node name="Sprite" parent="." index="1"]
+texture = ExtResource("3_fmx3n")
+
+[node name="Gun" parent="." index="2"]
+projectile = ExtResource("5_excqi")
+
+[node name="Camera" type="Camera2D" parent="." index="3"]
+position_smoothing_enabled = true
+script = ExtResource("3_64l3u")
+lookahead = 100.0

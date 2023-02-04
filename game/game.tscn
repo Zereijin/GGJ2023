@@ -1,12 +1,8 @@
 [gd_scene load_steps=18 format=3 uid="uid://cxstjq63yeytk"]
 
-[ext_resource type="Script" path="res://game/player/player.gd" id="1_f0o2r"]
-[ext_resource type="Texture2D" uid="uid://b836w3h88y88o" path="res://icon.svg" id="1_uw8f1"]
-[ext_resource type="Script" path="res://game/camera.gd" id="3_1xqbk"]
-[ext_resource type="PackedScene" path="res://game/gun.tscn" id="4_rba2k"]
-[ext_resource type="PackedScene" path="res://game/player/projectile.tscn" id="5_c87sn"]
 [ext_resource type="PackedScene" uid="uid://ba7ivojxn0clg" path="res://game/enemy/potato/potato.tscn" id="6_f1ll7"]
 [ext_resource type="PackedScene" uid="uid://cgwhfduesoojv" path="res://shop/shop_panel.tscn" id="7_bbdrg"]
+[ext_resource type="PackedScene" uid="uid://fsgx46hh0sib" path="res://game/player/player.tscn" id="1_tilxh"]
 
 [sub_resource type="Gradient" id="Gradient_3834j"]
 interpolation_mode = 1
@@ -40,12 +36,6 @@ colors = PackedColorArray(1, 0.239216, 0.239216, 1)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_0nmfm"]
 gradient = SubResource("Gradient_mhu85")
 width = 1
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0voet"]
-friction = 0.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4wk6f"]
-size = Vector2(50, 50)
 
 [node name="game" type="Node"]
 
@@ -82,35 +72,10 @@ shape = SubResource("RectangleShape2D_j6121")
 scale = Vector2(50, 50)
 texture = SubResource("GradientTexture1D_0nmfm")
 
-[node name="Player" type="RigidBody2D" parent="Garden/Objects"]
-collision_mask = 26
-physics_material_override = SubResource("PhysicsMaterial_0voet")
-max_contacts_reported = 10
-contact_monitor = true
-can_sleep = false
-lock_rotation = true
-script = ExtResource("1_f0o2r")
-force_multiplier = 2000.0
-
-[node name="CollisionShape" type="CollisionShape2D" parent="Garden/Objects/Player"]
-shape = SubResource("RectangleShape2D_4wk6f")
-
-[node name="Camera" type="Camera2D" parent="Garden/Objects/Player"]
-position_smoothing_enabled = true
-script = ExtResource("3_1xqbk")
-lookahead = 100.0
-
-[node name="Sprite" type="Sprite2D" parent="Garden/Objects/Player"]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_uw8f1")
-
-[node name="Gun" parent="Garden/Objects/Player" node_paths=PackedStringArray("plant") instance=ExtResource("4_rba2k")]
-projectile = ExtResource("5_c87sn")
-plant = NodePath("..")
-
 [node name="Test Potato" parent="Garden/Objects" instance=ExtResource("6_f1ll7")]
 position = Vector2(-76, -139)
-lock_rotation = false
 
 [node name="Control" parent="Garden/Objects" node_paths=PackedStringArray("player") instance=ExtResource("7_bbdrg")]
 player = NodePath("../Player")
+
+[node name="Player" parent="Garden/Objects" instance=ExtResource("1_tilxh")]

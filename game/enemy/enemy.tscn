@@ -14,3 +14,5 @@ script = ExtResource("1_oaf8f")
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
 
 [node name="Damageable" parent="." instance=ExtResource("1_yrs8i")]
+
+[connection signal="dead" from="Damageable" to="." method="_on_dead"]
