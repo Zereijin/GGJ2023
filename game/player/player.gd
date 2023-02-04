@@ -1,5 +1,6 @@
-extends RigidBody2D
 class_name Player
+extends RigidBody2D
+
 ## The force, in Newtons, applied by a keypress or full joystick deflection
 @export_range(0, 100000)
 var force_multiplier: float
@@ -13,12 +14,63 @@ var force_multiplier: float
 @export_range(0, 10) var projectile_attack_speed_level: int = 0
 @export_range(0, 10) var projectile_crit_chance_level: int = 0
 @export_range(0, 10) var projectile_count_level: int = 0
-@export_range(0, 10) var projectile_accuracy_level: int = 0
+
+@export_range(0, 10)
+var projectile_accuracy_level: int = 0:
+	get:
+		return projectile_accuracy_level
+	set(value):
+		projectile_accuracy_level = value
+		gun.angle_range = PI / 40 * (10 - value)
+
 @export_range(0, 10) var scream_damage_level: int = 0
 @export_range(0, 10) var scream_paralysis_duration_level: int = 0
 @export_range(0, 10) var scream_charge_speed_level: int = 0
 @export_range(0, 10) var scream_charge_maximum_level: int = 0
 @export_range(0, 10) var health_regen_level: int = 0
 
+## Whether the mouse pointer was moved recently, where “recently” means more recently than the last
+## time the aiming joystick was deflected above its dead zone
+var _mouse_recent := true
+
+## The player’s gun
+@onready
+var gun := $Gun
+
+
+func _ready() -> void:
+	# Set every level property to itself, to invoke the setters and push the side effects.
+	maximum_health_level = maximum_health_level
+	defense_level = defense_level
+	movement_speed_level = movement_speed_level
+	dodge_level = dodge_level
+	luck_level = luck_level
+	projectile_damage_level = projectile_damage_level
+	projectile_attack_speed_level = projectile_attack_speed_level
+	projectile_crit_chance_level = projectile_crit_chance_level
+	projectile_count_level = projectile_count_level
+	projectile_accuracy_level = projectile_accuracy_level
+	scream_damage_level = scream_damage_level
+	scream_paralysis_duration_level = scream_paralysis_duration_level
+	scream_charge_speed_level = scream_charge_speed_level
+	scream_charge_maximum_level = scream_charge_maximum_level
+	health_regen_level = health_regen_level
+
+
 func _unhandled_input(event: InputEvent) -> void:
+	# Handle movement
 	constant_force = Input.get_vector("left", "right", "up", "down") * force_multiplier
+
+	# Handle aiming
+	var mouse := event as InputEventMouseMotion
+	if mouse != null:
+		_mouse_recent = true
+	var pad_aim := Input.get_vector("aim_left", "aim_right", "aim_up", "aim_down")
+	if not pad_aim.is_zero_approx():
+		_mouse_recent = false
+		gun.rotation = pad_aim.angle()
+
+
+func _physics_process(_delta: float) -> void:
+	if _mouse_recent:
+		gun.rotation = get_local_mouse_position().angle()

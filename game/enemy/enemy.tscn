@@ -12,9 +12,9 @@ lock_rotation = true
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
 
-[node name="damageable" parent="." instance=ExtResource("1_yrs8i")]
+[node name="Damageable" parent="." instance=ExtResource("1_yrs8i")]
 
-[node name="script" type="Node" parent="."]
+[node name="Script" type="Node" parent="."]
 script = ExtResource("1_oaf8f")
 
-[connection signal="dead" from="damageable" to="script" method="_on_dead"]
+[connection signal="dead" from="Damageable" to="Script" method="_on_dead"]

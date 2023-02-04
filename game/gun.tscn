@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://6u6mldxyk4qs"]
+
+[ext_resource type="Script" path="res://game/gun.gd" id="1_b7oxf"]
+
+[sub_resource type="Gradient" id="Gradient_muqer"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(1, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_stllp"]
+gradient = SubResource("Gradient_muqer")
+width = 20
+
+[node name="Gun" type="Sprite2D"]
+texture = SubResource("GradientTexture1D_stllp")
+offset = Vector2(10, 0)
+script = ExtResource("1_b7oxf")
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_fire"]
