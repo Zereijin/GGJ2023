@@ -106,7 +106,7 @@ layout_mode = 2
 [node name="JamLabel" type="Label" parent="CreditPanel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_liuhe")
-text = "- A game made for [org] 20XX -"
+text = "- A game made for Global Game Jam 2023 -"
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CreditPanel/MarginContainer/VBoxContainer"]
@@ -118,21 +118,27 @@ theme = ExtResource("2_liuhe")
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_liuhe")
-text = "Baap"
+text = "Design and UI
+
+Zereijin"
 horizontal_alignment = 1
 
 [node name="CreditsLabel2" type="Label" parent="CreditPanel/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_liuhe")
-text = "Beep"
+text = "Art and Sound
+
+Fyda"
 horizontal_alignment = 1
 
 [node name="CreditsLabel3" type="Label" parent="CreditPanel/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_liuhe")
-text = "Boop"
+text = "Programming
+
+Hawk777"
 horizontal_alignment = 1
 
 [node name="CloseCreditsButton" type="Button" parent="CreditPanel/MarginContainer/VBoxContainer"]
