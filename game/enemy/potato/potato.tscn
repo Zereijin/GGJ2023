@@ -22,6 +22,3 @@ texture = SubResource("GradientTexture1D_0k2hm")
 
 [node name="CollisionShape" parent="." index="1"]
 shape = SubResource("CircleShape2D_dgoet")
-
-[node name="damageable" parent="." index="2"]
-health = 2
