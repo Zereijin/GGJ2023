@@ -24,4 +24,4 @@ texture = SubResource("GradientTexture1D_0k2hm")
 shape = SubResource("CircleShape2D_dgoet")
 
 [node name="damageable" parent="." index="2"]
-max_health = 1
+health = 2
