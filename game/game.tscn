@@ -1,9 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://cxstjq63yeytk"]
+[gd_scene load_steps=17 format=3 uid="uid://cxstjq63yeytk"]
 
 [ext_resource type="Script" path="res://game/player/player.gd" id="1_f0o2r"]
 [ext_resource type="Texture2D" uid="uid://b836w3h88y88o" path="res://icon.svg" id="1_uw8f1"]
 [ext_resource type="Script" path="res://game/camera.gd" id="3_1xqbk"]
-[ext_resource type="Script" path="res://game/player/gun.gd" id="4_w3ckc"]
+[ext_resource type="PackedScene" uid="uid://6u6mldxyk4qs" path="res://game/gun.tscn" id="4_rba2k"]
 [ext_resource type="PackedScene" uid="uid://bepqps3b2gmbp" path="res://game/player/projectile.tscn" id="5_c87sn"]
 [ext_resource type="PackedScene" uid="uid://ba7ivojxn0clg" path="res://game/enemy/potato/potato.tscn" id="6_f1ll7"]
 
@@ -45,15 +45,6 @@ friction = 0.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4wk6f"]
 size = Vector2(50, 50)
-
-[sub_resource type="Gradient" id="Gradient_muqer"]
-interpolation_mode = 1
-offsets = PackedFloat32Array(0)
-colors = PackedColorArray(1, 0, 0, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_stllp"]
-gradient = SubResource("Gradient_muqer")
-width = 20
 
 [node name="game" type="Node"]
 
@@ -112,20 +103,10 @@ lookahead = 100.0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_uw8f1")
 
-[node name="Gun" type="Sprite2D" parent="Garden/Objects/Player"]
-texture = SubResource("GradientTexture1D_stllp")
-offset = Vector2(10, 0)
-script = ExtResource("4_w3ckc")
+[node name="Gun" parent="Garden/Objects/Player" node_paths=PackedStringArray("plant") instance=ExtResource("4_rba2k")]
 projectile = ExtResource("5_c87sn")
-accuracy = 9
-
-[node name="Timer" type="Timer" parent="Garden/Objects/Player/Gun"]
-process_callback = 0
-wait_time = 2.0
-autostart = true
+plant = NodePath("..")
 
 [node name="Test Potato" parent="Garden/Objects" instance=ExtResource("6_f1ll7")]
 position = Vector2(-76, -139)
 lock_rotation = false
-
-[connection signal="timeout" from="Garden/Objects/Player/Gun/Timer" to="Garden/Objects/Player/Gun" method="_fire"]

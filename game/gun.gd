@@ -12,15 +12,15 @@ var projectile_count := 1
 @export_range(0, 9)
 var accuracy := 0
 
-## The root player node
-@onready
-var player := get_parent()
+## The plant that owns the gun
+@export
+var plant : Node
 
 
 func _fire() -> void:
 	var angle_range := (45 - 5 * accuracy) / 360.0 * TAU
 	for i in range(projectile_count):
 		var proj := projectile.instantiate() as RigidBody2D
-		proj.position = player.position
+		proj.position = plant.position
 		proj.linear_velocity = proj.linear_velocity.rotated(rotation).rotated(randf_range(-angle_range, angle_range))
-		player.get_parent().add_child(proj)
+		plant.get_parent().add_child(proj)
