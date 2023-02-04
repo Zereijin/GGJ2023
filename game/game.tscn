@@ -109,4 +109,3 @@ plant = NodePath("..")
 
 [node name="Test Potato" parent="Garden/Objects" instance=ExtResource("6_f1ll7")]
 position = Vector2(-76, -139)
-lock_rotation = false
