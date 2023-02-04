@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bepqps3b2gmbp"]
+
+[ext_resource type="PackedScene" uid="uid://0kfs3x4bphda" path="res://game/projectile.tscn" id="1_i4b6s"]
+
+[node name="projectile" instance=ExtResource("1_i4b6s")]
+collision_mask = 18
+delete_on_touch = 18

@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://cxstjq63yeytk"]
+[gd_scene load_steps=18 format=3 uid="uid://cxstjq63yeytk"]
 
 [ext_resource type="Script" path="res://game/player/player.gd" id="1_f0o2r"]
 [ext_resource type="Texture2D" uid="uid://b836w3h88y88o" path="res://icon.svg" id="1_uw8f1"]
 [ext_resource type="Script" path="res://game/camera.gd" id="3_1xqbk"]
 [ext_resource type="Script" path="res://game/player/gun.gd" id="4_w3ckc"]
+[ext_resource type="PackedScene" uid="uid://bepqps3b2gmbp" path="res://game/player/projectile.tscn" id="5_c87sn"]
 
 [sub_resource type="Gradient" id="Gradient_3834j"]
 interpolation_mode = 1
@@ -114,3 +115,11 @@ texture = ExtResource("1_uw8f1")
 texture = SubResource("GradientTexture1D_stllp")
 offset = Vector2(10, 0)
 script = ExtResource("4_w3ckc")
+projectile = ExtResource("5_c87sn")
+
+[node name="Timer" type="Timer" parent="Garden/Objects/Player/Gun"]
+process_callback = 0
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="Garden/Objects/Player/Gun/Timer" to="Garden/Objects/Player/Gun" method="_fire"]
