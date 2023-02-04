@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://cx25ioy07iibp"]
+[gd_scene load_steps=14 format=3 uid="uid://cxstjq63yeytk"]
 
+[ext_resource type="Script" path="res://game/player/player.gd" id="1_f0o2r"]
 [ext_resource type="Texture2D" uid="uid://b836w3h88y88o" path="res://icon.svg" id="1_uw8f1"]
-[ext_resource type="Script" path="res://game/player.gd" id="2_w2uax"]
 [ext_resource type="Script" path="res://game/camera.gd" id="3_1xqbk"]
+[ext_resource type="Script" path="res://game/player/gun.gd" id="4_w3ckc"]
 
 [sub_resource type="Gradient" id="Gradient_3834j"]
 interpolation_mode = 1
@@ -30,6 +31,15 @@ friction = 0.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4wk6f"]
 size = Vector2(50, 50)
+
+[sub_resource type="Gradient" id="Gradient_muqer"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(1, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_stllp"]
+gradient = SubResource("Gradient_muqer")
+width = 20
 
 [node name="game" type="Node"]
 
@@ -61,17 +71,22 @@ max_contacts_reported = 10
 contact_monitor = true
 can_sleep = false
 lock_rotation = true
-script = ExtResource("2_w2uax")
+script = ExtResource("1_f0o2r")
 force_multiplier = 2000.0
 
 [node name="CollisionShape" type="CollisionShape2D" parent="Garden/Objects/Player"]
 shape = SubResource("RectangleShape2D_4wk6f")
 
-[node name="Sprite" type="Sprite2D" parent="Garden/Objects/Player"]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_uw8f1")
-
 [node name="Camera" type="Camera2D" parent="Garden/Objects/Player"]
 position_smoothing_enabled = true
 script = ExtResource("3_1xqbk")
 lookahead = 100.0
+
+[node name="Sprite" type="Sprite2D" parent="Garden/Objects/Player"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_uw8f1")
+
+[node name="Gun" type="Sprite2D" parent="Garden/Objects/Player"]
+texture = SubResource("GradientTexture1D_stllp")
+offset = Vector2(10, 0)
+script = ExtResource("4_w3ckc")
