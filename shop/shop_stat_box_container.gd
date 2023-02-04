@@ -30,6 +30,7 @@ func _ready():
 
 func set_level(newLevel):
 	stat_level = newLevel
+	_progressBar.value = stat_level
 	update_costs()
 
 func update_costs():

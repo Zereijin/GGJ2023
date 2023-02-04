@@ -113,5 +113,4 @@ position = Vector2(-76, -139)
 lock_rotation = false
 
 [node name="Control" parent="Garden/Objects" node_paths=PackedStringArray("player") instance=ExtResource("7_bbdrg")]
-visible = false
 player = NodePath("../Player")
