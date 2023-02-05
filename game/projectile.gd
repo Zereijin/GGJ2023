@@ -10,8 +10,8 @@ var damage := 1
 
 func _on_body_entered(raw_body: Node) -> void:
 	var body := raw_body as PhysicsBody2D
-	var damageable := body.get_node("Damageable") as Damageable
-	if damageable != null:
+	var damageable := body.get_node("Damageable")
+	if damageable is Damageable:
 		damageable.damage(damage)
 	if body.collision_layer & delete_on_touch:
 		get_tree().queue_delete(self)
