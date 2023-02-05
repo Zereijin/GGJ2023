@@ -305,4 +305,5 @@ func try_to_buy(costs: Array[int]) -> bool:
 
 
 func _dead() -> void:
+	gun.projectile_count = 0
 	dead.emit()

@@ -108,5 +108,5 @@ func _physics_process(delta: float) -> void:
 func _on_gun_pre_fire() -> void:
 	gun.normal_damage = _base_normal_damage + (floorf(evolution_timer.run_time / 60.0) as int)
 	gun.period = minf(_base_attack_period, _base_attack_period / (evolution_timer.run_time / 30.0))
-	gun.projectile_count = _projectile_count()
+	gun.projectile_count = _projectile_count() if damageable.alive else 0
 	gun.angle_range = _angle_range()
