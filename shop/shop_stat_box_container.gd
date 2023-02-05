@@ -40,6 +40,6 @@ func update_costs():
 		_rCostContainer.set_cost(str(upgrade_cost_r[stat_level]))
 		_gCostContainer.set_cost(str(upgrade_cost_g[stat_level]))
 		_bCostContainer.set_cost(str(upgrade_cost_b[stat_level]))
-	
+
 func get_cost() -> Array[int]:
 	return [upgrade_cost_r[stat_level], upgrade_cost_g[stat_level], upgrade_cost_b[stat_level]]

@@ -1,6 +1,9 @@
 class_name Player
 extends Plant
 
+## Emitted when the player gains or loses resources
+signal update_resources
+
 ## The force, in Newtons, applied by a keypress or full joystick deflection
 @export_range(0, 100000)
 var force_multiplier: float
@@ -112,4 +115,5 @@ func try_to_buy(costs: Array[int]):
 	r_resources -= costs[0]
 	g_resources -= costs[1]
 	b_resources -= costs[2]
+	update_resources.emit()
 	return true

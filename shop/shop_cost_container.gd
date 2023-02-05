@@ -11,7 +11,7 @@ var _costLabel
 func _ready():
 	_costTextureRect = $CostTextureRect
 	_costLabel = $CostLabelMarginContainer/CostLabel
-	
+
 	_costTextureRect.texture = cost_icon
 	_costLabel.set("theme_override_colors/font_color", cost_color)
 	_costLabel.text = str(cost_value)

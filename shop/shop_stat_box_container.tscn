@@ -1,10 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://d0ysxh4jpyavx"]
+[gd_scene load_steps=3 format=3]
 
-[ext_resource type="Script" path="res://shop/shop_stat_box_container.gd" id="1_m208k"]
-[ext_resource type="PackedScene" uid="uid://d064aesxxrh8c" path="res://shop/shop_cost_container.tscn" id="2_mkan3"]
+[ext_resource type="Script" path="res://shop/shop_stat_box_container.gd" id="1_u6v8k"]
+[ext_resource type="PackedScene" path="res://shop/shop_cost_container.tscn" id="2_bm8b2"]
 
 [node name="HBoxContainer" type="HBoxContainer"]
-script = ExtResource("1_m208k")
+script = ExtResource("1_u6v8k")
 upgrade_cost_r = Array[int]([0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
 upgrade_cost_g = Array[int]([0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
 upgrade_cost_b = Array[int]([0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
@@ -34,17 +34,17 @@ show_percentage = false
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 
-[node name="RCostContainer" parent="CostsContainer" instance=ExtResource("2_mkan3")]
+[node name="RCostContainer" parent="CostsContainer" instance=ExtResource("2_bm8b2")]
 layout_mode = 2
 cost_color = Color(1, 0, 0, 1)
 cost_value = 99
 
-[node name="GCostContainer" parent="CostsContainer" instance=ExtResource("2_mkan3")]
+[node name="GCostContainer" parent="CostsContainer" instance=ExtResource("2_bm8b2")]
 layout_mode = 2
 cost_color = Color(0, 1, 0, 1)
 cost_value = 99
 
-[node name="BCostContainer" parent="CostsContainer" instance=ExtResource("2_mkan3")]
+[node name="BCostContainer" parent="CostsContainer" instance=ExtResource("2_bm8b2")]
 layout_mode = 2
 cost_color = Color(0.145098, 0.380392, 1, 1)
 cost_value = 99
