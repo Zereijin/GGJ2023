@@ -28,7 +28,13 @@ var force_multiplier: float
 		if gun != null:
 			gun.critical_probability = value / 25.0
 
-@export_range(0, 10) var projectile_count_level: int = 0
+@export_range(0, 10) var projectile_count_level: int = 0:
+	get:
+		return projectile_count_level
+	set(value):
+		projectile_count_level = value
+		if gun != null:
+			gun.projectile_count = value + 1
 
 @export_range(0, 10)
 var projectile_accuracy_level: int = 0:
