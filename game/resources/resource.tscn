@@ -21,3 +21,4 @@ shape = SubResource("CircleShape2D_6on0h")
 stream = ExtResource("3_o4cul")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="finished" from="CollectPlayer" to="." method="_on_collect_player_finished"]

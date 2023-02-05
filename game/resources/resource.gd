@@ -35,4 +35,8 @@ func _on_body_entered(body: Node2D) -> void:
 			player.g_resources += 10
 		Type.BLUE:
 			player.b_resources += 10
+	visible = false
+
+
+func _on_collect_player_finished():
 	queue_free()
