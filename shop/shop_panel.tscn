@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://psqd6dx2lvfe"]
+[gd_scene load_steps=6 format=3 uid="uid://psqd6dx2lvfe"]
 
 [ext_resource type="Script" path="res://shop/shop_panel.gd" id="1_lf4jd"]
 [ext_resource type="PackedScene" path="res://shop/shop_stat_box_container.tscn" id="2_fqojv"]
+[ext_resource type="Texture2D" uid="uid://1nyavrk80xgv" path="res://game/resources/sprites/red_triangle.png" id="3_6pqwg"]
+[ext_resource type="Texture2D" uid="uid://0wmwqbb7ximl" path="res://game/resources/sprites/green_square.png" id="4_g50i0"]
+[ext_resource type="Texture2D" uid="uid://dvutxcgcad6i5" path="res://game/resources/sprites/blue_star.png" id="5_6fcpw"]
 
 [node name="ShopPanel" type="Control"]
 layout_mode = 3
@@ -63,17 +66,45 @@ upgrade_cost_b = Array[int]([10, 20, 30, 40, 50, 60, 70, 80, 90, 100])
 [node name="UpgradeButton" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/BodyVBoxContainer/HealthStatContainer" index="0"]
 focus_neighbor_top = NodePath("../../../../CloseButtonMarginContainer/CloseButton")
 
+[node name="RCostContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/BodyVBoxContainer/HealthStatContainer/CostsContainer" index="0"]
+cost_icon = ExtResource("3_6pqwg")
+
+[node name="GCostContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/BodyVBoxContainer/HealthStatContainer/CostsContainer" index="1"]
+cost_icon = ExtResource("4_g50i0")
+
+[node name="BCostContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/BodyVBoxContainer/HealthStatContainer/CostsContainer" index="2"]
+size_flags_horizontal = 1
+cost_icon = ExtResource("5_6fcpw")
+
 [node name="DefenseStatContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/BodyVBoxContainer" instance=ExtResource("2_fqojv")]
 layout_mode = 2
 stat_name = "Defense"
 stat_level = 5
 upgrade_cost_g = Array[int]([50, 100, 150, 200, 250, 300, 350, 400, 450, 500])
 
+[node name="RCostContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/BodyVBoxContainer/DefenseStatContainer/CostsContainer" index="0"]
+cost_icon = ExtResource("3_6pqwg")
+
+[node name="GCostContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/BodyVBoxContainer/DefenseStatContainer/CostsContainer" index="1"]
+cost_icon = ExtResource("4_g50i0")
+
+[node name="BCostContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/BodyVBoxContainer/DefenseStatContainer/CostsContainer" index="2"]
+cost_icon = ExtResource("5_6fcpw")
+
 [node name="MovementSpeedStatContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/BodyVBoxContainer" instance=ExtResource("2_fqojv")]
 layout_mode = 2
 stat_name = "Speed"
 stat_level = 5
 upgrade_cost_b = Array[int]([50, 100, 150, 200, 250, 300, 350, 400, 450, 500])
+
+[node name="RCostContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/BodyVBoxContainer/MovementSpeedStatContainer/CostsContainer" index="0"]
+cost_icon = ExtResource("3_6pqwg")
+
+[node name="GCostContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/BodyVBoxContainer/MovementSpeedStatContainer/CostsContainer" index="1"]
+cost_icon = ExtResource("4_g50i0")
+
+[node name="BCostContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/BodyVBoxContainer/MovementSpeedStatContainer/CostsContainer" index="2"]
+cost_icon = ExtResource("5_6fcpw")
 
 [node name="DodgeStatContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/BodyVBoxContainer" instance=ExtResource("2_fqojv")]
 layout_mode = 2
@@ -82,6 +113,15 @@ stat_level = 5
 upgrade_cost_g = Array[int]([15, 30, 45, 60, 75, 90, 105, 120, 135, 150])
 upgrade_cost_b = Array[int]([35, 70, 105, 140, 175, 210, 245, 280, 315, 350])
 
+[node name="RCostContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/BodyVBoxContainer/DodgeStatContainer/CostsContainer" index="0"]
+cost_icon = ExtResource("3_6pqwg")
+
+[node name="GCostContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/BodyVBoxContainer/DodgeStatContainer/CostsContainer" index="1"]
+cost_icon = ExtResource("4_g50i0")
+
+[node name="BCostContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/BodyVBoxContainer/DodgeStatContainer/CostsContainer" index="2"]
+cost_icon = ExtResource("5_6fcpw")
+
 [node name="LuckStatContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/BodyVBoxContainer" instance=ExtResource("2_fqojv")]
 layout_mode = 2
 stat_name = "Luck"
@@ -89,6 +129,15 @@ stat_level = 5
 upgrade_cost_r = Array[int]([15, 30, 45, 60, 75, 90, 105, 120, 135, 150])
 upgrade_cost_g = Array[int]([70, 140, 210, 280, 350, 420, 490, 560, 630, 700])
 upgrade_cost_b = Array[int]([15, 30, 45, 60, 75, 90, 105, 120, 135, 150])
+
+[node name="RCostContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/BodyVBoxContainer/LuckStatContainer/CostsContainer" index="0"]
+cost_icon = ExtResource("3_6pqwg")
+
+[node name="GCostContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/BodyVBoxContainer/LuckStatContainer/CostsContainer" index="1"]
+cost_icon = ExtResource("4_g50i0")
+
+[node name="BCostContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/BodyVBoxContainer/LuckStatContainer/CostsContainer" index="2"]
+cost_icon = ExtResource("5_6fcpw")
 
 [node name="GunVBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
@@ -107,6 +156,15 @@ upgrade_cost_r = Array[int]([50, 100, 150, 200, 250, 300, 350, 400, 450, 500])
 [node name="UpgradeButton" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/GunVBoxContainer/ProjectileDamageStatContainer" index="0"]
 focus_neighbor_top = NodePath("../../../../CloseButtonMarginContainer/CloseButton")
 
+[node name="RCostContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/GunVBoxContainer/ProjectileDamageStatContainer/CostsContainer" index="0"]
+cost_icon = ExtResource("3_6pqwg")
+
+[node name="GCostContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/GunVBoxContainer/ProjectileDamageStatContainer/CostsContainer" index="1"]
+cost_icon = ExtResource("4_g50i0")
+
+[node name="BCostContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/GunVBoxContainer/ProjectileDamageStatContainer/CostsContainer" index="2"]
+cost_icon = ExtResource("5_6fcpw")
+
 [node name="AttackSpeedStatContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/GunVBoxContainer" instance=ExtResource("2_fqojv")]
 layout_mode = 2
 stat_name = "Speed"
@@ -114,12 +172,30 @@ stat_level = 5
 upgrade_cost_r = Array[int]([15, 30, 45, 60, 75, 90, 105, 120, 135, 150])
 upgrade_cost_b = Array[int]([35, 70, 105, 140, 175, 210, 245, 280, 315, 350])
 
+[node name="RCostContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/GunVBoxContainer/AttackSpeedStatContainer/CostsContainer" index="0"]
+cost_icon = ExtResource("3_6pqwg")
+
+[node name="GCostContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/GunVBoxContainer/AttackSpeedStatContainer/CostsContainer" index="1"]
+cost_icon = ExtResource("4_g50i0")
+
+[node name="BCostContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/GunVBoxContainer/AttackSpeedStatContainer/CostsContainer" index="2"]
+cost_icon = ExtResource("5_6fcpw")
+
 [node name="CritStatContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/GunVBoxContainer" instance=ExtResource("2_fqojv")]
 layout_mode = 2
 stat_name = "Crit %"
 stat_level = 5
 upgrade_cost_r = Array[int]([35, 70, 105, 140, 175, 210, 245, 280, 315, 350])
 upgrade_cost_b = Array[int]([15, 30, 45, 60, 75, 90, 105, 120, 135, 150])
+
+[node name="RCostContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/GunVBoxContainer/CritStatContainer/CostsContainer" index="0"]
+cost_icon = ExtResource("3_6pqwg")
+
+[node name="GCostContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/GunVBoxContainer/CritStatContainer/CostsContainer" index="1"]
+cost_icon = ExtResource("4_g50i0")
+
+[node name="BCostContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/GunVBoxContainer/CritStatContainer/CostsContainer" index="2"]
+cost_icon = ExtResource("5_6fcpw")
 
 [node name="ProjectileCountStatContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/GunVBoxContainer" instance=ExtResource("2_fqojv")]
 layout_mode = 2
@@ -129,12 +205,30 @@ upgrade_cost_r = Array[int]([70, 140, 210, 280, 350, 420, 490, 560, 630, 700])
 upgrade_cost_g = Array[int]([15, 30, 45, 60, 75, 90, 105, 120, 135, 150])
 upgrade_cost_b = Array[int]([15, 30, 45, 60, 75, 90, 105, 120, 135, 150])
 
+[node name="RCostContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/GunVBoxContainer/ProjectileCountStatContainer/CostsContainer" index="0"]
+cost_icon = ExtResource("3_6pqwg")
+
+[node name="GCostContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/GunVBoxContainer/ProjectileCountStatContainer/CostsContainer" index="1"]
+cost_icon = ExtResource("4_g50i0")
+
+[node name="BCostContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/GunVBoxContainer/ProjectileCountStatContainer/CostsContainer" index="2"]
+cost_icon = ExtResource("5_6fcpw")
+
 [node name="AccuracyStatContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/GunVBoxContainer" instance=ExtResource("2_fqojv")]
 layout_mode = 2
 stat_name = "Accuracy"
 stat_level = 5
 upgrade_cost_r = Array[int]([35, 70, 105, 140, 175, 210, 245, 280, 315, 350])
 upgrade_cost_g = Array[int]([15, 30, 45, 60, 75, 90, 105, 120, 135, 150])
+
+[node name="RCostContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/GunVBoxContainer/AccuracyStatContainer/CostsContainer" index="0"]
+cost_icon = ExtResource("3_6pqwg")
+
+[node name="GCostContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/GunVBoxContainer/AccuracyStatContainer/CostsContainer" index="1"]
+cost_icon = ExtResource("4_g50i0")
+
+[node name="BCostContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/GunVBoxContainer/AccuracyStatContainer/CostsContainer" index="2"]
+cost_icon = ExtResource("5_6fcpw")
 
 [node name="ScreamVBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
@@ -152,12 +246,30 @@ upgrade_cost_r = Array[int]([30, 60, 90, 120, 150, 180, 210, 240, 270, 300])
 upgrade_cost_g = Array[int]([10, 20, 30, 40, 50, 60, 70, 80, 90, 100])
 upgrade_cost_b = Array[int]([10, 20, 30, 40, 50, 60, 70, 80, 90, 100])
 
+[node name="RCostContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/ScreamVBoxContainer/ScreamDamageStatContainer/CostsContainer" index="0"]
+cost_icon = ExtResource("3_6pqwg")
+
+[node name="GCostContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/ScreamVBoxContainer/ScreamDamageStatContainer/CostsContainer" index="1"]
+cost_icon = ExtResource("4_g50i0")
+
+[node name="BCostContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/ScreamVBoxContainer/ScreamDamageStatContainer/CostsContainer" index="2"]
+cost_icon = ExtResource("5_6fcpw")
+
 [node name="ParalysisDurationStatContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/ScreamVBoxContainer" instance=ExtResource("2_fqojv")]
 layout_mode = 2
 stat_name = "Paralysis"
 stat_level = 5
 upgrade_cost_r = Array[int]([15, 30, 45, 60, 75, 90, 105, 120, 135, 150])
 upgrade_cost_g = Array[int]([35, 70, 105, 140, 175, 210, 245, 280, 315, 350])
+
+[node name="RCostContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/ScreamVBoxContainer/ParalysisDurationStatContainer/CostsContainer" index="0"]
+cost_icon = ExtResource("3_6pqwg")
+
+[node name="GCostContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/ScreamVBoxContainer/ParalysisDurationStatContainer/CostsContainer" index="1"]
+cost_icon = ExtResource("4_g50i0")
+
+[node name="BCostContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/ScreamVBoxContainer/ParalysisDurationStatContainer/CostsContainer" index="2"]
+cost_icon = ExtResource("5_6fcpw")
 
 [node name="ChargeSpeedStatContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/ScreamVBoxContainer" instance=ExtResource("2_fqojv")]
 layout_mode = 2
@@ -167,6 +279,15 @@ upgrade_cost_r = Array[int]([15, 30, 45, 60, 75, 90, 105, 120, 135, 150])
 upgrade_cost_g = Array[int]([15, 30, 45, 60, 75, 90, 105, 120, 135, 150])
 upgrade_cost_b = Array[int]([70, 140, 210, 280, 350, 420, 490, 560, 630, 700])
 
+[node name="RCostContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/ScreamVBoxContainer/ChargeSpeedStatContainer/CostsContainer" index="0"]
+cost_icon = ExtResource("3_6pqwg")
+
+[node name="GCostContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/ScreamVBoxContainer/ChargeSpeedStatContainer/CostsContainer" index="1"]
+cost_icon = ExtResource("4_g50i0")
+
+[node name="BCostContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/ScreamVBoxContainer/ChargeSpeedStatContainer/CostsContainer" index="2"]
+cost_icon = ExtResource("5_6fcpw")
+
 [node name="ChargeMaxStatContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/ScreamVBoxContainer" instance=ExtResource("2_fqojv")]
 layout_mode = 2
 stat_name = "Max"
@@ -175,12 +296,30 @@ upgrade_cost_r = Array[int]([10, 20, 30, 40, 50, 60, 70, 80, 90, 100])
 upgrade_cost_g = Array[int]([10, 20, 30, 40, 50, 60, 70, 80, 90, 100])
 upgrade_cost_b = Array[int]([30, 60, 90, 120, 150, 180, 210, 240, 270, 300])
 
+[node name="RCostContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/ScreamVBoxContainer/ChargeMaxStatContainer/CostsContainer" index="0"]
+cost_icon = ExtResource("3_6pqwg")
+
+[node name="GCostContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/ScreamVBoxContainer/ChargeMaxStatContainer/CostsContainer" index="1"]
+cost_icon = ExtResource("4_g50i0")
+
+[node name="BCostContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/ScreamVBoxContainer/ChargeMaxStatContainer/CostsContainer" index="2"]
+cost_icon = ExtResource("5_6fcpw")
+
 [node name="HealthRegenStatContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/ScreamVBoxContainer" instance=ExtResource("2_fqojv")]
 layout_mode = 2
 stat_name = "Regen"
 stat_level = 5
 upgrade_cost_g = Array[int]([35, 70, 105, 140, 175, 210, 245, 280, 315, 350])
 upgrade_cost_b = Array[int]([15, 30, 45, 60, 75, 90, 105, 120, 135, 150])
+
+[node name="RCostContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/ScreamVBoxContainer/HealthRegenStatContainer/CostsContainer" index="0"]
+cost_icon = ExtResource("3_6pqwg")
+
+[node name="GCostContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/ScreamVBoxContainer/HealthRegenStatContainer/CostsContainer" index="1"]
+cost_icon = ExtResource("4_g50i0")
+
+[node name="BCostContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/ScreamVBoxContainer/HealthRegenStatContainer/CostsContainer" index="2"]
+cost_icon = ExtResource("5_6fcpw")
 
 [node name="CloseButtonMarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2

@@ -1,8 +1,9 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=3 format=3 uid="uid://dbmj2wh7el131"]
 
 [ext_resource type="Script" path="res://shop/shop_cost_container.gd" id="1_2o80i"]
+[ext_resource type="Texture2D" uid="uid://1nyavrk80xgv" path="res://game/resources/sprites/red_triangle.png" id="2_8jq86"]
 
-[node name="CostContainer" type="Container"]
+[node name="CostContainer" type="HBoxContainer"]
 custom_minimum_size = Vector2(72, 32)
 offset_right = 72.0
 offset_bottom = 32.0
@@ -11,6 +12,9 @@ script = ExtResource("1_2o80i")
 
 [node name="CostTextureRect" type="TextureRect" parent="."]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_8jq86")
 
 [node name="CostLabelMarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
