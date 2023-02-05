@@ -105,8 +105,10 @@ func _physics_process(_delta: float) -> void:
 	if _mouse_recent:
 		gun.rotation = get_local_mouse_position().angle()
 
+
 func can_afford(costs: Array[int]) -> bool:
 	return costs[0] <= r_resources and costs[1] <= g_resources and costs[2] <= b_resources
+
 
 func try_to_buy(costs: Array[int]):
 	if (not can_afford(costs)):
