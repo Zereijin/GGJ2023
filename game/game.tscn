@@ -1,5 +1,6 @@
-[gd_scene load_steps=18 format=3 uid="uid://cxstjq63yeytk"]
+[gd_scene load_steps=17 format=3 uid="uid://cxstjq63yeytk"]
 
+[ext_resource type="Texture2D" uid="uid://bqtry2d3nvsou" path="res://game/stage/sprites/fenced_area.png" id="1_hgw6i"]
 [ext_resource type="PackedScene" uid="uid://fsgx46hh0sib" path="res://game/player/player.tscn" id="1_tilxh"]
 [ext_resource type="Script" path="res://game/resource_panel.gd" id="3_jgv3g"]
 [ext_resource type="PackedScene" uid="uid://psqd6dx2lvfe" path="res://shop/shop_panel.tscn" id="3_xprnx"]
@@ -9,15 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://dvutxcgcad6i5" path="res://game/resources/sprites/blue_star.png" id="7_2e3kl"]
 [ext_resource type="Script" path="res://game/game_over.gd" id="8_dnhqf"]
 [ext_resource type="Theme" uid="uid://dbf3mfbni11oq" path="res://main_menu/main_menu_theme/main_menu_theme.tres" id="8_sltvh"]
-
-[sub_resource type="Gradient" id="Gradient_3834j"]
-interpolation_mode = 1
-offsets = PackedFloat32Array(0, 0.741935)
-colors = PackedColorArray(0, 1, 0, 1, 0, 1, 0, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_w34id"]
-gradient = SubResource("Gradient_3834j")
-width = 1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g6qmg"]
 size = Vector2(100, 2000)
@@ -47,9 +39,8 @@ width = 1
 
 [node name="Garden" type="Node2D" parent="."]
 
-[node name="Test Background" type="Sprite2D" parent="Garden"]
-scale = Vector2(2048, 1536)
-texture = SubResource("GradientTexture1D_w34id")
+[node name="Background" type="Sprite2D" parent="Garden"]
+texture = ExtResource("1_hgw6i")
 
 [node name="Objects" type="Node2D" parent="Garden"]
 y_sort_enabled = true
