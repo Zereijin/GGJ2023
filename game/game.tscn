@@ -47,9 +47,10 @@ texture = ExtResource("1_hgw6i")
 y_sort_enabled = true
 
 [node name="Walls" type="Node2D" parent="Garden/Objects"]
+visible = false
 
 [node name="WestWall" type="StaticBody2D" parent="Garden/Objects/Walls"]
-position = Vector2(-636, 0)
+position = Vector2(-634, 0)
 collision_layer = 16
 collision_mask = 0
 
@@ -61,7 +62,7 @@ scale = Vector2(100, 2000)
 texture = SubResource("GradientTexture1D_rfxx4")
 
 [node name="EastWall" type="StaticBody2D" parent="Garden/Objects/Walls"]
-position = Vector2(635, 0)
+position = Vector2(633, 0)
 collision_layer = 16
 collision_mask = 0
 
