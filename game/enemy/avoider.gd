@@ -22,7 +22,7 @@ func _physics_process(delta: float) -> void:
 	super(delta)
 	var towards_player := player.position - position
 	var distance_error = towards_player.length() - avoid_distance
-	if absf(distance_error) > dead_zone and not paralyzed:
+	if absf(distance_error) > dead_zone and not paralyzed and damageable.alive:
 		constant_force = towards_player.normalized() * force_multiplier * signf(distance_error)
 	else:
 		constant_force = Vector2.ZERO

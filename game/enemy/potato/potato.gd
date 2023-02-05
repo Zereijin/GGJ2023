@@ -15,6 +15,6 @@ func _angle_range() -> float:
 
 func _physics_process(delta: float) -> void:
 	super(delta)
-	constant_force = Vector2.ZERO if paralyzed else \
+	constant_force = Vector2.ZERO if paralyzed or not damageable.alive else \
 		global_position.direction_to(_player.global_position) * force_multiplier
 	gun.rotation = constant_force.angle()

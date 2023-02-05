@@ -13,6 +13,10 @@ var resource : PackedScene
 @export
 var resource_type : CollectibleResource.Type
 
+## How long to fade out the body for
+@export_range(0, 1000)
+var fade_time := 1.0
+
 ## The enemy’s current defense stat
 var defense : int:
 	get:
@@ -74,10 +78,26 @@ func _angle_range() -> float:
 
 func _on_dead() -> void:
 	super()
+
+	# Become non-collidable and stop moving.
+	collision_mask = 0
+	collision_layer = 0
+	freeze = true
+	linear_velocity = Vector2.ZERO
+	$CollisionShape.queue_free()
+
+	# Drop a resource.
 	var r := resource.instantiate() as CollectibleResource
 	r.position = position
 	r.type = resource_type
 	get_parent().add_child(r)
+
+	# Fade out the body.
+	var tween := create_tween()
+	tween.tween_property(self, "modulate", Color(1, 1, 1, 0), fade_time)
+	await tween.finished
+
+	# Delete the nodes.
 	queue_free()
 
 
