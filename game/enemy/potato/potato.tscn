@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://dbssse540sc70"]
+[gd_scene load_steps=14 format=3 uid="uid://dbssse540sc70"]
 
 [ext_resource type="PackedScene" uid="uid://bq2b7d3bnhwiv" path="res://game/enemy/enemy.tscn" id="1_84ehe"]
+[ext_resource type="Script" path="res://game/enemy/potato/potato.gd" id="2_jdyom"]
 [ext_resource type="Texture2D" uid="uid://lnlh3jdyk5ah" path="res://game/enemy/potato/sprites/potato_south1.png" id="2_rlviq"]
 [ext_resource type="Texture2D" uid="uid://4afmh2o3eu23" path="res://game/enemy/potato/sprites/potato_south2.png" id="3_o7t3p"]
 [ext_resource type="Texture2D" uid="uid://c1uo5s12ssjsr" path="res://game/enemy/potato/sprites/potato_west1.png" id="4_13wln"]
@@ -65,6 +66,8 @@ height = 50.0
 [node name="Potato" instance=ExtResource("1_84ehe")]
 collision_layer = 2
 collision_mask = 25
+script = ExtResource("2_jdyom")
+force_multiplier = 2000.0
 
 [node name="Sprite" parent="." index="0"]
 scale = Vector2(0.1, 0.1)

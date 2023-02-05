@@ -72,8 +72,9 @@ shape = SubResource("RectangleShape2D_j6121")
 scale = Vector2(50, 50)
 texture = SubResource("GradientTexture1D_0nmfm")
 
-[node name="Test Potato" parent="Garden/Objects" instance=ExtResource("6_f1ll7")]
+[node name="Test Potato" parent="Garden/Objects" node_paths=PackedStringArray("target") instance=ExtResource("6_f1ll7")]
 position = Vector2(-76, -139)
+target = NodePath("../Player")
 
 [node name="Player" parent="Garden/Objects" instance=ExtResource("1_tilxh")]
 
