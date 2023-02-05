@@ -1,6 +1,5 @@
 # Godot 4+ specific ignores
 .godot/
 /export/linux/*
-/export/macos/*
 /export/web/*
 /export/windows/*
