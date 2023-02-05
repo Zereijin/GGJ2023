@@ -310,5 +310,7 @@ func try_to_buy(costs: Array[int]) -> bool:
 
 
 func _dead() -> void:
+	$Sprite.visible = true
+	$Burrow.visible = false
 	gun.projectile_count = 0
 	dead.emit()
