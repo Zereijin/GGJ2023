@@ -246,7 +246,8 @@ func _physics_process(delta: float) -> void:
 		_scream_charge = minf(_scream_charge + delta * _scream_charge_speed, _scream_charge_maximum)
 
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
+	super(delta)
 	scream_indicator.scale = Vector2.ONE * scream_size_scale_factor * _scream_charge
 
 
