@@ -4,6 +4,9 @@ extends Plant
 ## Emitted when the player gains or loses resources
 signal update_resources
 
+## Emitted when the player starts screaming
+signal start_screaming
+
 ## The force, in Newtons, applied by a keypress or full joystick deflection
 @export_range(0, 100000)
 var force_multiplier: float
@@ -216,16 +219,17 @@ func _heal_tick() -> void:
 	if damageable.health < maximum_health:
 		damageable.heal(1)
 
+func _start_screaming() -> void:
+	start_screaming.emit()
 
-func _burrow_animation_finished(name: StringName) -> void:
-	if name == &"unburrow":
-		var attack := scream_attack.instantiate() as ScreamAttack
-		attack.scale = scream_indicator.scale
-		attack.position = position
-		attack.damage = _scream_damage
-		attack.paralysis_duration = _scream_paralysis_duration
-		get_parent().add_child(attack)
-		_scream_charge = 0.0
+func _on_start_screaming() -> void:
+	var attack := scream_attack.instantiate() as ScreamAttack
+	attack.scale = scream_indicator.scale
+	attack.position = position
+	attack.damage = _scream_damage
+	attack.paralysis_duration = _scream_paralysis_duration
+	get_parent().add_child(attack)
+	_scream_charge = 0.0
 
 
 func can_afford(costs: Array[int]) -> bool:
