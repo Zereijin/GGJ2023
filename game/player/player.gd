@@ -102,10 +102,29 @@ var projectile_accuracy_level: int = 0:
 @export_range(0, 1000)
 var scream_size_scale_factor := 300.0
 
-## Resources
-@export var r_resources: int = 50
-@export var g_resources: int = 50
-@export var b_resources: int = 50
+## Red triangle resources
+@export var r_resources: int = 50:
+	get:
+		return r_resources
+	set(value):
+		r_resources = value
+		update_resources.emit()
+
+## Green square resources
+@export var g_resources: int = 50:
+	get:
+		return g_resources
+	set(value):
+		g_resources = value
+		update_resources.emit()
+
+## Blue star resources
+@export var b_resources: int = 50:
+	get:
+		return b_resources
+	set(value):
+		b_resources = value
+		update_resources.emit()
 
 ## The prefab for the scream attack
 @export
@@ -251,7 +270,6 @@ func try_to_buy(costs: Array[int]) -> bool:
 	r_resources -= costs[0]
 	g_resources -= costs[1]
 	b_resources -= costs[2]
-	update_resources.emit()
 	return true
 
 
