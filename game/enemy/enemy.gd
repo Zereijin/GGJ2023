@@ -1,6 +1,14 @@
 class_name Enemy
 extends Plant
 
+## The resource prefab
+@export
+var resource : PackedScene
+
+## Which type of resource this enemy drops
+@export
+var resource_type : CollectibleResource.Type
+
 ## Whether the enemy is paralyzed
 var paralyzed : bool:
 	get:
@@ -21,6 +29,10 @@ func paralyze(duration: float) -> void:
 
 
 func _on_dead() -> void:
+	var r := resource.instantiate() as CollectibleResource
+	r.position = position
+	r.type = resource_type
+	get_parent().add_child(r)
 	queue_free()
 
 

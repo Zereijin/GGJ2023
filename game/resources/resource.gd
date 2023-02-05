@@ -1,3 +1,4 @@
+class_name CollectibleResource
 extends Area2D
 
 enum Type {

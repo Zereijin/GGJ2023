@@ -68,6 +68,7 @@ collision_layer = 2
 collision_mask = 25
 script = ExtResource("2_jdyom")
 force_multiplier = 2000.0
+resource_type = 1
 
 [node name="Sprite" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_61wl2")
