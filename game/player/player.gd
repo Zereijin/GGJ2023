@@ -58,8 +58,20 @@ var projectile_accuracy_level: int = 0:
 
 @export_range(0, 10) var scream_damage_level: int = 0
 @export_range(0, 10) var scream_paralysis_duration_level: int = 0
-@export_range(0, 10) var scream_charge_speed_level: int = 0
-@export_range(0, 10) var scream_charge_maximum_level: int = 0
+
+@export_range(0, 10) var scream_charge_speed_level: int = 0:
+	get:
+		return scream_charge_speed_level
+	set(value):
+		scream_charge_speed_level = value
+		_scream_charge_speed = value + 1
+
+@export_range(0, 10) var scream_charge_maximum_level: int = 0:
+	get:
+		return scream_charge_maximum_level
+	set(value):
+		scream_charge_maximum_level = value
+		_scream_charge_maximum = value + 1
 
 @export_range(0, 10) var health_regen_level: int = 0:
 	get:
@@ -68,6 +80,10 @@ var projectile_accuracy_level: int = 0:
 		health_regen_level = value
 		if heal_timer != null:
 			heal_timer.wait_time = 5.0 / (value + 1)
+
+## The scaling factor between scream charge level and scream circle size, in pixels per charge unit
+@export_range(0, 1000)
+var scream_size_scale_factor := 300.0
 
 ## Resources
 @export var r_resources: int = 50
@@ -83,6 +99,15 @@ var _mouse_recent := true
 
 # The player’s maximum health
 var maximum_health := 5
+
+## The speed at which the scream charge level increases, in charge units per second
+var _scream_charge_speed := 1.0
+
+## The current scream charge level
+var _scream_charge := 0.0
+
+## The maximum scream charge level
+var _scream_charge_maximum := 1.0
 
 ## The player’s gun
 @onready
@@ -101,6 +126,10 @@ var heal_timer = $HealTimer
 # The burrowing animator.
 @onready
 var burrower := $Burrower
+
+# The scream indicator
+@onready
+var scream_indicator := $ScreamIndicator
 
 
 func _ready() -> void:
@@ -151,14 +180,25 @@ func _unhandled_input(event: InputEvent) -> void:
 		gun.rotation = pad_aim.angle()
 
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if _mouse_recent:
 		gun.rotation = get_local_mouse_position().angle()
+	if burrowed:
+		_scream_charge = minf(_scream_charge + delta * _scream_charge_speed, _scream_charge_maximum)
+
+
+func _process(_delta: float) -> void:
+	scream_indicator.scale = Vector2.ONE * scream_size_scale_factor * _scream_charge
 
 
 func _heal_tick() -> void:
 	if damageable.health < maximum_health:
 		damageable.heal(1)
+
+
+func _burrow_animation_finished(name: StringName) -> void:
+	if name == &"unburrow":
+		_scream_charge = 0.0
 
 
 func can_afford(costs: Array[int]) -> bool:

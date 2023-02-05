@@ -83,6 +83,7 @@ position = Vector2(-76, -139)
 target = NodePath("../Player")
 
 [node name="Player" parent="Garden/Objects" instance=ExtResource("1_tilxh")]
+scream_size_scale_factor = 300.0
 
 [node name="ShopLayer" type="CanvasLayer" parent="."]
 

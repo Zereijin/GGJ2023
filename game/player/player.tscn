@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://fsgx46hh0sib"]
+[gd_scene load_steps=29 format=3 uid="uid://fsgx46hh0sib"]
 
 [ext_resource type="PackedScene" path="res://game/plant.tscn" id="1_5nkbc"]
 [ext_resource type="Script" path="res://game/player/player.gd" id="2_8fw0q"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://bevit5i00frxx" path="res://game/player/sprites/mandragora_north2.png" id="10_ypl3p"]
 [ext_resource type="Texture2D" uid="uid://d8mikm48bvyv" path="res://game/player/sprites/mandragora_dive.png" id="11_phebd"]
 [ext_resource type="Texture2D" uid="uid://derhq0leghc0j" path="res://game/player/sprites/burrow_dirt.png" id="12_u6f7m"]
+[ext_resource type="Texture2D" uid="uid://u7rkahh4honl" path="res://game/player/sprites/scream_indicator.png" id="14_k7jxa"]
 [ext_resource type="Texture2D" uid="uid://ceiq078pmdlsk" path="res://game/player/sprites/mandragora_scream.png" id="15_xxtvb"]
 [ext_resource type="Texture2D" uid="uid://c0xqcgep6mu0l" path="res://game/player/sprites/mandragora_scream2.png" id="16_2qmgw"]
 [ext_resource type="Script" path="res://game/player/health_bar.gd" id="17_hktj1"]
@@ -152,6 +153,18 @@ tracks/5/keys = {
 "update": 1,
 "values": [ExtResource("11_phebd")]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ScreamIndicator:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_xq2nh"]
 resource_name = "burrow"
@@ -228,6 +241,18 @@ tracks/5/keys = {
 "update": 1,
 "values": [ExtResource("11_phebd")]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ScreamIndicator:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_kf7l3"]
 resource_name = "unburrow"
@@ -303,6 +328,18 @@ tracks/5/keys = {
 "update": 1,
 "values": [ExtResource("11_phebd"), ExtResource("15_xxtvb"), ExtResource("16_2qmgw"), ExtResource("15_xxtvb"), ExtResource("16_2qmgw"), ExtResource("15_xxtvb"), ExtResource("16_2qmgw"), ExtResource("11_phebd")]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ScreamIndicator:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_g8t0n"]
 _data = {
@@ -337,6 +374,7 @@ scream_paralysis_duration_level = 0
 scream_charge_speed_level = 0
 scream_charge_maximum_level = 0
 health_regen_level = 0
+scream_size_scale_factor = 10.0
 r_resources = 10000
 g_resources = 10000
 b_resources = 10000
@@ -368,22 +406,34 @@ offset = Vector2(0, -40)
 [node name="Gun" parent="." index="2"]
 projectile = ExtResource("5_excqi")
 
-[node name="CollisionShape" parent="." index="3"]
+[node name="ScreamIndicator" type="Node2D" parent="." index="3"]
+visible = false
+position = Vector2(0, -6)
+
+[node name="ScreamIndicatorSprite" type="Sprite2D" parent="ScreamIndicator" index="0"]
+modulate = Color(1, 1, 1, 0.2)
+z_index = 1
+scale = Vector2(0.001, 0.001)
+texture = ExtResource("14_k7jxa")
+
+[node name="CollisionShape" parent="." index="4"]
 position = Vector2(0, -10)
 shape = SubResource("CapsuleShape2D_2658m")
 
-[node name="Camera" type="Camera2D" parent="." index="4"]
+[node name="Camera" type="Camera2D" parent="." index="5"]
 position_smoothing_enabled = true
 position_smoothing_speed = 2.0
 script = ExtResource("3_64l3u")
 lookahead = 100.0
 
-[node name="Burrower" type="AnimationPlayer" parent="." index="6"]
+[node name="Burrower" type="AnimationPlayer" parent="." index="7"]
 libraries = {
 "": SubResource("AnimationLibrary_g8t0n")
 }
 
-[node name="HealthBar" type="ProgressBar" parent="." index="7" node_paths=PackedStringArray("target")]
+[node name="HealTimer" type="Timer" parent="." index="8"]
+
+[node name="HealthBar" type="ProgressBar" parent="." index="9" node_paths=PackedStringArray("target")]
 custom_minimum_size = Vector2(30, 5)
 anchors_preset = 5
 anchor_left = 0.5
@@ -399,7 +449,7 @@ show_percentage = false
 script = ExtResource("17_hktj1")
 target = NodePath("..")
 
-[node name="HealTimer" type="Timer" parent="." index="8"]
-
 [connection signal="update_health" from="Damageable" to="HealthBar" method="update"]
+[connection signal="animation_changed" from="Burrower" to="." method="_burrow_animation_finished" unbinds=1]
+[connection signal="animation_finished" from="Burrower" to="." method="_burrow_animation_finished"]
 [connection signal="timeout" from="HealTimer" to="." method="_heal_tick"]
