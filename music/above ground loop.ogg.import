@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cw5dw0efwmqv0"
+path="res://.godot/imported/above ground loop.ogg-d217b634c04db7d3ff4234e2330eeb7a.oggvorbisstr"
+
+[deps]
+
+source_file="res://music/above ground loop.ogg"
+dest_files=["res://.godot/imported/above ground loop.ogg-d217b634c04db7d3ff4234e2330eeb7a.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
