@@ -1,14 +1,17 @@
-[gd_scene load_steps=37 format=3 uid="uid://fsgx46hh0sib"]
+[gd_scene load_steps=40 format=3 uid="uid://fsgx46hh0sib"]
 
-[ext_resource type="PackedScene" path="res://game/plant.tscn" id="1_5nkbc"]
+[ext_resource type="PackedScene" uid="uid://cu40kuw6mlex7" path="res://game/plant.tscn" id="1_5nkbc"]
 [ext_resource type="Script" path="res://game/player/player.gd" id="2_8fw0q"]
 [ext_resource type="Script" path="res://game/camera.gd" id="3_64l3u"]
 [ext_resource type="PackedScene" uid="uid://cs6nl4tqi4vcr" path="res://game/player/scream_attack.tscn" id="3_dft7i"]
 [ext_resource type="Texture2D" uid="uid://dlycheruv6rak" path="res://game/player/sprites/mandragora_south1.png" id="3_dsehg"]
+[ext_resource type="Texture2D" uid="uid://by3o3ep3eey2p" path="res://game/player/sprites/mandragora_death1.png" id="4_ho2fo"]
 [ext_resource type="Texture2D" uid="uid://dfv5vbo8e48vc" path="res://game/player/sprites/mandragora_south2.png" id="4_hursm"]
-[ext_resource type="PackedScene" path="res://game/player/projectile.tscn" id="5_excqi"]
+[ext_resource type="PackedScene" uid="uid://bepqps3b2gmbp" path="res://game/player/projectile.tscn" id="5_excqi"]
+[ext_resource type="Texture2D" uid="uid://hk5xan7yof0c" path="res://game/player/sprites/mandragora_death2.png" id="5_ge1j6"]
 [ext_resource type="Texture2D" uid="uid://4iss0aneuqqv" path="res://game/player/sprites/mandragora_west1.png" id="5_ho0xf"]
 [ext_resource type="Texture2D" uid="uid://cephcqkx8bynf" path="res://game/player/sprites/mandragora_west2.png" id="6_5fmav"]
+[ext_resource type="Texture2D" uid="uid://b5qemrb88pg2p" path="res://game/player/sprites/mandragora_death3.png" id="6_a7t72"]
 [ext_resource type="Texture2D" uid="uid://dbgd58qh3pkpu" path="res://game/player/sprites/mandragora_east1.png" id="7_iu2py"]
 [ext_resource type="Texture2D" uid="uid://qo23p7jboobt" path="res://game/player/sprites/mandragora_east2.png" id="8_0u8xp"]
 [ext_resource type="Texture2D" uid="uid://c4ox3ao58tx8h" path="res://game/player/sprites/mandragora_north1.png" id="9_kya83"]
@@ -29,6 +32,20 @@
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_felws"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_ho2fo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ge1j6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_a7t72")
+}],
+"loop": true,
+"name": &"die",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("3_dsehg")

@@ -1,8 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://dktwfui784v27"]
+[gd_scene load_steps=18 format=3 uid="uid://dktwfui784v27"]
 
 [ext_resource type="PackedScene" uid="uid://lfdejkugen8w" path="res://game/enemy/avoider.tscn" id="1_flti8"]
 [ext_resource type="Script" path="res://game/enemy/carrot/carrot.gd" id="2_6gkx1"]
 [ext_resource type="Texture2D" uid="uid://cgw22ehnut2dl" path="res://game/enemy/carrot/sprites/carrot_south1.png" id="2_qfbdj"]
+[ext_resource type="Texture2D" uid="uid://diysykhxlgvut" path="res://game/enemy/carrot/sprites/carrot_death.png" id="3_3v5yn"]
 [ext_resource type="Texture2D" uid="uid://bnyoas2t7n3jx" path="res://game/enemy/carrot/sprites/carrot_south2.png" id="3_fd7y3"]
 [ext_resource type="Texture2D" uid="uid://drjbbquytk85t" path="res://game/enemy/carrot/sprites/carrot_west1.png" id="4_j20pb"]
 [ext_resource type="Texture2D" uid="uid://dam10rj7dg04" path="res://game/enemy/carrot/sprites/carrot_west2.png" id="5_ji5sp"]
@@ -17,6 +18,14 @@
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_katbq"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_3v5yn")
+}],
+"loop": true,
+"name": &"die",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_qfbdj")
@@ -82,7 +91,7 @@ shoot_sound = ExtResource("12_trdgl")
 shape = SubResource("RectangleShape2D_ij5sl")
 
 [node name="Damageable" parent="." index="3"]
-health = 3
+health = 5
 death_sound = ExtResource("12_hhlcr")
 hurt_sound = ExtResource("13_rmwef")
 
