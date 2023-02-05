@@ -84,6 +84,9 @@ scream_paralysis_duration_level = 0
 scream_charge_speed_level = 0
 scream_charge_maximum_level = 0
 health_regen_level = 0
+r_resources = 50
+g_resources = 50
+b_resources = 50
 
 [node name="Sprite" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_felws")
