@@ -163,7 +163,7 @@ var burrowed := false
 ## time the aiming joystick was deflected above its dead zone
 var _mouse_recent := true
 
-# The player’s maximum health
+## The player’s maximum health
 var maximum_health := 5
 
 ## The speed at which the scream charge level increases, in charge units per second
