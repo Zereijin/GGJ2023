@@ -26,7 +26,15 @@ func _ready():
 		update_shop_items()
 	else:
 		print("ShopPanel: No player found")
+
+func open():
+	update_shop_items()
 	closeButton.grab_focus()
+	visible = true
+
+func close():
+	closeButton.release_focus()
+	visible = false
 
 func update_shop_items():
 	maximumHealthStatContainer.set_level(player.maximum_health_level)
