@@ -12,8 +12,8 @@ var _player: Node2D
 var gun := $Gun
 
 
-func configure(player: Player) -> void:
-	super(player)
+func configure(player: Player, evolution_timer: EvolutionTimer) -> void:
+	super(player, evolution_timer)
 	_player = player
 
 

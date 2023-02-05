@@ -1,0 +1,86 @@
+[gd_scene load_steps=16 format=3 uid="uid://dktwfui784v27"]
+
+[ext_resource type="PackedScene" uid="uid://lfdejkugen8w" path="res://game/enemy/avoider.tscn" id="1_flti8"]
+[ext_resource type="Script" path="res://game/enemy/carrot/carrot.gd" id="2_6gkx1"]
+[ext_resource type="Texture2D" uid="uid://cgw22ehnut2dl" path="res://game/enemy/carrot/sprites/carrot_south1.png" id="2_qfbdj"]
+[ext_resource type="Texture2D" uid="uid://bnyoas2t7n3jx" path="res://game/enemy/carrot/sprites/carrot_south2.png" id="3_fd7y3"]
+[ext_resource type="Texture2D" uid="uid://drjbbquytk85t" path="res://game/enemy/carrot/sprites/carrot_west1.png" id="4_j20pb"]
+[ext_resource type="Texture2D" uid="uid://dam10rj7dg04" path="res://game/enemy/carrot/sprites/carrot_west2.png" id="5_ji5sp"]
+[ext_resource type="Texture2D" uid="uid://c1lbs8iai3meo" path="res://game/enemy/carrot/sprites/carrot_east1.png" id="6_86hqt"]
+[ext_resource type="Texture2D" uid="uid://chnge33bfbqok" path="res://game/enemy/carrot/sprites/carrot_east2.png" id="7_42o7j"]
+[ext_resource type="Texture2D" uid="uid://daluum70q2iju" path="res://game/enemy/carrot/sprites/carrot_north1.png" id="8_euyq1"]
+[ext_resource type="Texture2D" uid="uid://nlvupoq7ept" path="res://game/enemy/carrot/sprites/carrot_north2.png" id="9_jw7mk"]
+[ext_resource type="PackedScene" uid="uid://b1drdu17rv6qj" path="res://game/enemy/carrot/projectile.tscn" id="11_2dec2"]
+[ext_resource type="AudioStream" uid="uid://cbt0qaq4fm14" path="res://sound/carrot_death.ogg" id="12_hhlcr"]
+[ext_resource type="AudioStream" uid="uid://bvk5k5xepgm1" path="res://sound/carrot_hit.ogg" id="13_rmwef"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_katbq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qfbdj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_fd7y3")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_j20pb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ji5sp")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_86hqt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_42o7j")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_euyq1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_jw7mk")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ij5sl"]
+size = Vector2(20, 60)
+
+[node name="Carrot" instance=ExtResource("1_flti8")]
+script = ExtResource("2_6gkx1")
+force_multiplier = 2000.0
+resource_type = 0
+
+[node name="Sprite" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_katbq")
+animation = &"down"
+
+[node name="Gun" parent="." index="1"]
+projectile = ExtResource("11_2dec2")
+
+[node name="CollisionShape" parent="." index="2"]
+shape = SubResource("RectangleShape2D_ij5sl")
+
+[node name="Damageable" parent="." index="3"]
+death_sound = ExtResource("12_hhlcr")
+hurt_sound = ExtResource("13_rmwef")
+
+[connection signal="firing" from="Gun" to="." method="_on_gun_firing"]

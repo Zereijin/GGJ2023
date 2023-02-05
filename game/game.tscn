@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cxstjq63yeytk"]
+[gd_scene load_steps=18 format=3 uid="uid://cxstjq63yeytk"]
 
 [ext_resource type="Texture2D" uid="uid://bqtry2d3nvsou" path="res://game/stage/sprites/fenced_area.png" id="1_hgw6i"]
 [ext_resource type="PackedScene" uid="uid://fsgx46hh0sib" path="res://game/player/player.tscn" id="1_tilxh"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cgwhfduesoojv" path="res://shop/shop_panel.tscn" id="3_xprnx"]
 [ext_resource type="Texture2D" uid="uid://cg5adf1v7n2yh" path="res://game/stage/sprites/fence_south.png" id="4_x4qaj"]
 [ext_resource type="Texture2D" uid="uid://1nyavrk80xgv" path="res://game/resources/sprites/red_triangle.png" id="5_46ofj"]
+[ext_resource type="PackedScene" uid="uid://dktwfui784v27" path="res://game/enemy/carrot/carrot.tscn" id="5_nwpon"]
 [ext_resource type="Script" path="res://game/spawner.gd" id="5_qroix"]
 [ext_resource type="PackedScene" uid="uid://dbssse540sc70" path="res://game/enemy/potato/potato.tscn" id="6_f1ll7"]
 [ext_resource type="PackedScene" uid="uid://y2xwktkmii21" path="res://game/enemy/beet/beet.tscn" id="6_pid8e"]
@@ -14,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://dvutxcgcad6i5" path="res://game/resources/sprites/blue_star.png" id="7_2e3kl"]
 [ext_resource type="Script" path="res://game/game_over.gd" id="8_dnhqf"]
 [ext_resource type="Theme" uid="uid://dbf3mfbni11oq" path="res://main_menu/main_menu_theme/main_menu_theme.tres" id="8_sltvh"]
+[ext_resource type="Script" path="res://game/enemy/evolution_timer.gd" id="9_kei2x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g6qmg"]
 size = Vector2(100, 2000)
@@ -71,16 +73,17 @@ shape = SubResource("RectangleShape2D_g6qmg")
 position = Vector2(0, 506)
 texture = ExtResource("4_x4qaj")
 
-[node name="Spawner" type="Polygon2D" parent="Garden" node_paths=PackedStringArray("warning_marker", "parent_node", "player")]
+[node name="Spawner" type="Polygon2D" parent="Garden" node_paths=PackedStringArray("warning_marker", "parent_node", "player", "evolution_timer")]
 visible = false
 z_index = 1
 color = Color(1, 0, 0, 1)
 polygon = PackedVector2Array(-550, -500, 550, -500, 550, 450, -550, 450)
 script = ExtResource("5_qroix")
 warning_marker = NodePath("../SpawnWarning")
-plants = Array[PackedScene]([ExtResource("6_pid8e"), ExtResource("6_f1ll7")])
+plants = Array[PackedScene]([ExtResource("6_pid8e"), ExtResource("5_nwpon"), ExtResource("6_f1ll7")])
 parent_node = NodePath("../Objects")
 player = NodePath("../Objects/Player")
+evolution_timer = NodePath("../EvolutionTimer")
 
 [node name="SpawnerTimer" type="Timer" parent="Garden/Spawner"]
 wait_time = 15.0
@@ -89,6 +92,9 @@ autostart = true
 [node name="SpawnWarning" type="Sprite2D" parent="Garden"]
 visible = false
 texture = ExtResource("6_xx4cy")
+
+[node name="EvolutionTimer" type="Node" parent="Garden"]
+script = ExtResource("9_kei2x")
 
 [node name="ShopLayer" type="CanvasLayer" parent="."]
 process_mode = 3

@@ -45,7 +45,9 @@ func _fire() -> void:
 		var critical := randf() < critical_probability
 		var proj := projectile.instantiate() as Projectile
 		proj.position = plant.position
-		proj.linear_velocity = proj.linear_velocity.rotated(rotation).rotated(randf_range(-angle_range, angle_range)) * projectile_speed
+		var flight_angle = rotation + randf_range(-angle_range, angle_range)
+		proj.linear_velocity = proj.linear_velocity.rotated(flight_angle) * projectile_speed
+		proj.rotation = flight_angle
 		proj.damage = critical_damage if critical else normal_damage
 		firing.emit(proj)
 		plant.get_parent().add_child(proj)

@@ -28,6 +28,10 @@ var parent_node : Node2D
 @export
 var player : Player
 
+## The evolution timer
+@export
+var evolution_timer : EvolutionTimer
+
 ## The rectangle within which plants can be spawned
 @onready
 var target_area := _calculate_target_area()
@@ -57,7 +61,7 @@ func _spawn() -> void:
 	for i in range(count_snapshot):
 		var angle := TAU * i / count_snapshot
 		var spawn_pos := target_point + Vector2.from_angle(angle) * radius
-		var plant := plants[randi_range(0, plants.size() - 1)].instantiate()
+		var plant : Enemy = plants[randi_range(0, plants.size() - 1)].instantiate()
 		plant.position = spawn_pos
-		plant.configure(player)
+		plant.configure(player, evolution_timer)
 		parent_node.add_child(plant)
