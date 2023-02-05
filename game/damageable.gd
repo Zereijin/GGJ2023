@@ -16,6 +16,7 @@ var health : int:
 		_maybe_die()
 
 @export var defense : int = 0
+@export var dodge_probability : float = 0
 
 ## Whether the entity is alive
 var alive : bool:
@@ -27,6 +28,9 @@ var _died := false
 
 ## Deals damage to the entity
 func damage(amount: int) -> void:
+	if randf() < dodge_probability:
+		#TODO: Dodge sound
+		return
 	health -= max(1, amount - defense)
 
 # Heals the entity

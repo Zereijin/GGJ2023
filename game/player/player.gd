@@ -32,7 +32,14 @@ var force_multiplier: float
 			damageable.defense = value
 
 @export_range(0, 10) var movement_speed_level: int = 0
-@export_range(0, 10) var dodge_level: int = 0
+
+@export_range(0, 10) var dodge_level: int = 0:
+	get:
+		return dodge_level
+	set(value):
+		dodge_level = value
+		if damageable != null:
+			damageable.dodge_probability = value * .05
 @export_range(0, 10) var luck_level: int = 0
 @export_range(0, 10) var projectile_damage_level: int = 0:
 	get:
