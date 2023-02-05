@@ -14,7 +14,7 @@ width = 1
 [sub_resource type="CircleShape2D" id="CircleShape2D_hevbl"]
 radius = 5.0
 
-[node name="projectile" type="RigidBody2D"]
+[node name="Projectile" type="RigidBody2D"]
 collision_layer = 4
 collision_mask = 0
 max_contacts_reported = 10
