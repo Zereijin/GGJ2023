@@ -1,12 +1,14 @@
 extends Control
 
+@export var player:Player
+
 @onready var quitButton:Button = $PanelContainer/MarginContainer/VBoxContainer/QuitButton
 @onready var scoreLabel:Label = $PanelContainer/MarginContainer/VBoxContainer/ScoreLabel
 
 func open():
 	get_tree().paused = true
 	quitButton.grab_focus()
-	scoreLabel.text = str(42069) #TODO calculate real score
+	scoreLabel.text = str(player.score)
 	visible = true
 
 func close():

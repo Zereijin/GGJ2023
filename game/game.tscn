@@ -197,7 +197,7 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 text = "9999
 "
 
-[node name="GameOverPanel" type="Control" parent="ShopLayer"]
+[node name="GameOverPanel" type="Control" parent="ShopLayer" node_paths=PackedStringArray("player")]
 visible = false
 layout_mode = 3
 anchors_preset = 5
@@ -210,6 +210,7 @@ grow_horizontal = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("8_dnhqf")
+player = NodePath("../../Garden/Objects/Player")
 
 [node name="PanelContainer" type="PanelContainer" parent="ShopLayer/GameOverPanel"]
 layout_mode = 1

@@ -27,6 +27,7 @@ func _ready() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	var player := body as Player
 	collectPlayer.play()
+	player.score += 1
 	match type:
 		Type.RED:
 			player.r_resources += 10

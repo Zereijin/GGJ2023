@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dlycheruv6rak" path="res://game/player/sprites/mandragora_south1.png" id="3_dsehg"]
 [ext_resource type="Texture2D" uid="uid://by3o3ep3eey2p" path="res://game/player/sprites/mandragora_death1.png" id="4_ho2fo"]
 [ext_resource type="Texture2D" uid="uid://dfv5vbo8e48vc" path="res://game/player/sprites/mandragora_south2.png" id="4_hursm"]
-[ext_resource type="PackedScene" uid="uid://bepqps3b2gmbp" path="res://game/player/projectile.tscn" id="5_excqi"]
+[ext_resource type="PackedScene" path="res://game/player/projectile.tscn" id="5_excqi"]
 [ext_resource type="Texture2D" uid="uid://hk5xan7yof0c" path="res://game/player/sprites/mandragora_death2.png" id="5_ge1j6"]
 [ext_resource type="Texture2D" uid="uid://4iss0aneuqqv" path="res://game/player/sprites/mandragora_west1.png" id="5_ho0xf"]
 [ext_resource type="Texture2D" uid="uid://cephcqkx8bynf" path="res://game/player/sprites/mandragora_west2.png" id="6_5fmav"]
@@ -418,6 +418,7 @@ r_resources = 0
 g_resources = 0
 b_resources = 0
 scream_attack = ExtResource("3_dft7i")
+score = 0
 
 [node name="Sprite" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_felws")

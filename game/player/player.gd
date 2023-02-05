@@ -184,6 +184,8 @@ var _scream_damage := 1
 ## How long enemies in a scream attack are paralyzed, in seconds
 var _scream_paralysis_duration := 1.0
 
+@export var score: int = 0
+
 ## The player’s gun
 @onready
 var gun := $Gun
