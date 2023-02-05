@@ -30,11 +30,11 @@ func _on_body_entered(body: Node2D) -> void:
 	player.score += 1
 	match type:
 		Type.RED:
-			player.r_resources += 20
+			player.r_resources += 50
 		Type.GREEN:
-			player.g_resources += 20
+			player.g_resources += 50
 		Type.BLUE:
-			player.b_resources += 20
+			player.b_resources += 50
 	visible = false
 
 
