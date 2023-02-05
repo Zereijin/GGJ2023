@@ -67,6 +67,11 @@ func _projectile_count() -> int:
 	return _base_projectile_count + (floorf(evolution_timer.run_time / 100.0) as int)
 
 
+# Calculates the gun angle range
+func _angle_range() -> float:
+	return 0.0
+
+
 func _on_dead() -> void:
 	var r := resource.instantiate() as CollectibleResource
 	r.position = position
@@ -83,3 +88,4 @@ func _on_gun_pre_fire() -> void:
 	gun.normal_damage = _base_normal_damage + (floorf(evolution_timer.run_time / 60.0) as int)
 	gun.period = minf(_base_attack_period, _base_attack_period / (evolution_timer.run_time / 30.0))
 	gun.projectile_count = _projectile_count()
+	gun.angle_range = _angle_range()

@@ -9,6 +9,10 @@ func configure(player: Player, evolution_timer: EvolutionTimer) -> void:
 	_player = player
 
 
+func _angle_range() -> float:
+	return (PI / 2) / (evolution_timer.run_time / 30.0)
+
+
 func _physics_process(delta: float) -> void:
 	super(delta)
 	constant_force = Vector2.ZERO if paralyzed else \
