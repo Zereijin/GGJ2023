@@ -77,6 +77,7 @@ projectile = ExtResource("10_cpawm")
 shoot_sound = ExtResource("12_rcx5p")
 
 [node name="Damageable" parent="." index="3"]
+health = 1
 death_sound = ExtResource("12_cvcx6")
 hurt_sound = ExtResource("13_am2ar")
 

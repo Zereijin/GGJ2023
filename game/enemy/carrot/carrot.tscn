@@ -80,6 +80,7 @@ projectile = ExtResource("11_2dec2")
 shape = SubResource("RectangleShape2D_ij5sl")
 
 [node name="Damageable" parent="." index="3"]
+health = 1
 death_sound = ExtResource("12_hhlcr")
 hurt_sound = ExtResource("13_rmwef")
 
