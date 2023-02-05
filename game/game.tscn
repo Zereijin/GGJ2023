@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cxstjq63yeytk"]
+[gd_scene load_steps=19 format=3 uid="uid://cxstjq63yeytk"]
 
 [ext_resource type="Texture2D" uid="uid://bqtry2d3nvsou" path="res://game/stage/sprites/fenced_area.png" id="1_hgw6i"]
 [ext_resource type="PackedScene" uid="uid://fsgx46hh0sib" path="res://game/player/player.tscn" id="1_tilxh"]
@@ -16,6 +16,7 @@
 [ext_resource type="Script" path="res://game/game_over.gd" id="8_dnhqf"]
 [ext_resource type="Theme" uid="uid://dbf3mfbni11oq" path="res://main_menu/main_menu_theme/main_menu_theme.tres" id="8_sltvh"]
 [ext_resource type="Script" path="res://game/enemy/evolution_timer.gd" id="9_kei2x"]
+[ext_resource type="PackedScene" uid="uid://cj4gfeuhn8y2b" path="res://main_menu/button_sound_controller.tscn" id="17_jvryq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g6qmg"]
 size = Vector2(100, 2000)
@@ -256,7 +257,11 @@ size_flags_horizontal = 4
 focus_neighbor_bottom = NodePath("../../GridContainer/BodyVBoxContainer/HealthStatContainer/UpgradeButton")
 text = "Quit Game"
 
+[node name="ButtonSoundController" parent="ShopLayer" instance=ExtResource("17_jvryq")]
+
 [connection signal="dead" from="Garden/Objects/Player" to="ShopLayer/GameOverPanel" method="open"]
 [connection signal="update_resources" from="Garden/Objects/Player" to="ShopLayer/ResourcePanel" method="_on_player_update_resources"]
 [connection signal="timeout" from="Garden/Spawner/SpawnerTimer" to="Garden/Spawner" method="_spawn"]
+[connection signal="mouse_entered" from="ShopLayer/GameOverPanel/PanelContainer/MarginContainer/VBoxContainer/QuitButton" to="ShopLayer/ButtonSoundController" method="_on_mouse_entered"]
 [connection signal="pressed" from="ShopLayer/GameOverPanel/PanelContainer/MarginContainer/VBoxContainer/QuitButton" to="ShopLayer/GameOverPanel" method="close"]
+[connection signal="pressed" from="ShopLayer/GameOverPanel/PanelContainer/MarginContainer/VBoxContainer/QuitButton" to="ShopLayer/ButtonSoundController" method="_on_pressed"]

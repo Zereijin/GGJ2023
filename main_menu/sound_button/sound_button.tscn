@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://ciev25y0jewy5"]
+[gd_scene load_steps=4 format=3 uid="uid://ciev25y0jewy5"]
 
 [ext_resource type="Theme" uid="uid://dbf3mfbni11oq" path="res://main_menu/main_menu_theme/main_menu_theme.tres" id="1_0vcu8"]
 [ext_resource type="Script" path="res://main_menu/sound_button/sound_button.gd" id="2_unno2"]
+[ext_resource type="PackedScene" uid="uid://cj4gfeuhn8y2b" path="res://main_menu/button_sound_controller.tscn" id="3_oddqn"]
 
 [node name="SoundButtonMarginContainer" type="MarginContainer"]
 anchors_preset = 3
@@ -29,4 +30,8 @@ theme_override_constants/h_separation = 4
 text = "Sound (M)"
 script = ExtResource("2_unno2")
 
+[node name="ButtonSoundController" parent="." instance=ExtResource("3_oddqn")]
+
+[connection signal="mouse_entered" from="SoundButton" to="ButtonSoundController" method="_on_mouse_entered"]
+[connection signal="pressed" from="SoundButton" to="SoundButton" method="_on_pressed"]
 [connection signal="toggled" from="SoundButton" to="SoundButton" method="_on_toggled"]

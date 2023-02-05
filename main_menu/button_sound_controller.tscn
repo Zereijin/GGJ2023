@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://cj4gfeuhn8y2b"]
+
+[ext_resource type="Script" path="res://main_menu/button_sound_controller.gd" id="1_1splx"]
+[ext_resource type="AudioStream" uid="uid://b02knl8nw1u7b" path="res://sound/button_hover.ogg" id="2_n5302"]
+[ext_resource type="AudioStream" uid="uid://bcxlm5ppubqjr" path="res://sound/button_press.ogg" id="3_lnau2"]
+
+[node name="ButtonSoundController" type="Node" node_paths=PackedStringArray("button_hover_audio_stream_player", "button_press_audio_stream_player")]
+script = ExtResource("1_1splx")
+button_hover_audio_stream_player = NodePath("ButtonHoverPlayer")
+button_press_audio_stream_player = NodePath("ButtonPressPlayer")
+
+[node name="ButtonHoverPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_n5302")
+
+[node name="ButtonPressPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_lnau2")

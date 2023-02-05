@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cgwhfduesoojv"]
+[gd_scene load_steps=8 format=3 uid="uid://cgwhfduesoojv"]
 
 [ext_resource type="Script" path="res://shop/shop_panel.gd" id="1_lf4jd"]
 [ext_resource type="PackedScene" uid="uid://d1cmhwlxfijj7" path="res://shop/shop_stat_box_container.tscn" id="2_fqojv"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://1nyavrk80xgv" path="res://game/resources/sprites/red_triangle.png" id="3_6pqwg"]
 [ext_resource type="Texture2D" uid="uid://0wmwqbb7ximl" path="res://game/resources/sprites/green_square.png" id="4_g50i0"]
 [ext_resource type="Texture2D" uid="uid://dvutxcgcad6i5" path="res://game/resources/sprites/blue_star.png" id="5_6fcpw"]
+[ext_resource type="PackedScene" uid="uid://cj4gfeuhn8y2b" path="res://main_menu/button_sound_controller.tscn" id="7_dhmft"]
 
 [node name="ShopPanel" type="Control"]
 layout_mode = 3
@@ -332,6 +333,8 @@ layout_mode = 2
 focus_neighbor_bottom = NodePath("../../GridContainer/BodyVBoxContainer/HealthStatContainer/UpgradeButton")
 text = "Leave Shop"
 
+[node name="ButtonSoundController" parent="." instance=ExtResource("7_dhmft")]
+
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/GridContainer/BodyVBoxContainer/HealthStatContainer/UpgradeButton" to="." method="_on_maximum_health_upgrade_button_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/GridContainer/BodyVBoxContainer/DefenseStatContainer/UpgradeButton" to="." method="_on_defense_upgrade_button_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/GridContainer/BodyVBoxContainer/MovementSpeedStatContainer/UpgradeButton" to="." method="_on_movement_speed_upgrade_button_pressed"]
@@ -347,7 +350,9 @@ text = "Leave Shop"
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/GridContainer/ScreamVBoxContainer/ChargeSpeedStatContainer/UpgradeButton" to="." method="_on_scream_charge_speed_upgrade_button_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/GridContainer/ScreamVBoxContainer/ChargeMaxStatContainer/UpgradeButton" to="." method="_on_scream_charge_maximum_upgrade_button_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/GridContainer/ScreamVBoxContainer/HealthRegenStatContainer/UpgradeButton" to="." method="_on_health_regen_upgrade_button_pressed"]
+[connection signal="mouse_entered" from="PanelContainer/MarginContainer/VBoxContainer/CloseButtonMarginContainer/CloseButton" to="ButtonSoundController" method="_on_mouse_entered"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/CloseButtonMarginContainer/CloseButton" to="." method="_close"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/CloseButtonMarginContainer/CloseButton" to="ButtonSoundController" method="_on_pressed"]
 
 [editable path="PanelContainer/MarginContainer/VBoxContainer/GridContainer/BodyVBoxContainer/HealthStatContainer"]
 [editable path="PanelContainer/MarginContainer/VBoxContainer/GridContainer/BodyVBoxContainer/DefenseStatContainer"]
