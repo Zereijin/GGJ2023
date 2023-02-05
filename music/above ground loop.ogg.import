@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/above ground loop.ogg-d217b634c04db7d3ff4234e
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0
