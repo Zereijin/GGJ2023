@@ -44,7 +44,7 @@ func update_shop_items():
 	screamChargeSpeedStatContainer.set_level(player.scream_charge_speed_level)
 	screamChargeMaximumStatContainer.set_level(player.scream_charge_maximum_level)
 	healthRegenStatContainer.set_level(player.health_regen_level)
-	
+
 	maximumHealthStatContainer.set_enabled(player.can_afford(maximumHealthStatContainer.get_cost()))
 	defenseStatContainer.set_enabled(player.can_afford(defenseStatContainer.get_cost()))
 	movementSpeedStatContainer.set_enabled(player.can_afford(movementSpeedStatContainer.get_cost()))
