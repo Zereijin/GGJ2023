@@ -19,7 +19,7 @@ var force_multiplier: float
 		return maximum_health_level
 	set(value):
 		maximum_health_level = value
-		maximum_health = value + 5
+		maximum_health = 5 * (value + 1)
 		if health_bar != null:
 			health_bar.update()
 
@@ -34,7 +34,7 @@ var force_multiplier: float
 		projectile_damage_level = value
 		if gun != null:
 			gun.normal_damage = value + 1
-			gun.critical_damage = (value + 1) * 2
+			gun.critical_damage = gun.normal_damage * 2
 
 @export_range(0, 10) var projectile_attack_speed_level: int = 0
 @export_range(0, 10) var projectile_crit_chance_level: int = 0:
@@ -60,35 +60,35 @@ var projectile_accuracy_level: int = 0:
 	set(value):
 		projectile_accuracy_level = value
 		if gun != null:
-			gun.angle_range = PI / 40 * (10 - value)
+			gun.angle_range = PI / 35 * (10 - value)
 
 @export_range(0, 10) var scream_damage_level: int = 0:
 	get:
 		return scream_damage_level
 	set(value):
 		scream_damage_level = value
-		_scream_damage = value + 2
+		_scream_damage = value + 1
 
 @export_range(0, 10) var scream_paralysis_duration_level: int = 0:
 	get:
 		return scream_paralysis_duration_level
 	set(value):
 		scream_paralysis_duration_level = value
-		_scream_paralysis_duration = (value + 1) * 1.5
+		_scream_paralysis_duration = (value + 1) * 0.5
 
 @export_range(0, 10) var scream_charge_speed_level: int = 0:
 	get:
 		return scream_charge_speed_level
 	set(value):
 		scream_charge_speed_level = value
-		_scream_charge_speed = value + 1
+		_scream_charge_speed = value * 2 + 1
 
 @export_range(0, 10) var scream_charge_maximum_level: int = 0:
 	get:
 		return scream_charge_maximum_level
 	set(value):
 		scream_charge_maximum_level = value
-		_scream_charge_maximum = value + 1
+		_scream_charge_maximum = 5 + value * 3
 
 @export_range(0, 10) var health_regen_level: int = 0:
 	get:
