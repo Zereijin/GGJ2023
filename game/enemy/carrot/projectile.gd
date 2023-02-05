@@ -20,7 +20,7 @@ func _on_damage_area_body_entered(raw_body: Node2D) -> void:
 
 
 func _land() -> void:
-	var carrot : Node2D = _carrot_prefab.instantiate()
+	var carrot : Carrot = _carrot_prefab.instantiate()
 	carrot.position = position
 	carrot.configure(player)
 	get_parent().add_child(carrot)
