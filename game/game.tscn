@@ -115,6 +115,7 @@ visible = false
 texture = ExtResource("6_xx4cy")
 
 [node name="ShopLayer" type="CanvasLayer" parent="."]
+process_mode = 3
 
 [node name="ShopPanel" parent="ShopLayer" node_paths=PackedStringArray("player") instance=ExtResource("3_xprnx")]
 visible = false
