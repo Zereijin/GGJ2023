@@ -6,9 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://bw4brs3qqy2w3" path="res://game/stage/rock.tscn" id="3_3y6s7"]
 [ext_resource type="PackedScene" uid="uid://cxv1egra140ne" path="res://game/enemy/beet/target_marker.tscn" id="4_ev3jh"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bnjcq"]
-radius = 25.0
-height = 65.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yk4nw"]
+radius = 40.0
+height = 100.0
 
 [node name="Projectile" instance=ExtResource("1_02wgo")]
 script = ExtResource("2_t80va")
@@ -21,4 +21,11 @@ texture = ExtResource("2_x0dtx")
 
 [node name="CollisionShape" parent="." index="1"]
 rotation = 1.5708
-shape = SubResource("CapsuleShape2D_bnjcq")
+shape = null
+
+[node name="Area" type="Area2D" parent="." index="2"]
+collision_layer = 4
+
+[node name="CollisionShape" type="CollisionShape2D" parent="Area" index="0"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_yk4nw")
