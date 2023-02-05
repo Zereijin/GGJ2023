@@ -226,7 +226,7 @@ func _unhandled_input(event: InputEvent) -> void:
 				heal_timer.stop()
 
 	# Handle movement, only if not burrowed or burrowing
-	constant_force = Input.get_vector("left", "right", "up", "down") * force_multiplier
+	constant_force = Input.get_vector("left", "right", "up", "down") * (force_multiplier + (300 * movement_speed_level))
 	freeze = burrowed or burrower.is_playing()
 
 	# Handle aiming
