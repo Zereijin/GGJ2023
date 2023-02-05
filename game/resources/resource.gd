@@ -17,7 +17,8 @@ var _images : Array[String] = [
 	"res://game/resources/sprites/green_square.png",
 	"res://game/resources/sprites/blue_star.png",
 ]
-
+## Sounds
+@onready var collectPlayer = $CollectPlayer
 
 func _ready() -> void:
 	$Sprite.texture = load(_images[type])
@@ -25,6 +26,7 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	var player := body as Player
+	collectPlayer.play()
 	match type:
 		Type.RED:
 			player.r_resources += 1
