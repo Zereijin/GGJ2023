@@ -399,4 +399,7 @@ show_percentage = false
 script = ExtResource("17_hktj1")
 target = NodePath("..")
 
-[connection signal="update_health" from="Damageable" to="HealthBar" method="_on_damageable_update_health"]
+[node name="HealTimer" type="Timer" parent="." index="8"]
+
+[connection signal="update_health" from="Damageable" to="HealthBar" method="update"]
+[connection signal="timeout" from="HealTimer" to="." method="_heal_tick"]
