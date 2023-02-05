@@ -45,15 +45,58 @@ texture = ExtResource("1_hgw6i")
 [node name="Objects" type="Node2D" parent="Garden"]
 y_sort_enabled = true
 
-[node name="Wall" type="StaticBody2D" parent="Garden/Objects"]
-position = Vector2(-1000, 0)
+[node name="Walls" type="Node2D" parent="Garden/Objects"]
+visible = false
+
+[node name="WestWall" type="StaticBody2D" parent="Garden/Objects/Walls"]
+position = Vector2(-642, 0)
 collision_layer = 16
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Garden/Objects/Wall"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Garden/Objects/Walls/WestWall"]
 shape = SubResource("RectangleShape2D_g6qmg")
 
-[node name="Sprite" type="Sprite2D" parent="Garden/Objects/Wall"]
+[node name="Sprite" type="Sprite2D" parent="Garden/Objects/Walls/WestWall"]
+scale = Vector2(100, 2000)
+texture = SubResource("GradientTexture1D_rfxx4")
+
+[node name="EastWall" type="StaticBody2D" parent="Garden/Objects/Walls"]
+position = Vector2(641, 0)
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Garden/Objects/Walls/EastWall"]
+shape = SubResource("RectangleShape2D_g6qmg")
+
+[node name="Sprite" type="Sprite2D" parent="Garden/Objects/Walls/EastWall"]
+scale = Vector2(100, 2000)
+texture = SubResource("GradientTexture1D_rfxx4")
+
+[node name="NorthWall" type="StaticBody2D" parent="Garden/Objects/Walls"]
+position = Vector2(0, -615)
+rotation = 1.5708
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Garden/Objects/Walls/NorthWall"]
+shape = SubResource("RectangleShape2D_g6qmg")
+
+[node name="Sprite" type="Sprite2D" parent="Garden/Objects/Walls/NorthWall"]
+position = Vector2(0, -9.31323e-10)
+scale = Vector2(100, 2000)
+texture = SubResource("GradientTexture1D_rfxx4")
+
+[node name="SouthWall" type="StaticBody2D" parent="Garden/Objects/Walls"]
+position = Vector2(0, 672)
+rotation = 1.5708
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Garden/Objects/Walls/SouthWall"]
+shape = SubResource("RectangleShape2D_g6qmg")
+
+[node name="Sprite" type="Sprite2D" parent="Garden/Objects/Walls/SouthWall"]
+position = Vector2(0, -9.31323e-10)
 scale = Vector2(100, 2000)
 texture = SubResource("GradientTexture1D_rfxx4")
 
