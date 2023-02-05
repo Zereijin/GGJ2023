@@ -479,6 +479,9 @@ death_sound = ExtResource("17_jk4io")
 dodge_sound = ExtResource("18_nji7m")
 hurt_sound = ExtResource("19_58cy2")
 
+[node name="DeathPlayer" parent="Damageable/AudioPlayers" index="0"]
+volume_db = 0.0
+
 [node name="Burrower" type="AnimationPlayer" parent="." index="7"]
 libraries = {
 "": SubResource("AnimationLibrary_g8t0n")
@@ -519,3 +522,5 @@ stream = ExtResource("26_kg6bf")
 [connection signal="animation_changed" from="Burrower" to="." method="_burrow_animation_finished" unbinds=1]
 [connection signal="animation_finished" from="Burrower" to="." method="_burrow_animation_finished"]
 [connection signal="timeout" from="HealTimer" to="." method="_heal_tick"]
+
+[editable path="Damageable"]
