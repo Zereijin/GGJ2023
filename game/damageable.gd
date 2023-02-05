@@ -49,7 +49,7 @@ func damage(amount: int) -> void:
 		return
 	var defense : int = defense_source.defense if defense_source != null else 0
 	health -= max(1, amount - defense)
-	if health >= 0:
+	if health > 0:
 		hurt_player.play()
 
 # Heals the entity
