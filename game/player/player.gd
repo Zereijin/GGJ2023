@@ -274,6 +274,7 @@ func _physics_process(delta: float) -> void:
 func _process(delta: float) -> void:
 	super(delta)
 	scream_indicator.scale = Vector2.ONE * scream_size_scale_factor * _scream_charge
+	Music.situation = Music.Situation.BELOW_GROUND if burrowed else Music.Situation.ABOVE_GROUND
 
 
 func _heal_tick() -> void:

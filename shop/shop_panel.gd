@@ -34,6 +34,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		update_shop_items()
 		closeButton.grab_focus()
 		visible = true
+		Music.situation = Music.Situation.IN_SHOP
 
 
 func _close():

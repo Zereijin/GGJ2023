@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://branbrfi81py8"]
+
+[ext_resource type="Script" path="res://music/music.gd" id="1_207p5"]
+[ext_resource type="AudioStream" uid="uid://cup5elqdsd81v" path="res://music/base loop.ogg" id="1_vj3pm"]
+[ext_resource type="AudioStream" uid="uid://cw5dw0efwmqv0" path="res://music/above ground loop.ogg" id="2_d88ja"]
+[ext_resource type="AudioStream" uid="uid://cx83er1mxq8wt" path="res://music/below ground loop.ogg" id="3_ntmm0"]
+[ext_resource type="AudioStream" uid="uid://cdghc478qgoh" path="res://music/shop loop.ogg" id="4_5aix8"]
+
+[node name="Music" type="Node"]
+process_mode = 3
+script = ExtResource("1_207p5")
+
+[node name="BaseLoop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_vj3pm")
+autoplay = true
+bus = &"Music"
+
+[node name="AboveGroundLoop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_d88ja")
+volume_db = -80.0
+autoplay = true
+bus = &"Music"
+
+[node name="BelowGroundLoop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ntmm0")
+volume_db = -80.0
+autoplay = true
+bus = &"Music"
+
+[node name="ShopLoop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_5aix8")
+volume_db = -80.0
+autoplay = true
+bus = &"Music"
