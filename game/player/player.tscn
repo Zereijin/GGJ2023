@@ -470,6 +470,7 @@ script = ExtResource("17_hktj1")
 target = NodePath("..")
 
 [connection signal="start_screaming" from="." to="." method="_on_start_screaming"]
+[connection signal="dead" from="Damageable" to="." method="_dead"]
 [connection signal="update_health" from="Damageable" to="HealthBar" method="update"]
 [connection signal="animation_changed" from="Burrower" to="." method="_burrow_animation_finished" unbinds=1]
 [connection signal="animation_finished" from="Burrower" to="." method="_burrow_animation_finished"]

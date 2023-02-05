@@ -274,6 +274,7 @@ size_flags_horizontal = 4
 focus_neighbor_bottom = NodePath("../../GridContainer/BodyVBoxContainer/HealthStatContainer/UpgradeButton")
 text = "Quit Game"
 
+[connection signal="dead" from="Garden/Objects/Player" to="ShopLayer/GameOverPanel" method="open"]
 [connection signal="update_resources" from="Garden/Objects/Player" to="ShopLayer/ResourcePanel" method="_on_player_update_resources"]
 [connection signal="timeout" from="Garden/Spawner/SpawnerTimer" to="Garden/Spawner" method="_spawn"]
 [connection signal="pressed" from="ShopLayer/GameOverPanel/PanelContainer/MarginContainer/VBoxContainer/QuitButton" to="ShopLayer/GameOverPanel" method="close"]

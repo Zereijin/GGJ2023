@@ -7,6 +7,9 @@ signal update_resources
 ## Emitted when the player starts screaming
 signal start_screaming
 
+## Emitted when the player dies
+signal dead
+
 ## The force, in Newtons, applied by a keypress or full joystick deflection
 @export_range(0, 100000)
 var force_multiplier: float
@@ -250,3 +253,7 @@ func try_to_buy(costs: Array[int]) -> bool:
 	b_resources -= costs[2]
 	update_resources.emit()
 	return true
+
+
+func _dead() -> void:
+	dead.emit()
