@@ -1,7 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://cxstjq63yeytk"]
+[gd_scene load_steps=16 format=3 uid="uid://cxstjq63yeytk"]
 
 [ext_resource type="Texture2D" uid="uid://bqtry2d3nvsou" path="res://game/stage/sprites/fenced_area.png" id="1_hgw6i"]
 [ext_resource type="PackedScene" uid="uid://fsgx46hh0sib" path="res://game/player/player.tscn" id="1_tilxh"]
+[ext_resource type="PackedScene" uid="uid://bw4brs3qqy2w3" path="res://game/stage/rock.tscn" id="2_50ay1"]
 [ext_resource type="Script" path="res://game/resource_panel.gd" id="3_jgv3g"]
 [ext_resource type="PackedScene" uid="uid://cgwhfduesoojv" path="res://shop/shop_panel.tscn" id="3_xprnx"]
 [ext_resource type="Texture2D" uid="uid://cg5adf1v7n2yh" path="res://game/stage/sprites/fence_south.png" id="4_x4qaj"]
@@ -16,18 +17,6 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g6qmg"]
 size = Vector2(100, 2000)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_j6121"]
-size = Vector2(50, 50)
-
-[sub_resource type="Gradient" id="Gradient_mhu85"]
-interpolation_mode = 1
-offsets = PackedFloat32Array(0)
-colors = PackedColorArray(1, 0.239216, 0.239216, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_0nmfm"]
-gradient = SubResource("Gradient_mhu85")
-width = 1
 
 [node name="game" type="Node"]
 
@@ -76,17 +65,7 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Garden/Objects/Walls/SouthWall"]
 shape = SubResource("RectangleShape2D_g6qmg")
 
-[node name="Test Rock" type="StaticBody2D" parent="Garden/Objects"]
-position = Vector2(100, 0)
-collision_layer = 8
-collision_mask = 0
-
-[node name="CollisionShape" type="CollisionShape2D" parent="Garden/Objects/Test Rock"]
-shape = SubResource("RectangleShape2D_j6121")
-
-[node name="Sprite" type="Sprite2D" parent="Garden/Objects/Test Rock"]
-scale = Vector2(50, 50)
-texture = SubResource("GradientTexture1D_0nmfm")
+[node name="Test Rock" parent="Garden/Objects" instance=ExtResource("2_50ay1")]
 
 [node name="Player" parent="Garden/Objects" instance=ExtResource("1_tilxh")]
 
