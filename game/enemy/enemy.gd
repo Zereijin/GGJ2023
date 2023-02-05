@@ -18,9 +18,6 @@ var paralyzed : bool:
 	get:
 		return not is_zero_approx(_paralyzed_for)
 
-## How long the enemy is paralyzed for
-var _paralyzed_for := 0.0
-
 ## The evolution timer
 var evolution_timer: EvolutionTimer
 
@@ -28,6 +25,9 @@ var evolution_timer: EvolutionTimer
 var force_multiplier : float:
 	get:
 		return base_force_multiplier + evolution_timer.run_time
+
+## How long the enemy is paralyzed for
+var _paralyzed_for := 0.0
 
 
 ## Configures the enemy by attaching any needed references
