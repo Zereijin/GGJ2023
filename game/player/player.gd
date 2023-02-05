@@ -8,7 +8,15 @@ signal update_resources
 @export_range(0, 100000)
 var force_multiplier: float
 
-@export_range(0, 10) var maximum_health_level: int = 0
+@export_range(0, 10) var maximum_health_level: int = 0:
+	get:
+		return maximum_health_level
+	set(value):
+		maximum_health_level = value
+		maximum_health = value + 5
+		if health_bar != null:
+			health_bar.update()
+
 @export_range(0, 10) var defense_level: int = 0
 @export_range(0, 10) var movement_speed_level: int = 0
 @export_range(0, 10) var dodge_level: int = 0
@@ -66,6 +74,9 @@ var burrowed := false
 ## time the aiming joystick was deflected above its dead zone
 var _mouse_recent := true
 
+# The player’s maximum health
+var maximum_health := 5
+
 ## The player’s gun
 @onready
 var gun := $Gun
@@ -99,9 +110,9 @@ func _ready() -> void:
 	scream_charge_maximum_level = scream_charge_maximum_level
 	health_regen_level = health_regen_level
 
-	damageable.health = maximum_health_level #TODO: convert from level to value
-	health_bar.update_health(damageable.health)
-	health_bar.update_max_health(damageable.health)
+	# Initialize health
+	damageable.health = maximum_health
+	health_bar.update()
 
 
 func _unhandled_input(event: InputEvent) -> void:

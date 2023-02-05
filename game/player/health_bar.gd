@@ -1,11 +1,14 @@
 extends ProgressBar
 
-func update_max_health(maxHealth:int):
-	max_value = maxHealth
+## The player whose health to show
+@export
+var target : Player
 
-func update_health(currentHealth:int):
-	value = currentHealth
+## The Damageable node.
+@onready
+var damageable : Damageable = target.get_node("Damageable")
 
 
-func _on_damageable_update_health(currentHealth):
-	update_health(currentHealth)
+func update():
+	value = damageable.health
+	max_value = target.maximum_health
