@@ -1,12 +1,14 @@
-[gd_scene load_steps=16 format=3 uid="uid://cxstjq63yeytk"]
+[gd_scene load_steps=18 format=3 uid="uid://cxstjq63yeytk"]
 
 [ext_resource type="PackedScene" uid="uid://fsgx46hh0sib" path="res://game/player/player.tscn" id="1_tilxh"]
 [ext_resource type="Script" path="res://game/resource_panel.gd" id="3_jgv3g"]
-[ext_resource type="PackedScene" uid="uid://cgwhfduesoojv" path="res://shop/shop_panel.tscn" id="3_xprnx"]
+[ext_resource type="PackedScene" uid="uid://psqd6dx2lvfe" path="res://shop/shop_panel.tscn" id="3_xprnx"]
 [ext_resource type="Texture2D" uid="uid://1nyavrk80xgv" path="res://game/resources/sprites/red_triangle.png" id="5_46ofj"]
-[ext_resource type="PackedScene" uid="uid://dbssse540sc70" path="res://game/enemy/potato/potato.tscn" id="6_f1ll7"]
+[ext_resource type="PackedScene" uid="uid://ba7ivojxn0clg" path="res://game/enemy/potato/potato.tscn" id="6_f1ll7"]
 [ext_resource type="Texture2D" uid="uid://0wmwqbb7ximl" path="res://game/resources/sprites/green_square.png" id="6_pn3i5"]
 [ext_resource type="Texture2D" uid="uid://dvutxcgcad6i5" path="res://game/resources/sprites/blue_star.png" id="7_2e3kl"]
+[ext_resource type="Script" path="res://game/game_over.gd" id="8_dnhqf"]
+[ext_resource type="Theme" uid="uid://dbf3mfbni11oq" path="res://main_menu/main_menu_theme/main_menu_theme.tres" id="8_sltvh"]
 
 [sub_resource type="Gradient" id="Gradient_3834j"]
 interpolation_mode = 1
@@ -180,5 +182,64 @@ theme_override_colors/font_color = Color(0.145098, 0.380392, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 text = "9999
 "
+
+[node name="GameOverPanel" type="Control" parent="ShopLayer"]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("8_dnhqf")
+
+[node name="PanelContainer" type="PanelContainer" parent="ShopLayer/GameOverPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -164.0
+offset_top = 80.0
+offset_right = 164.0
+offset_bottom = 311.0
+grow_horizontal = 2
+theme = ExtResource("8_sltvh")
+
+[node name="MarginContainer" type="MarginContainer" parent="ShopLayer/GameOverPanel/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ShopLayer/GameOverPanel/PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="GameOverLabel" type="Label" parent="ShopLayer/GameOverPanel/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Game Over"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreTitleLabel" type="Label" parent="ShopLayer/GameOverPanel/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Final Score:"
+horizontal_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="ShopLayer/GameOverPanel/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "99999"
+horizontal_alignment = 1
+
+[node name="QuitButton" type="Button" parent="ShopLayer/GameOverPanel/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+focus_neighbor_bottom = NodePath("../../GridContainer/BodyVBoxContainer/HealthStatContainer/UpgradeButton")
+text = "Quit Game"
 
 [connection signal="update_resources" from="Garden/Objects/Player" to="ShopLayer/ResourcePanel" method="_on_player_update_resources"]
