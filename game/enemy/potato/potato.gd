@@ -13,6 +13,8 @@ var target: Node2D
 var gun := $Gun
 
 
-func _physics_process(_delta: float) -> void:
-	constant_force = global_position.direction_to(target.global_position) * force_multiplier
+func _physics_process(delta: float) -> void:
+	super(delta)
+	constant_force = Vector2.ZERO if paralyzed else \
+		global_position.direction_to(target.global_position) * force_multiplier
 	gun.rotation = constant_force.angle()

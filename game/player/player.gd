@@ -56,8 +56,19 @@ var projectile_accuracy_level: int = 0:
 		if gun != null:
 			gun.angle_range = PI / 40 * (10 - value)
 
-@export_range(0, 10) var scream_damage_level: int = 0
-@export_range(0, 10) var scream_paralysis_duration_level: int = 0
+@export_range(0, 10) var scream_damage_level: int = 0:
+	get:
+		return scream_damage_level
+	set(value):
+		scream_damage_level = value
+		_scream_damage = value + 2
+
+@export_range(0, 10) var scream_paralysis_duration_level: int = 0:
+	get:
+		return scream_paralysis_duration_level
+	set(value):
+		scream_paralysis_duration_level = value
+		_scream_paralysis_duration = (value + 1) * 1.5
 
 @export_range(0, 10) var scream_charge_speed_level: int = 0:
 	get:
@@ -112,6 +123,12 @@ var _scream_charge := 0.0
 
 ## The maximum scream charge level
 var _scream_charge_maximum := 1.0
+
+## The damage applied by a scream attack
+var _scream_damage := 1
+
+## How long enemies in a scream attack are paralyzed, in seconds
+var _scream_paralysis_duration := 1.0
 
 ## The player’s gun
 @onready
@@ -202,9 +219,11 @@ func _heal_tick() -> void:
 
 func _burrow_animation_finished(name: StringName) -> void:
 	if name == &"unburrow":
-		var attack := scream_attack.instantiate() as Node2D
+		var attack := scream_attack.instantiate() as ScreamAttack
 		attack.scale = scream_indicator.scale
 		attack.position = position
+		attack.damage = _scream_damage
+		attack.paralysis_duration = _scream_paralysis_duration
 		get_parent().add_child(attack)
 		_scream_charge = 0.0
 
