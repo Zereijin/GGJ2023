@@ -5,7 +5,7 @@
 [ext_resource type="Theme" uid="uid://dbf3mfbni11oq" path="res://main_menu/main_menu_theme/main_menu_theme.tres" id="2_liuhe"]
 [ext_resource type="PackedScene" uid="uid://ciev25y0jewy5" path="res://main_menu/sound_button/sound_button.tscn" id="3_4aeqp"]
 [ext_resource type="Texture2D" uid="uid://dj4hoybqid6rs" path="res://main_menu/sprites/title_screen.png" id="3_6fiig"]
-[ext_resource type="StyleBox" path="res://main_menu/main_menu_theme/panel.tres" id="6_p5iyb"]
+[ext_resource type="StyleBox" uid="uid://xcag8qpmn84" path="res://main_menu/main_menu_theme/panel.tres" id="6_p5iyb"]
 [ext_resource type="PackedScene" uid="uid://cj4gfeuhn8y2b" path="res://main_menu/button_sound_controller.tscn" id="7_vm1io"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
@@ -176,9 +176,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -400.0
-offset_top = -150.0
+offset_top = -200.0
 offset_right = 400.0
-offset_bottom = 150.0
+offset_bottom = 200.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_liuhe")
@@ -196,12 +196,15 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MainMenuControl/InfoPanel/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenuControl/InfoPanel/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainMenuControl/InfoPanel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("2_liuhe")
 
-[node name="InfoLabel1" type="RichTextLabel" parent="MainMenuControl/InfoPanel/MarginContainer/HBoxContainer"]
+[node name="InfoLabel1" type="RichTextLabel" parent="MainMenuControl/InfoPanel/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_liuhe")
@@ -215,12 +218,12 @@ text = "[b][u]BODY UPGRADES:[/u][/b]
 [b]Luck:[/b] more gem drops"
 autowrap_mode = 2
 
-[node name="InfoLabel2" type="RichTextLabel" parent="MainMenuControl/InfoPanel/MarginContainer/HBoxContainer"]
+[node name="InfoLabel2" type="RichTextLabel" parent="MainMenuControl/InfoPanel/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_liuhe")
 bbcode_enabled = true
-text = "[b][u]SHOOTING:[/u][/b]
+text = "[b][u]SHOOTING UPGRADES:[/u][/b]
 
 [b]Damage:[/b] increased shot damage
 [b]Speed:[/b] faster rate of fire
@@ -228,12 +231,12 @@ text = "[b][u]SHOOTING:[/u][/b]
 [b]Count:[/b] more shots fired per burst
 [b]Accuracy:[/b] shots are less spread out"
 
-[node name="InfoLabel3" type="RichTextLabel" parent="MainMenuControl/InfoPanel/MarginContainer/HBoxContainer"]
+[node name="InfoLabel3" type="RichTextLabel" parent="MainMenuControl/InfoPanel/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_liuhe")
 bbcode_enabled = true
-text = "[b][u]SCREAM:[/u][/b]
+text = "[b][u]SCREAM UPGRADES:[/u][/b]
 
 [b]Damage:[/b] increased scream damage
 [b]Paralysis:[/b] stun lasts longer
@@ -241,7 +244,7 @@ text = "[b][u]SCREAM:[/u][/b]
 [b]Max:[/b] scream has longer range
 [b]Regen:[/b] heal faster while burrowed"
 
-[node name="CloseInfoButton" type="Button" parent="MainMenuControl/InfoPanel/MarginContainer/HBoxContainer"]
+[node name="CloseInfoButton" type="Button" parent="MainMenuControl/InfoPanel/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(128, 48)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -267,6 +270,6 @@ text = "Go Back"
 [connection signal="mouse_entered" from="MainMenuControl/CreditPanel/MarginContainer/VBoxContainer/CloseCreditsButton" to="MainMenuControl/ButtonSoundController" method="_on_mouse_entered"]
 [connection signal="pressed" from="MainMenuControl/CreditPanel/MarginContainer/VBoxContainer/CloseCreditsButton" to="MainMenuControl" method="_on_close_credits_button_pressed"]
 [connection signal="pressed" from="MainMenuControl/CreditPanel/MarginContainer/VBoxContainer/CloseCreditsButton" to="MainMenuControl/ButtonSoundController" method="_on_pressed"]
-[connection signal="mouse_entered" from="MainMenuControl/InfoPanel/MarginContainer/HBoxContainer/CloseInfoButton" to="MainMenuControl/ButtonSoundController" method="_on_mouse_entered"]
-[connection signal="pressed" from="MainMenuControl/InfoPanel/MarginContainer/HBoxContainer/CloseInfoButton" to="MainMenuControl" method="_on_close_info_button_pressed"]
-[connection signal="pressed" from="MainMenuControl/InfoPanel/MarginContainer/HBoxContainer/CloseInfoButton" to="MainMenuControl/ButtonSoundController" method="_on_pressed"]
+[connection signal="mouse_entered" from="MainMenuControl/InfoPanel/MarginContainer/VBoxContainer/CloseInfoButton" to="MainMenuControl/ButtonSoundController" method="_on_mouse_entered"]
+[connection signal="pressed" from="MainMenuControl/InfoPanel/MarginContainer/VBoxContainer/CloseInfoButton" to="MainMenuControl" method="_on_close_info_button_pressed"]
+[connection signal="pressed" from="MainMenuControl/InfoPanel/MarginContainer/VBoxContainer/CloseInfoButton" to="MainMenuControl/ButtonSoundController" method="_on_pressed"]
