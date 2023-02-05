@@ -1,3 +1,4 @@
+class_name Gun
 extends Node2D
 
 ## Emitted just before firing a group of projectiles, so time-based configuration can be done
