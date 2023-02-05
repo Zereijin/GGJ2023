@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxv1egra140ne"]
+
+[ext_resource type="Texture2D" uid="uid://1cf0cvm871sr" path="res://game/enemy/beet/sprites/beet_projectile_warning.png" id="1_e186e"]
+
+[node name="TargetMarker" type="Sprite2D"]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_e186e")

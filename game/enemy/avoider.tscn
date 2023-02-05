@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://lfdejkugen8w"]
+
+[ext_resource type="PackedScene" uid="uid://bq2b7d3bnhwiv" path="res://game/enemy/enemy.tscn" id="1_yfsn3"]
+[ext_resource type="Script" path="res://game/enemy/avoider.gd" id="2_xbcks"]
+
+[node name="Avoider" instance=ExtResource("1_yfsn3")]
+script = ExtResource("2_xbcks")
+force_multiplier = 0.0
+avoid_distance = 250.0
+dead_zone = 10.0

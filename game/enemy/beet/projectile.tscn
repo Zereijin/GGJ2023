@@ -1,0 +1,24 @@
+[gd_scene load_steps=7 format=3 uid="uid://be01k5t2bs5w0"]
+
+[ext_resource type="PackedScene" uid="uid://0kfs3x4bphda" path="res://game/projectile.tscn" id="1_02wgo"]
+[ext_resource type="Script" path="res://game/enemy/beet/projectile.gd" id="2_t80va"]
+[ext_resource type="Texture2D" uid="uid://dc0ofoxu7m3og" path="res://game/enemy/beet/sprites/beet_projectile.png" id="2_x0dtx"]
+[ext_resource type="PackedScene" uid="uid://bw4brs3qqy2w3" path="res://game/stage/rock.tscn" id="3_3y6s7"]
+[ext_resource type="PackedScene" uid="uid://cxv1egra140ne" path="res://game/enemy/beet/target_marker.tscn" id="4_ev3jh"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bnjcq"]
+radius = 25.0
+height = 65.0
+
+[node name="Projectile" instance=ExtResource("1_02wgo")]
+script = ExtResource("2_t80va")
+rock_prefab = ExtResource("3_3y6s7")
+target_marker_prefab = ExtResource("4_ev3jh")
+
+[node name="Sprite" parent="." index="0"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_x0dtx")
+
+[node name="CollisionShape" parent="." index="1"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_bnjcq")
