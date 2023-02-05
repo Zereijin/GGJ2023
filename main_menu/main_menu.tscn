@@ -69,6 +69,11 @@ focus_neighbor_top = NodePath("../QuitButton")
 theme = ExtResource("2_liuhe")
 text = "Play"
 
+[node name="InfoButton" type="Button" parent="MainMenuControl/MainMenuButtonContainer"]
+layout_mode = 2
+theme = ExtResource("2_liuhe")
+text = "Info"
+
 [node name="CreditsButton" type="Button" parent="MainMenuControl/MainMenuButtonContainer"]
 layout_mode = 2
 theme = ExtResource("2_liuhe")
@@ -162,11 +167,61 @@ focus_neighbor_bottom = NodePath(".")
 theme = ExtResource("2_liuhe")
 text = "Go Back"
 
+[node name="InfoPanel" type="Panel" parent="MainMenuControl"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -150.0
+offset_right = 400.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_liuhe")
+theme_override_styles/panel = ExtResource("6_p5iyb")
+
+[node name="MarginContainer" type="MarginContainer" parent="MainMenuControl/InfoPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenuControl/InfoPanel/MarginContainer"]
+layout_mode = 2
+
+[node name="InfoLabel" type="Label" parent="MainMenuControl/InfoPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_liuhe")
+text = "TYPE INFO HERE"
+
+[node name="CloseInfoButton" type="Button" parent="MainMenuControl/InfoPanel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(128, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+focus_neighbor_top = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+theme = ExtResource("2_liuhe")
+text = "Go Back"
+
 [node name="ButtonSoundController" parent="MainMenuControl" instance=ExtResource("7_vm1io")]
 
 [connection signal="mouse_entered" from="MainMenuControl/MainMenuButtonContainer/PlayButton" to="MainMenuControl/ButtonSoundController" method="_on_mouse_entered"]
 [connection signal="pressed" from="MainMenuControl/MainMenuButtonContainer/PlayButton" to="MainMenuControl" method="_on_play_button_pressed"]
 [connection signal="pressed" from="MainMenuControl/MainMenuButtonContainer/PlayButton" to="MainMenuControl/ButtonSoundController" method="_on_pressed"]
+[connection signal="mouse_entered" from="MainMenuControl/MainMenuButtonContainer/InfoButton" to="MainMenuControl/ButtonSoundController" method="_on_mouse_entered"]
+[connection signal="pressed" from="MainMenuControl/MainMenuButtonContainer/InfoButton" to="MainMenuControl" method="_on_info_button_pressed"]
+[connection signal="pressed" from="MainMenuControl/MainMenuButtonContainer/InfoButton" to="MainMenuControl/ButtonSoundController" method="_on_pressed"]
 [connection signal="mouse_entered" from="MainMenuControl/MainMenuButtonContainer/CreditsButton" to="MainMenuControl/ButtonSoundController" method="_on_mouse_entered"]
 [connection signal="pressed" from="MainMenuControl/MainMenuButtonContainer/CreditsButton" to="MainMenuControl" method="_on_credits_button_pressed"]
 [connection signal="pressed" from="MainMenuControl/MainMenuButtonContainer/CreditsButton" to="MainMenuControl/ButtonSoundController" method="_on_pressed"]
@@ -176,3 +231,6 @@ text = "Go Back"
 [connection signal="mouse_entered" from="MainMenuControl/CreditPanel/MarginContainer/VBoxContainer/CloseCreditsButton" to="MainMenuControl/ButtonSoundController" method="_on_mouse_entered"]
 [connection signal="pressed" from="MainMenuControl/CreditPanel/MarginContainer/VBoxContainer/CloseCreditsButton" to="MainMenuControl" method="_on_close_credits_button_pressed"]
 [connection signal="pressed" from="MainMenuControl/CreditPanel/MarginContainer/VBoxContainer/CloseCreditsButton" to="MainMenuControl/ButtonSoundController" method="_on_pressed"]
+[connection signal="mouse_entered" from="MainMenuControl/InfoPanel/MarginContainer/VBoxContainer/CloseInfoButton" to="MainMenuControl/ButtonSoundController" method="_on_mouse_entered"]
+[connection signal="pressed" from="MainMenuControl/InfoPanel/MarginContainer/VBoxContainer/CloseInfoButton" to="MainMenuControl" method="_on_close_info_button_pressed"]
+[connection signal="pressed" from="MainMenuControl/InfoPanel/MarginContainer/VBoxContainer/CloseInfoButton" to="MainMenuControl/ButtonSoundController" method="_on_pressed"]

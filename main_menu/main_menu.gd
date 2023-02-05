@@ -25,3 +25,14 @@ func _on_close_credits_button_pressed():
 
 func _on_quit_button_pressed():
 	get_tree().quit()
+
+func _on_info_button_pressed():
+	mainMenuFocusButton = $MainMenuButtonContainer/InfoButton
+	get_node("InfoPanel").visible=true
+	$InfoPanel/MarginContainer/VBoxContainer/CloseInfoButton.grab_focus()
+
+func _on_close_info_button_pressed():
+	get_node("InfoPanel").visible=false
+	mainMenuFocusButton.grab_focus()
+
+
