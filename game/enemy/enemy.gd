@@ -1,9 +1,9 @@
 class_name Enemy
 extends Plant
 
-## The force, in Newtons, applied when the plant wishes to walk
+## The force, in Newtons, applied when the plant wishes to walk, for an un-evolved enemy
 @export_range(0, 100000)
-var force_multiplier: float
+var base_force_multiplier: float
 
 ## The resource prefab
 @export
@@ -23,6 +23,11 @@ var _paralyzed_for := 0.0
 
 ## The evolution timer
 var evolution_timer: EvolutionTimer
+
+## The force, in Newtons, applied when the plant wishes to walk
+var force_multiplier : float:
+	get:
+		return base_force_multiplier + evolution_timer.run_time
 
 
 ## Configures the enemy by attaching any needed references

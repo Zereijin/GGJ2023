@@ -65,7 +65,6 @@ animations = [{
 [node name="Beet" instance=ExtResource("1_sapjc")]
 script = ExtResource("2_xjsje")
 target_distance = 100.0
-force_multiplier = 2000.0
 resource_type = 2
 
 [node name="Sprite" parent="." index="0"]

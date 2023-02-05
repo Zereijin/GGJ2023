@@ -68,7 +68,6 @@ height = 50.0
 
 [node name="Potato" instance=ExtResource("1_84ehe")]
 script = ExtResource("2_jdyom")
-force_multiplier = 2000.0
 resource_type = 1
 
 [node name="Sprite" parent="." index="0"]
