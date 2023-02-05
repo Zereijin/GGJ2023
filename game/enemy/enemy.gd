@@ -10,6 +10,11 @@ var paralyzed : bool:
 var _paralyzed_for := 0.0
 
 
+## Configures the enemy by attaching any needed references
+func configure(_player: Player):
+	pass
+
+
 ## Paralyzes the enemy for a period of time
 func paralyze(duration: float) -> void:
 	_paralyzed_for = maxf(_paralyzed_for, duration)
