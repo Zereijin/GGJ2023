@@ -1,5 +1,8 @@
 extends Node2D
 
+## Emitted for each projectile fired just before adding it to the node tree
+signal firing(projectile: Projectile)
+
 ## The type of projectile to fire
 @export
 var projectile : PackedScene
@@ -32,4 +35,5 @@ func _fire() -> void:
 		proj.position = plant.position
 		proj.linear_velocity = proj.linear_velocity.rotated(rotation).rotated(randf_range(-angle_range, angle_range))
 		proj.damage = critical_damage if critical else normal_damage
+		firing.emit(proj)
 		plant.get_parent().add_child(proj)
