@@ -85,7 +85,7 @@ parent_node = NodePath("../Objects")
 player = NodePath("../Objects/Player")
 
 [node name="SpawnerTimer" type="Timer" parent="Garden/Spawner"]
-wait_time = 30.0
+wait_time = 15.0
 autostart = true
 
 [node name="SpawnWarning" type="Sprite2D" parent="Garden"]

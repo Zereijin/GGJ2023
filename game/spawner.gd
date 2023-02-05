@@ -2,7 +2,7 @@ extends Polygon2D
 
 ## How long to warn before spawning the enemies
 @export
-var warning_duration := 5.0
+var warning_duration := 2.0
 
 ## The spawn warning marker
 @export
@@ -14,7 +14,7 @@ var plants : Array[PackedScene]
 
 ## How many plants to spawn at a time
 @export
-var count := 1
+var count := 5
 
 ## How much to multiply the plant count minus one by to get the radius of the spawning circle
 @export
