@@ -57,7 +57,7 @@ func _spawn() -> void:
 	for i in range(count_snapshot):
 		var angle := TAU * i / count_snapshot
 		var spawn_pos := target_point + Vector2.from_angle(angle) * radius
-		var plant := plants[randi_range(0, plants.size() - 1)].instantiate()
+		var plant : Enemy = plants[randi_range(0, plants.size() - 1)].instantiate()
 		plant.position = spawn_pos
 		plant.configure(player)
 		parent_node.add_child(plant)
