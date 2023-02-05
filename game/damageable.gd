@@ -15,7 +15,9 @@ var health : int:
 		update_health.emit()
 		_maybe_die()
 
-@export var defense : int = 0
+## An object that has a “defense” integer property, or null to have a defense of zero
+@export var defense_source : Node
+
 @export var dodge_probability : float = 0
 
 ## Sounds
@@ -45,6 +47,7 @@ func damage(amount: int) -> void:
 	if randf() < dodge_probability:
 		dodge_player.play()
 		return
+	var defense : int = defense_source.defense if defense_source != null else 0
 	health -= max(1, amount - defense)
 	if health >= 0:
 		hurt_player.play()

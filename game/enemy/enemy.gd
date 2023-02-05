@@ -13,6 +13,11 @@ var resource : PackedScene
 @export
 var resource_type : CollectibleResource.Type
 
+## The enemy’s current defense stat
+var defense : int:
+	get:
+		return floorf(evolution_timer.run_time / 180.0) as int
+
 ## Whether the enemy is paralyzed
 var paralyzed : bool:
 	get:

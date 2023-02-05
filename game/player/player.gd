@@ -28,8 +28,6 @@ var force_multiplier: float
 		return defense_level
 	set(value):
 		defense_level = value
-		if damageable != null:
-			damageable.defense = value
 
 @export_range(0, 10) var movement_speed_level: int = 0
 
@@ -165,6 +163,11 @@ var _mouse_recent := true
 
 ## The player’s maximum health
 var maximum_health := 5
+
+## The player’s current defense stat
+var defense : int:
+	get:
+		return defense_level
 
 ## The speed at which the scream charge level increases, in charge units per second
 var _scream_charge_speed := 1.0

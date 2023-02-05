@@ -455,7 +455,8 @@ position_smoothing_speed = 2.0
 script = ExtResource("3_64l3u")
 lookahead = 100.0
 
-[node name="Damageable" parent="." index="6"]
+[node name="Damageable" parent="." index="6" node_paths=PackedStringArray("defense_source")]
+defense_source = NodePath("..")
 death_sound = ExtResource("17_jk4io")
 dodge_sound = ExtResource("18_nji7m")
 hurt_sound = ExtResource("19_58cy2")

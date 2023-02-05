@@ -12,4 +12,7 @@ base_force_multiplier = 2000.0
 resource = ExtResource("3_a1chl")
 resource_type = null
 
+[node name="Damageable" parent="." index="3" node_paths=PackedStringArray("defense_source")]
+defense_source = NodePath("..")
+
 [connection signal="dead" from="Damageable" to="." method="_on_dead"]
