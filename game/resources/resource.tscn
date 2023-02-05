@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dlaua0rhiv64l"]
+
+[ext_resource type="Script" path="res://game/resources/resource.gd" id="1_e5tvo"]
+[ext_resource type="Texture2D" uid="uid://dvutxcgcad6i5" path="res://game/resources/sprites/blue_star.png" id="1_nyk1e"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6on0h"]
+radius = 5.0
+
+[node name="Resource" type="Area2D"]
+collision_layer = 32
+script = ExtResource("1_e5tvo")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_nyk1e")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_6on0h")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
