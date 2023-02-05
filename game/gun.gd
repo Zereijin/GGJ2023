@@ -20,6 +20,13 @@ var projectile_count := 1
 @export
 var plant : Node
 
+## How long, in seconds, between fired bursts
+var period : float:
+	get:
+		return _timer.wait_time
+	set(value):
+		_timer.wait_time = value
+
 ## How far left or right of the nominal direction the gun may fire, in radians
 var angle_range := 0.0
 
@@ -35,6 +42,10 @@ var critical_damage := 1
 ## Sounds
 @onready var shoot_player : AudioStreamPlayer2D = $ShootPlayer
 @export var shoot_sound : AudioStream
+
+## The timer
+@onready
+var _timer = $Timer
 
 func _ready():
 	shoot_player.stream = shoot_sound
