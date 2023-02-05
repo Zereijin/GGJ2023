@@ -11,6 +11,7 @@ button_press_audio_stream_player = NodePath("ButtonPressPlayer")
 
 [node name="ButtonHoverPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_n5302")
+volume_db = -20.0
 
 [node name="ButtonPressPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_lnau2")
