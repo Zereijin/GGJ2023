@@ -108,6 +108,11 @@ var scream_size_scale_factor := 300.0
 @export
 var scream_attack : PackedScene
 
+## Whether the player is alive
+var alive : bool:
+	get:
+		return damageable.alive
+
 ## Whether the player is currently burrowed
 var burrowed := false
 

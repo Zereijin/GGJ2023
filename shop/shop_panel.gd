@@ -29,7 +29,7 @@ func _ready():
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("shop") and not visible:
+	if event.is_action_pressed("shop") and not visible and player.alive:
 		get_tree().paused = true
 		update_shop_items()
 		closeButton.grab_focus()

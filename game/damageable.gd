@@ -15,6 +15,11 @@ var health : int:
 		update_health.emit()
 		_maybe_die()
 
+## Whether the entity is alive
+var alive : bool:
+	get:
+		return health > 0 and not _died
+
 ## Whether the dead signal has been emitted yet
 var _died := false
 
