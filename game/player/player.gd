@@ -86,7 +86,7 @@ var projectile_accuracy_level: int = 0:
 		return scream_damage_level
 	set(value):
 		scream_damage_level = value
-		_scream_damage = value * 2 + 4
+		_scream_damage = value + 1
 
 @export_range(0, 10) var scream_paralysis_duration_level: int = 0:
 	get:
