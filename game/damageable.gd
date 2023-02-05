@@ -15,6 +15,8 @@ var health : int:
 		update_health.emit()
 		_maybe_die()
 
+@export var defense : int = 0
+
 ## Whether the entity is alive
 var alive : bool:
 	get:
@@ -25,7 +27,7 @@ var _died := false
 
 ## Deals damage to the entity
 func damage(amount: int) -> void:
-	health -= amount
+	health -= max(1, amount - defense)
 
 # Heals the entity
 func heal(amount: int) -> void:

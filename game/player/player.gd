@@ -23,7 +23,14 @@ var force_multiplier: float
 		if health_bar != null:
 			health_bar.update()
 
-@export_range(0, 10) var defense_level: int = 0
+@export_range(0, 10) var defense_level: int = 0:
+	get:
+		return defense_level
+	set(value):
+		defense_level = value
+		if damageable != null:
+			damageable.defense = value
+
 @export_range(0, 10) var movement_speed_level: int = 0
 @export_range(0, 10) var dodge_level: int = 0
 @export_range(0, 10) var luck_level: int = 0
@@ -203,6 +210,7 @@ func _ready() -> void:
 
 	# Initialize health
 	damageable.health = maximum_health
+	damageable.defense = defense_level
 	health_bar.update()
 
 
