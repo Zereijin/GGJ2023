@@ -38,6 +38,10 @@ var _paralyzed_for := 0.0
 @onready
 var gun : Gun = $Gun
 
+## The base damage of the gun for an un-evolved enemy
+@onready
+var _base_normal_damage := gun.normal_damage
+
 
 ## Configures the enemy by attaching any needed references
 func configure(_player: Player, evolution_timer: EvolutionTimer):
@@ -60,3 +64,7 @@ func _on_dead() -> void:
 
 func _physics_process(delta: float) -> void:
 	_paralyzed_for = maxf(0.0, _paralyzed_for - delta)
+
+
+func _on_gun_pre_fire() -> void:
+	gun.normal_damage = _base_normal_damage + (floorf(evolution_timer.run_time / 60.0) as int)

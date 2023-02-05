@@ -15,4 +15,5 @@ resource_type = null
 [node name="Damageable" parent="." index="3" node_paths=PackedStringArray("defense_source")]
 defense_source = NodePath("..")
 
+[connection signal="pre_fire" from="Gun" to="." method="_on_gun_pre_fire"]
 [connection signal="dead" from="Damageable" to="." method="_on_dead"]
