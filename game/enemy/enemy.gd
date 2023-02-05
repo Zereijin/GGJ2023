@@ -46,6 +46,10 @@ var _base_normal_damage := gun.normal_damage
 @onready
 var _base_attack_period := gun.period
 
+## The base projectile count for an un-evolved enemy
+@onready
+var _base_projectile_count := gun.projectile_count
+
 
 ## Configures the enemy by attaching any needed references
 func configure(_player: Player, evolution_timer: EvolutionTimer):
@@ -56,6 +60,11 @@ func configure(_player: Player, evolution_timer: EvolutionTimer):
 ## Paralyzes the enemy for a period of time
 func paralyze(duration: float) -> void:
 	_paralyzed_for = maxf(_paralyzed_for, duration)
+
+
+# Calculates how many projectiles to launch
+func _projectile_count() -> int:
+	return _base_projectile_count + (floorf(evolution_timer.run_time / 100.0) as int)
 
 
 func _on_dead() -> void:
@@ -73,3 +82,4 @@ func _physics_process(delta: float) -> void:
 func _on_gun_pre_fire() -> void:
 	gun.normal_damage = _base_normal_damage + (floorf(evolution_timer.run_time / 60.0) as int)
 	gun.period = maxf(_base_attack_period, _base_attack_period / (evolution_timer.run_time / 30.0))
+	gun.projectile_count = _projectile_count()

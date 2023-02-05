@@ -8,6 +8,10 @@ func _physics_process(delta: float) -> void:
 	gun.rotation = towards_player.angle()
 
 
+func _projectile_count() -> int:
+	return 1
+
+
 func _on_gun_firing(projectile: Projectile) -> void:
 	projectile.player = player
 	projectile.evolution_timer = evolution_timer
