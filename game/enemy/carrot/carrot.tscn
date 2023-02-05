@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dktwfui784v27"]
+[gd_scene load_steps=17 format=3 uid="uid://dktwfui784v27"]
 
 [ext_resource type="PackedScene" uid="uid://lfdejkugen8w" path="res://game/enemy/avoider.tscn" id="1_flti8"]
 [ext_resource type="Script" path="res://game/enemy/carrot/carrot.gd" id="2_6gkx1"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://nlvupoq7ept" path="res://game/enemy/carrot/sprites/carrot_north2.png" id="9_jw7mk"]
 [ext_resource type="PackedScene" uid="uid://b1drdu17rv6qj" path="res://game/enemy/carrot/projectile.tscn" id="11_2dec2"]
 [ext_resource type="AudioStream" uid="uid://cbt0qaq4fm14" path="res://sound/carrot_death.ogg" id="12_hhlcr"]
+[ext_resource type="AudioStream" uid="uid://dh23kvw3sv6nc" path="res://sound/carrot_shoot.ogg" id="12_trdgl"]
 [ext_resource type="AudioStream" uid="uid://bvk5k5xepgm1" path="res://sound/carrot_hit.ogg" id="13_rmwef"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_katbq"]
@@ -74,6 +75,7 @@ animation = &"down"
 
 [node name="Gun" parent="." index="1"]
 projectile = ExtResource("11_2dec2")
+shoot_sound = ExtResource("12_trdgl")
 
 [node name="CollisionShape" parent="." index="2"]
 shape = SubResource("RectangleShape2D_ij5sl")
