@@ -22,6 +22,10 @@ var _died := false
 func damage(amount: int) -> void:
 	health -= amount
 
+# Heals the entity
+func heal(amount: int) -> void:
+	health += amount
+
 ## Emits the dead signal if needed.
 func _maybe_die() -> void:
 	if health <= 0 and not _died:
