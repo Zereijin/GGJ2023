@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://cgwhfduesoojv"]
 
 [ext_resource type="Script" path="res://shop/shop_panel.gd" id="1_lf4jd"]
-[ext_resource type="PackedScene" uid="uid://d0ysxh4jpyavx" path="res://shop/shop_stat_box_container.tscn" id="2_fqojv"]
-[ext_resource type="StyleBox" path="res://main_menu/main_menu_theme/panel.tres" id="2_o3l63"]
+[ext_resource type="PackedScene" uid="uid://d1cmhwlxfijj7" path="res://shop/shop_stat_box_container.tscn" id="2_fqojv"]
+[ext_resource type="StyleBox" uid="uid://xcag8qpmn84" path="res://main_menu/main_menu_theme/panel.tres" id="2_o3l63"]
 [ext_resource type="Texture2D" uid="uid://1nyavrk80xgv" path="res://game/resources/sprites/red_triangle.png" id="3_6pqwg"]
 [ext_resource type="Texture2D" uid="uid://0wmwqbb7ximl" path="res://game/resources/sprites/green_square.png" id="4_g50i0"]
 [ext_resource type="Texture2D" uid="uid://dvutxcgcad6i5" path="res://game/resources/sprites/blue_star.png" id="5_6fcpw"]

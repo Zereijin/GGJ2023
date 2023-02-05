@@ -43,7 +43,14 @@ var force_multiplier: float
 			gun.normal_damage = value + 1
 			gun.critical_damage = gun.normal_damage * 2
 
-@export_range(0, 10) var projectile_attack_speed_level: int = 0
+@export_range(0, 10) var projectile_attack_speed_level: int = 0:
+	get:
+		return projectile_attack_speed_level
+	set(value):
+		projectile_attack_speed_level = value
+		if gun != null:
+			gun.update_attack_rate(2 - float(projectile_attack_speed_level) / 7)
+
 @export_range(0, 10) var projectile_crit_chance_level: int = 0:
 	get:
 		return projectile_crit_chance_level
@@ -210,7 +217,6 @@ func _ready() -> void:
 
 	# Initialize health
 	damageable.health = maximum_health
-	damageable.defense = defense_level
 	health_bar.update()
 
 

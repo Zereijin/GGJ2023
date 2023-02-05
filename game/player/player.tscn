@@ -421,6 +421,7 @@ offset = Vector2(0, -40)
 
 [node name="Gun" parent="." index="2"]
 projectile = ExtResource("5_excqi")
+projectile_speed = 3.0
 
 [node name="ScreamIndicator" type="Node2D" parent="." index="3"]
 visible = false

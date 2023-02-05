@@ -69,6 +69,7 @@ shape = SubResource("RectangleShape2D_g6qmg")
 [node name="Test Rock" parent="Garden/Objects" instance=ExtResource("2_50ay1")]
 
 [node name="Player" parent="Garden/Objects" instance=ExtResource("1_tilxh")]
+projectile_attack_speed_level = 5
 
 [node name="Foreground" type="Sprite2D" parent="Garden"]
 position = Vector2(0, 506)

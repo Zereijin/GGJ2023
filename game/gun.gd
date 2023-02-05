@@ -11,6 +11,8 @@ var projectile : PackedScene
 @export_range(0, 1000)
 var projectile_count := 1
 
+@export var projectile_speed : float = 1
+
 ## The plant that owns the gun
 @export
 var plant : Node
@@ -27,13 +29,16 @@ var normal_damage := 1
 ## The damage dealt during a critical hit
 var critical_damage := 1
 
+func update_attack_rate(newWaitTime : float):
+	$Timer.wait_time = newWaitTime
+	print(newWaitTime)
 
 func _fire() -> void:
 	for i in range(projectile_count):
 		var critical := randf() < critical_probability
 		var proj := projectile.instantiate() as Projectile
 		proj.position = plant.position
-		proj.linear_velocity = proj.linear_velocity.rotated(rotation).rotated(randf_range(-angle_range, angle_range))
+		proj.linear_velocity = proj.linear_velocity.rotated(rotation).rotated(randf_range(-angle_range, angle_range)) * projectile_speed
 		proj.damage = critical_damage if critical else normal_damage
 		firing.emit(proj)
 		plant.get_parent().add_child(proj)
