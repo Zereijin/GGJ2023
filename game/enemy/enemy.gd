@@ -20,7 +20,7 @@ var fade_time := 1.0
 ## The enemy’s current defense stat
 var defense : int:
 	get:
-		return floorf(evolution_timer.run_time / 180.0) as int
+		return floorf(evolution_timer.run_time / 300.0) as int
 
 ## Whether the enemy is paralyzed
 var paralyzed : bool:
@@ -58,7 +58,7 @@ var _base_projectile_count := gun.projectile_count
 ## Configures the enemy by attaching any needed references
 func configure(_player: Player, evolution_timer: EvolutionTimer):
 	self.evolution_timer = evolution_timer
-	$Damageable.health = $Damageable.health + (floorf(evolution_timer.run_time / 60.0) as int)
+	$Damageable.health = $Damageable.health + (floorf(evolution_timer.run_time / 160.0) as int)
 
 
 ## Paralyzes the enemy for a period of time
@@ -68,7 +68,7 @@ func paralyze(duration: float) -> void:
 
 # Calculates how many projectiles to launch
 func _projectile_count() -> int:
-	return _base_projectile_count + (floorf(evolution_timer.run_time / 100.0) as int)
+	return _base_projectile_count + (floorf(evolution_timer.run_time / 300.0) as int)
 
 
 # Calculates the gun angle range
@@ -99,7 +99,7 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_gun_pre_fire() -> void:
-	gun.normal_damage = _base_normal_damage + (floorf(evolution_timer.run_time / 60.0) as int)
-	gun.period = minf(_base_attack_period, _base_attack_period / (evolution_timer.run_time / 30.0))
+	gun.normal_damage = _base_normal_damage + (floorf(evolution_timer.run_time / 240.0) as int)
+	gun.period = minf(_base_attack_period, _base_attack_period / (evolution_timer.run_time / 300.0))
 	gun.projectile_count = _projectile_count() if damageable.alive else 0
 	gun.angle_range = _angle_range()
