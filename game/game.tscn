@@ -184,7 +184,6 @@ text = "9999
 "
 
 [node name="GameOverPanel" type="Control" parent="ShopLayer"]
-visible = false
 layout_mode = 3
 anchors_preset = 5
 anchor_left = 0.5
