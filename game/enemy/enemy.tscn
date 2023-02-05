@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://dlaua0rhiv64l" path="res://game/resources/resource.tscn" id="3_a1chl"]
 
 [node name="Enemy" instance=ExtResource("1_8y5jb")]
+collision_layer = 2
+collision_mask = 27
 script = ExtResource("1_oaf8f")
 resource = ExtResource("3_a1chl")
 resource_type = null
