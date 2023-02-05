@@ -189,7 +189,7 @@ var gun := $Gun
 @onready
 var health_bar := $HealthBar
 @onready
-var damageable := $Damageable
+var damageable : Damageable = $Damageable
 
 # The timer used to heal the player while burrowed
 @onready
