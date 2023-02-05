@@ -347,6 +347,7 @@ text = "Leave Shop"
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/GridContainer/ScreamVBoxContainer/ChargeSpeedStatContainer/UpgradeButton" to="." method="_on_scream_charge_speed_upgrade_button_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/GridContainer/ScreamVBoxContainer/ChargeMaxStatContainer/UpgradeButton" to="." method="_on_scream_charge_maximum_upgrade_button_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/GridContainer/ScreamVBoxContainer/HealthRegenStatContainer/UpgradeButton" to="." method="_on_health_regen_upgrade_button_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/CloseButtonMarginContainer/CloseButton" to="." method="_close"]
 
 [editable path="PanelContainer/MarginContainer/VBoxContainer/GridContainer/BodyVBoxContainer/HealthStatContainer"]
 [editable path="PanelContainer/MarginContainer/VBoxContainer/GridContainer/BodyVBoxContainer/DefenseStatContainer"]

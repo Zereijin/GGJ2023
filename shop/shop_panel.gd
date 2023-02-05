@@ -20,21 +20,27 @@ extends Control
 
 @onready var closeButton : Button = $PanelContainer/MarginContainer/VBoxContainer/CloseButtonMarginContainer/CloseButton
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
 	if (player):
 		update_shop_items()
 	else:
 		print("ShopPanel: No player found")
 
-func open():
-	update_shop_items()
-	closeButton.grab_focus()
-	visible = true
 
-func close():
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("shop") and not visible:
+		get_tree().paused = true
+		update_shop_items()
+		closeButton.grab_focus()
+		visible = true
+
+
+func _close():
 	closeButton.release_focus()
 	visible = false
+	get_tree().paused = false
+
 
 func update_shop_items():
 	maximumHealthStatContainer.set_level(player.maximum_health_level)
