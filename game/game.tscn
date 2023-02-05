@@ -78,5 +78,7 @@ target = NodePath("../Player")
 
 [node name="Player" parent="Garden/Objects" instance=ExtResource("1_tilxh")]
 
-[node name="ShopPanel" parent="Garden/Objects" instance=ExtResource("3_xprnx")]
+[node name="ShopLayer" type="CanvasLayer" parent="."]
+
+[node name="ShopPanel" parent="ShopLayer" instance=ExtResource("3_xprnx")]
 visible = false
