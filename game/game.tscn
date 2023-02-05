@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cxstjq63yeytk"]
+[gd_scene load_steps=17 format=3 uid="uid://cxstjq63yeytk"]
 
 [ext_resource type="Texture2D" uid="uid://bqtry2d3nvsou" path="res://game/stage/sprites/fenced_area.png" id="1_hgw6i"]
 [ext_resource type="PackedScene" uid="uid://fsgx46hh0sib" path="res://game/player/player.tscn" id="1_tilxh"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cgwhfduesoojv" path="res://shop/shop_panel.tscn" id="3_xprnx"]
 [ext_resource type="Texture2D" uid="uid://cg5adf1v7n2yh" path="res://game/stage/sprites/fence_south.png" id="4_x4qaj"]
 [ext_resource type="Texture2D" uid="uid://1nyavrk80xgv" path="res://game/resources/sprites/red_triangle.png" id="5_46ofj"]
+[ext_resource type="PackedScene" uid="uid://dktwfui784v27" path="res://game/enemy/carrot/carrot.tscn" id="5_nwpon"]
 [ext_resource type="Script" path="res://game/spawner.gd" id="5_qroix"]
 [ext_resource type="PackedScene" uid="uid://dbssse540sc70" path="res://game/enemy/potato/potato.tscn" id="6_f1ll7"]
 [ext_resource type="PackedScene" uid="uid://y2xwktkmii21" path="res://game/enemy/beet/beet.tscn" id="6_pid8e"]
@@ -78,7 +79,7 @@ color = Color(1, 0, 0, 1)
 polygon = PackedVector2Array(-550, -500, 550, -500, 550, 450, -550, 450)
 script = ExtResource("5_qroix")
 warning_marker = NodePath("../SpawnWarning")
-plants = Array[PackedScene]([ExtResource("6_pid8e"), ExtResource("6_f1ll7")])
+plants = Array[PackedScene]([ExtResource("6_pid8e"), ExtResource("5_nwpon"), ExtResource("6_f1ll7")])
 parent_node = NodePath("../Objects")
 player = NodePath("../Objects/Player")
 
