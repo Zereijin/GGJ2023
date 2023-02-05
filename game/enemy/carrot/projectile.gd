@@ -14,6 +14,9 @@ var player : Player
 ## The evolution timer
 var evolution_timer : EvolutionTimer
 
+## The carrot’s health
+var health : int
+
 
 func _ready() -> void:
 	var land_timer : Timer = $LandTimer
@@ -31,5 +34,6 @@ func _land() -> void:
 	var carrot : Carrot = _carrot_prefab.instantiate()
 	carrot.position = position
 	carrot.configure(player, evolution_timer)
+	carrot.get_node("Damageable").health = health
 	get_parent().add_child(carrot)
 	queue_free()

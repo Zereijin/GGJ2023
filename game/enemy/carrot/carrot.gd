@@ -15,4 +15,5 @@ func _projectile_count() -> int:
 func _on_gun_firing(projectile: Projectile) -> void:
 	projectile.player = player
 	projectile.evolution_timer = evolution_timer
+	projectile.health = damageable.health
 	queue_free()
