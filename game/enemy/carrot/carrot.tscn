@@ -76,6 +76,7 @@ size = Vector2(20, 60)
 
 [node name="Carrot" instance=ExtResource("1_flti8")]
 script = ExtResource("2_6gkx1")
+avoid_distance = 50.0
 resource_type = 0
 
 [node name="Sprite" parent="." index="0"]
