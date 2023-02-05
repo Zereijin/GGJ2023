@@ -13,7 +13,7 @@ var projectile_count := 1
 var plant : Node
 
 ## How far left or right of the nominal direction the gun may fire, in radians
-var angle_range
+var angle_range := 0.0
 
 
 func _fire() -> void:

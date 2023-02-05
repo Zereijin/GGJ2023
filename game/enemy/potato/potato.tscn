@@ -1,18 +1,79 @@
-[gd_scene load_steps=4 format=3 uid="uid://dbssse540sc70"]
+[gd_scene load_steps=13 format=3 uid="uid://dbssse540sc70"]
 
 [ext_resource type="PackedScene" uid="uid://bq2b7d3bnhwiv" path="res://game/enemy/enemy.tscn" id="1_84ehe"]
+[ext_resource type="Texture2D" uid="uid://lnlh3jdyk5ah" path="res://game/enemy/potato/sprites/potato_south1.png" id="2_rlviq"]
+[ext_resource type="Texture2D" uid="uid://4afmh2o3eu23" path="res://game/enemy/potato/sprites/potato_south2.png" id="3_o7t3p"]
+[ext_resource type="Texture2D" uid="uid://c1uo5s12ssjsr" path="res://game/enemy/potato/sprites/potato_west1.png" id="4_13wln"]
+[ext_resource type="Texture2D" uid="uid://dj2utnogxgeaf" path="res://game/enemy/potato/sprites/potato_west2.png" id="5_fr4nd"]
+[ext_resource type="Texture2D" uid="uid://c8d2wwy3yxrbq" path="res://game/enemy/potato/sprites/potato_east1.png" id="6_n7xsv"]
+[ext_resource type="Texture2D" uid="uid://b6upkw8yivm5s" path="res://game/enemy/potato/sprites/potato_east2.png" id="7_dn1g0"]
+[ext_resource type="Texture2D" uid="uid://u4yk3q25l3vh" path="res://game/enemy/potato/sprites/potato_north1.png" id="8_1knd3"]
+[ext_resource type="Texture2D" uid="uid://cwoui1x8ktevd" path="res://game/enemy/potato/sprites/potato_north2.png" id="9_y7tmo"]
+[ext_resource type="PackedScene" uid="uid://bepqps3b2gmbp" path="res://game/player/projectile.tscn" id="10_2efkh"]
 
-[sub_resource type="Gradient" id="Gradient_qcl23"]
-interpolation_mode = 1
-offsets = PackedFloat32Array(0)
-colors = PackedColorArray(1, 0.313726, 0, 1)
+[sub_resource type="SpriteFrames" id="SpriteFrames_61wl2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_rlviq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_o7t3p")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_13wln")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_fr4nd")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_n7xsv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_dn1g0")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_1knd3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_y7tmo")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_hwvhf"]
-gradient = SubResource("Gradient_qcl23")
-width = 1
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h84hw"]
+radius = 20.0
+height = 50.0
 
 [node name="Potato" instance=ExtResource("1_84ehe")]
+collision_layer = 2
+collision_mask = 25
 
 [node name="Sprite" parent="." index="0"]
-scale = Vector2(50, 50)
-texture = SubResource("GradientTexture1D_hwvhf")
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_61wl2")
+animation = &"down"
+offset = Vector2(0, -80)
+
+[node name="Gun" parent="." index="1"]
+projectile = ExtResource("10_2efkh")
+
+[node name="CollisionShape" parent="." index="2"]
+shape = SubResource("CapsuleShape2D_h84hw")

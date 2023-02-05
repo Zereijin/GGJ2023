@@ -21,7 +21,8 @@ var projectile_accuracy_level: int = 0:
 		return projectile_accuracy_level
 	set(value):
 		projectile_accuracy_level = value
-		gun.angle_range = PI / 40 * (10 - value)
+		if gun != null:
+			gun.angle_range = PI / 40 * (10 - value)
 
 @export_range(0, 10) var scream_damage_level: int = 0
 @export_range(0, 10) var scream_paralysis_duration_level: int = 0

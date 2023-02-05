@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://fsgx46hh0sib"]
+[gd_scene load_steps=7 format=3 uid="uid://fsgx46hh0sib"]
 
 [ext_resource type="PackedScene" uid="uid://cu40kuw6mlex7" path="res://game/plant.tscn" id="1_5nkbc"]
 [ext_resource type="Script" path="res://game/player/player.gd" id="2_8fw0q"]
@@ -6,16 +6,67 @@
 [ext_resource type="Texture2D" uid="uid://b836w3h88y88o" path="res://icon.svg" id="3_fmx3n"]
 [ext_resource type="PackedScene" uid="uid://bepqps3b2gmbp" path="res://game/player/projectile.tscn" id="5_excqi"]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_felws"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_fmx3n")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_fmx3n")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_fmx3n")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_fmx3n")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
 [node name="Player" instance=ExtResource("1_5nkbc")]
 collision_layer = 1
 collision_mask = 26
 script = ExtResource("2_8fw0q")
 force_multiplier = 2000.0
+maximum_health_level = 0
+defense_level = 0
+movement_speed_level = 0
+dodge_level = 0
+luck_level = 0
+projectile_damage_level = 0
+projectile_attack_speed_level = 0
+projectile_crit_chance_level = 0
+projectile_count_level = 0
+projectile_accuracy_level = 0
+scream_damage_level = 0
+scream_paralysis_duration_level = 0
+scream_charge_speed_level = 0
+scream_charge_maximum_level = 0
+health_regen_level = 0
 
-[node name="Sprite" parent="." index="1"]
-texture = ExtResource("3_fmx3n")
+[node name="Sprite" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_felws")
+animation = &"left"
 
-[node name="Gun" parent="." index="2"]
+[node name="Gun" parent="." index="1"]
 projectile = ExtResource("5_excqi")
 
 [node name="Camera" type="Camera2D" parent="." index="3"]
