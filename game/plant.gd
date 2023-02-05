@@ -31,4 +31,12 @@ func _process(_delta: float) -> void:
 
 ## Called when the plant’s health reaches zero
 func _on_dead() -> void:
+	# Become non-collidable and stop moving.
+	collision_mask = 0
+	collision_layer = 0
+	freeze = true
+	linear_velocity = Vector2.ZERO
+	$CollisionShape.queue_free()
+
+	# Play the animation
 	sprite.play(&"die")

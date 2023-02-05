@@ -79,13 +79,6 @@ func _angle_range() -> float:
 func _on_dead() -> void:
 	super()
 
-	# Become non-collidable and stop moving.
-	collision_mask = 0
-	collision_layer = 0
-	freeze = true
-	linear_velocity = Vector2.ZERO
-	$CollisionShape.queue_free()
-
 	# Drop a resource.
 	var r := resource.instantiate() as CollectibleResource
 	r.position = position
