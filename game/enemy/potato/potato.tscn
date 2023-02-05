@@ -70,7 +70,6 @@ script = ExtResource("2_jdyom")
 force_multiplier = 2000.0
 
 [node name="Sprite" parent="." index="0"]
-scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_61wl2")
 animation = &"down"
 offset = Vector2(0, -80)
