@@ -203,6 +203,11 @@ var burrower := $Burrower
 @onready
 var scream_indicator := $ScreamIndicator
 
+# Sounds
+@onready var burrowPlayer := $AudioPlayers/BurrowPlayer
+@onready var screamPlayer := $AudioPlayers/ScreamPlayer
+@onready var unburrowPlayer := $AudioPlayers/UnburrowPlayer
+
 
 func _ready() -> void:
 	# Set every level property to itself, to invoke the setters and push the side effects.
@@ -234,8 +239,10 @@ func _unhandled_input(event: InputEvent) -> void:
 			burrowed = not burrowed
 			burrower.queue(&"burrow" if burrowed else &"unburrow")
 			if burrowed:
+				burrowPlayer.play()
 				heal_timer.start()
 			else:
+				unburrowPlayer.play()
 				heal_timer.stop()
 
 	# Handle movement, only if not burrowed or burrowing
@@ -279,6 +286,7 @@ func _on_start_screaming() -> void:
 	attack.paralysis_duration = _scream_paralysis_duration
 	get_parent().add_child(attack)
 	_scream_charge = 0.0
+	screamPlayer.play()
 
 
 func can_afford(costs: Array[int]) -> bool:

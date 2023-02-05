@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://fsgx46hh0sib"]
+[gd_scene load_steps=37 format=3 uid="uid://fsgx46hh0sib"]
 
 [ext_resource type="PackedScene" path="res://game/plant.tscn" id="1_5nkbc"]
 [ext_resource type="Script" path="res://game/player/player.gd" id="2_8fw0q"]
@@ -23,6 +23,9 @@
 [ext_resource type="AudioStream" uid="uid://bohwuxhpitvww" path="res://sound/dying.ogg" id="17_jk4io"]
 [ext_resource type="AudioStream" uid="uid://cfop02op2eahj" path="res://sound/dodge.ogg" id="18_nji7m"]
 [ext_resource type="AudioStream" uid="uid://p6df5ueh3myb" path="res://sound/hit.ogg" id="19_58cy2"]
+[ext_resource type="AudioStream" uid="uid://cb60sgpteycx1" path="res://sound/burrow.ogg" id="24_g4qx1"]
+[ext_resource type="AudioStream" uid="uid://d4t1e01tndp4" path="res://sound/scream.ogg" id="25_bsocm"]
+[ext_resource type="AudioStream" uid="uid://dp2nx6op3xtxd" path="res://sound/unburrow.ogg" id="26_kg6bf"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_felws"]
 animations = [{
@@ -479,6 +482,17 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_bg5qg")
 show_percentage = false
 script = ExtResource("17_hktj1")
 target = NodePath("..")
+
+[node name="AudioPlayers" type="Node" parent="." index="10"]
+
+[node name="BurrowPlayer" type="AudioStreamPlayer2D" parent="AudioPlayers" index="0"]
+stream = ExtResource("24_g4qx1")
+
+[node name="ScreamPlayer" type="AudioStreamPlayer2D" parent="AudioPlayers" index="1"]
+stream = ExtResource("25_bsocm")
+
+[node name="UnburrowPlayer" type="AudioStreamPlayer2D" parent="AudioPlayers" index="2"]
+stream = ExtResource("26_kg6bf")
 
 [connection signal="start_screaming" from="." to="." method="_on_start_screaming"]
 [connection signal="dead" from="Damageable" to="." method="_dead"]
