@@ -59,6 +59,9 @@ var projectile_accuracy_level: int = 0:
 @export var g_resources: int = 50
 @export var b_resources: int = 50
 
+## Whether the player is currently burrowed
+var burrowed := false
+
 ## Whether the mouse pointer was moved recently, where “recently” means more recently than the last
 ## time the aiming joystick was deflected above its dead zone
 var _mouse_recent := true
@@ -66,6 +69,10 @@ var _mouse_recent := true
 ## The player’s gun
 @onready
 var gun := $Gun
+
+# The burrowing animator.
+@onready
+var burrower := $Burrower
 
 
 func _ready() -> void:
@@ -88,8 +95,15 @@ func _ready() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	# Handle movement
+	# Handle burrowing
+	if event.is_action_pressed("burrow"):
+		if burrower.get_queue().size() == 0:
+			burrowed = not burrowed
+			burrower.queue(&"burrow" if burrowed else &"unburrow")
+
+	# Handle movement, only if not burrowed or burrowing
 	constant_force = Input.get_vector("left", "right", "up", "down") * force_multiplier
+	freeze = burrowed or burrower.is_playing()
 
 	# Handle aiming
 	var mouse := event as InputEventMouseMotion
