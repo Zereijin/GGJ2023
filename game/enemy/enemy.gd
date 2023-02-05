@@ -1,5 +1,5 @@
 class_name Enemy
-extends RigidBody2D
+extends Plant
 
 func _on_dead() -> void:
 	queue_free()
