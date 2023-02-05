@@ -73,6 +73,7 @@ func _angle_range() -> float:
 
 
 func _on_dead() -> void:
+	super()
 	var r := resource.instantiate() as CollectibleResource
 	r.position = position
 	r.type = resource_type

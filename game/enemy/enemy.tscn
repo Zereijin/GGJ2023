@@ -16,4 +16,3 @@ resource_type = null
 defense_source = NodePath("..")
 
 [connection signal="pre_fire" from="Gun" to="." method="_on_gun_pre_fire"]
-[connection signal="dead" from="Damageable" to="." method="_on_dead"]

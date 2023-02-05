@@ -24,3 +24,5 @@ plant = NodePath("..")
 shape = SubResource("RectangleShape2D_felej")
 
 [node name="Damageable" parent="." instance=ExtResource("2_80lky")]
+
+[connection signal="dead" from="Damageable" to="." method="_on_dead"]

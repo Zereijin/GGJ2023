@@ -22,3 +22,8 @@ func _process(_delta: float) -> void:
 				sprite.play(&"down")
 			else:
 				sprite.play(&"up")
+
+
+## Called when the plant’s health reaches zero
+func _on_dead() -> void:
+	pass
