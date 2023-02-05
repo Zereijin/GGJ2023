@@ -44,10 +44,27 @@ func update_shop_items():
 	screamChargeSpeedStatContainer.set_level(player.scream_charge_speed_level)
 	screamChargeMaximumStatContainer.set_level(player.scream_charge_maximum_level)
 	healthRegenStatContainer.set_level(player.health_regen_level)
+	
+	maximumHealthStatContainer.set_enabled(player.can_afford(maximumHealthStatContainer.get_cost()))
+	defenseStatContainer.set_enabled(player.can_afford(defenseStatContainer.get_cost()))
+	movementSpeedStatContainer.set_enabled(player.can_afford(movementSpeedStatContainer.get_cost()))
+	dodgeStatContainer.set_enabled(player.can_afford(dodgeStatContainer.get_cost()))
+	luckStatContainer.set_enabled(player.can_afford(luckStatContainer.get_cost()))
+	projectileDamageStatContainer.set_enabled(player.can_afford(projectileDamageStatContainer.get_cost()))
+	projectileAttackSpeedStatContainer.set_enabled(player.can_afford(projectileAttackSpeedStatContainer.get_cost()))
+	projectileCritChanceStatContainer.set_enabled(player.can_afford(projectileCritChanceStatContainer.get_cost()))
+	projectileCountStatContainer.set_enabled(player.can_afford(projectileCountStatContainer.get_cost()))
+	projectileAccuracyStatContainer.set_enabled(player.can_afford(projectileAccuracyStatContainer.get_cost()))
+	screamDamageStatContainer.set_enabled(player.can_afford(screamDamageStatContainer.get_cost()))
+	screamParalysisDurationStatContainer.set_enabled(player.can_afford(screamParalysisDurationStatContainer.get_cost()))
+	screamChargeSpeedStatContainer.set_enabled(player.can_afford(screamChargeSpeedStatContainer.get_cost()))
+	screamChargeMaximumStatContainer.set_enabled(player.can_afford(screamChargeMaximumStatContainer.get_cost()))
+	healthRegenStatContainer.set_enabled(player.can_afford(healthRegenStatContainer.get_cost()))
 
 func _on_maximum_health_upgrade_button_pressed():
-	player.maximum_health_level += 1
-	update_shop_items()
+	if (player.try_to_buy(maximumHealthStatContainer.get_cost())):
+		player.maximum_health_level += 1
+		update_shop_items()
 
 
 func _on_defense_upgrade_button_pressed():

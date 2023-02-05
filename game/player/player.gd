@@ -30,6 +30,11 @@ var projectile_accuracy_level: int = 0:
 @export_range(0, 10) var scream_charge_maximum_level: int = 0
 @export_range(0, 10) var health_regen_level: int = 0
 
+## Resources
+@export var r_resources: int = 50
+@export var g_resources: int = 50
+@export var b_resources: int = 50
+
 ## Whether the mouse pointer was moved recently, where “recently” means more recently than the last
 ## time the aiming joystick was deflected above its dead zone
 var _mouse_recent := true
@@ -75,3 +80,15 @@ func _unhandled_input(event: InputEvent) -> void:
 func _physics_process(_delta: float) -> void:
 	if _mouse_recent:
 		gun.rotation = get_local_mouse_position().angle()
+
+func can_afford(costs: Array[int]) -> bool:
+	return costs[0] <= r_resources and costs[1] <= g_resources and costs[2] <= b_resources
+	
+func try_to_buy(costs: Array[int]):
+	if (not can_afford(costs)):
+		return false
+		
+	r_resources -= costs[0]
+	g_resources -= costs[1]
+	b_resources -= costs[2]
+	return true
