@@ -386,10 +386,10 @@ defense_level = 0
 movement_speed_level = 0
 dodge_level = 0
 luck_level = 0
-projectile_damage_level = 0
+projectile_damage_level = 2
 projectile_attack_speed_level = 0
 projectile_crit_chance_level = 0
-projectile_count_level = 0
+projectile_count_level = 2
 projectile_accuracy_level = 0
 scream_damage_level = 0
 scream_paralysis_duration_level = 0
@@ -397,9 +397,9 @@ scream_charge_speed_level = 0
 scream_charge_maximum_level = 0
 health_regen_level = 0
 scream_size_scale_factor = 20.0
-r_resources = 10000
-g_resources = 10000
-b_resources = 10000
+r_resources = 0
+g_resources = 0
+b_resources = 0
 scream_attack = ExtResource("3_dft7i")
 
 [node name="Sprite" parent="." index="0"]

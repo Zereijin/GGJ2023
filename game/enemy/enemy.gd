@@ -29,7 +29,7 @@ var evolution_timer: EvolutionTimer
 ## The force, in Newtons, applied when the plant wishes to walk
 var force_multiplier : float:
 	get:
-		return base_force_multiplier + evolution_timer.run_time
+		return base_force_multiplier + floorf(evolution_timer.run_time / 240.0) * 400
 
 ## How long the enemy is paralyzed for
 var _paralyzed_for := 0.0

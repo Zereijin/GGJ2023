@@ -83,6 +83,6 @@ shoot_sound = ExtResource("12_6kmqw")
 shape = SubResource("CapsuleShape2D_h84hw")
 
 [node name="Damageable" parent="." index="3"]
-health = 3
+health = 9
 death_sound = ExtResource("12_kkcud")
 hurt_sound = ExtResource("13_uc00j")

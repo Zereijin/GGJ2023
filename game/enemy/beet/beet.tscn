@@ -73,10 +73,11 @@ animation = &"up"
 
 [node name="Gun" parent="." index="1"]
 projectile = ExtResource("10_cpawm")
+projectile_speed = 2.0
 shoot_sound = ExtResource("12_rcx5p")
 
 [node name="Damageable" parent="." index="3"]
-health = 1
+health = 3
 death_sound = ExtResource("12_cvcx6")
 hurt_sound = ExtResource("13_am2ar")
 

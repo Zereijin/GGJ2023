@@ -75,13 +75,14 @@ animation = &"down"
 
 [node name="Gun" parent="." index="1"]
 projectile = ExtResource("11_2dec2")
+projectile_speed = 5.0
 shoot_sound = ExtResource("12_trdgl")
 
 [node name="CollisionShape" parent="." index="2"]
 shape = SubResource("RectangleShape2D_ij5sl")
 
 [node name="Damageable" parent="." index="3"]
-health = 1
+health = 5
 death_sound = ExtResource("12_hhlcr")
 hurt_sound = ExtResource("13_rmwef")
 
