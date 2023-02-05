@@ -1,10 +1,6 @@
 class_name Avoider
 extends Enemy
 
-## The force, in Newtons, applied when the plant wishes to walk
-@export_range(0, 100000)
-var force_multiplier: float
-
 ## How far away from the player the plant tries to stay
 @export
 var avoid_distance := 250.0

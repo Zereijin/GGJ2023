@@ -1,6 +1,10 @@
 class_name Enemy
 extends Plant
 
+## The force, in Newtons, applied when the plant wishes to walk
+@export_range(0, 100000)
+var force_multiplier: float
+
 ## The resource prefab
 @export
 var resource : PackedScene
