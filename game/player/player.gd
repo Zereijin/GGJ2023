@@ -10,9 +10,24 @@ var force_multiplier: float
 @export_range(0, 10) var movement_speed_level: int = 0
 @export_range(0, 10) var dodge_level: int = 0
 @export_range(0, 10) var luck_level: int = 0
-@export_range(0, 10) var projectile_damage_level: int = 0
+@export_range(0, 10) var projectile_damage_level: int = 0:
+	get:
+		return projectile_damage_level
+	set(value):
+		projectile_damage_level = value
+		if gun != null:
+			gun.normal_damage = value + 1
+			gun.critical_damage = (value + 1) * 2
+
 @export_range(0, 10) var projectile_attack_speed_level: int = 0
-@export_range(0, 10) var projectile_crit_chance_level: int = 0
+@export_range(0, 10) var projectile_crit_chance_level: int = 0:
+	get:
+		return projectile_crit_chance_level
+	set(value):
+		projectile_crit_chance_level = value
+		if gun != null:
+			gun.critical_probability = value / 25.0
+
 @export_range(0, 10) var projectile_count_level: int = 0
 
 @export_range(0, 10)
