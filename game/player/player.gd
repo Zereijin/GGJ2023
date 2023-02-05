@@ -90,6 +90,10 @@ var scream_size_scale_factor := 300.0
 @export var g_resources: int = 50
 @export var b_resources: int = 50
 
+## The prefab for the scream attack
+@export
+var scream_attack : PackedScene
+
 ## Whether the player is currently burrowed
 var burrowed := false
 
@@ -198,6 +202,10 @@ func _heal_tick() -> void:
 
 func _burrow_animation_finished(name: StringName) -> void:
 	if name == &"unburrow":
+		var attack := scream_attack.instantiate() as Node2D
+		attack.scale = scream_indicator.scale
+		attack.position = position
+		get_parent().add_child(attack)
 		_scream_charge = 0.0
 
 
