@@ -1,7 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://bepqps3b2gmbp"]
+[gd_scene load_steps=3 format=3 uid="uid://bepqps3b2gmbp"]
 
 [ext_resource type="PackedScene" uid="uid://0kfs3x4bphda" path="res://game/projectile.tscn" id="1_i4b6s"]
+[ext_resource type="Texture2D" uid="uid://dwlf6pqxk7vr6" path="res://game/player/sprites/mandragora_projectile.png" id="2_tmn28"]
 
 [node name="projectile" instance=ExtResource("1_i4b6s")]
 collision_mask = 18
 delete_on_touch = 18
+
+[node name="Sprite" parent="." index="0"]
+scale = Vector2(1, 1)
+texture = ExtResource("2_tmn28")
