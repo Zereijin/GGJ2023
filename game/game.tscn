@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://cxstjq63yeytk"]
+[gd_scene load_steps=18 format=3 uid="uid://cxstjq63yeytk"]
 
 [ext_resource type="Texture2D" uid="uid://bqtry2d3nvsou" path="res://game/stage/sprites/fenced_area.png" id="1_hgw6i"]
 [ext_resource type="PackedScene" uid="uid://fsgx46hh0sib" path="res://game/player/player.tscn" id="1_tilxh"]
 [ext_resource type="Script" path="res://game/resource_panel.gd" id="3_jgv3g"]
 [ext_resource type="PackedScene" uid="uid://psqd6dx2lvfe" path="res://shop/shop_panel.tscn" id="3_xprnx"]
+[ext_resource type="Texture2D" uid="uid://cg5adf1v7n2yh" path="res://game/stage/sprites/fence_south.png" id="4_x4qaj"]
 [ext_resource type="Texture2D" uid="uid://1nyavrk80xgv" path="res://game/resources/sprites/red_triangle.png" id="5_46ofj"]
 [ext_resource type="PackedScene" uid="uid://ba7ivojxn0clg" path="res://game/enemy/potato/potato.tscn" id="6_f1ll7"]
 [ext_resource type="Texture2D" uid="uid://0wmwqbb7ximl" path="res://game/resources/sprites/green_square.png" id="6_pn3i5"]
@@ -46,10 +47,9 @@ texture = ExtResource("1_hgw6i")
 y_sort_enabled = true
 
 [node name="Walls" type="Node2D" parent="Garden/Objects"]
-visible = false
 
 [node name="WestWall" type="StaticBody2D" parent="Garden/Objects/Walls"]
-position = Vector2(-642, 0)
+position = Vector2(-636, 0)
 collision_layer = 16
 collision_mask = 0
 
@@ -61,7 +61,7 @@ scale = Vector2(100, 2000)
 texture = SubResource("GradientTexture1D_rfxx4")
 
 [node name="EastWall" type="StaticBody2D" parent="Garden/Objects/Walls"]
-position = Vector2(641, 0)
+position = Vector2(635, 0)
 collision_layer = 16
 collision_mask = 0
 
@@ -87,7 +87,7 @@ scale = Vector2(100, 2000)
 texture = SubResource("GradientTexture1D_rfxx4")
 
 [node name="SouthWall" type="StaticBody2D" parent="Garden/Objects/Walls"]
-position = Vector2(0, 672)
+position = Vector2(0, 574)
 rotation = 1.5708
 collision_layer = 16
 collision_mask = 0
@@ -118,6 +118,10 @@ target = NodePath("../Player")
 
 [node name="Player" parent="Garden/Objects" instance=ExtResource("1_tilxh")]
 scream_size_scale_factor = 300.0
+
+[node name="Foreground" type="Sprite2D" parent="Garden"]
+position = Vector2(0, 506)
+texture = ExtResource("4_x4qaj")
 
 [node name="ShopLayer" type="CanvasLayer" parent="."]
 
