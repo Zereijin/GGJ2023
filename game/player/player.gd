@@ -60,7 +60,14 @@ var projectile_accuracy_level: int = 0:
 @export_range(0, 10) var scream_paralysis_duration_level: int = 0
 @export_range(0, 10) var scream_charge_speed_level: int = 0
 @export_range(0, 10) var scream_charge_maximum_level: int = 0
-@export_range(0, 10) var health_regen_level: int = 0
+
+@export_range(0, 10) var health_regen_level: int = 0:
+	get:
+		return health_regen_level
+	set(value):
+		health_regen_level = value
+		if heal_timer != null:
+			heal_timer.wait_time = 5.0 / (value + 1)
 
 ## Resources
 @export var r_resources: int = 50
@@ -86,6 +93,10 @@ var gun := $Gun
 var health_bar := $HealthBar
 @onready
 var damageable := $Damageable
+
+# The timer used to heal the player while burrowed
+@onready
+var heal_timer = $HealTimer
 
 # The burrowing animator.
 @onready
@@ -121,6 +132,10 @@ func _unhandled_input(event: InputEvent) -> void:
 		if burrower.get_queue().size() == 0:
 			burrowed = not burrowed
 			burrower.queue(&"burrow" if burrowed else &"unburrow")
+			if burrowed:
+				heal_timer.start()
+			else:
+				heal_timer.stop()
 
 	# Handle movement, only if not burrowed or burrowing
 	constant_force = Input.get_vector("left", "right", "up", "down") * force_multiplier
@@ -139,6 +154,11 @@ func _unhandled_input(event: InputEvent) -> void:
 func _physics_process(_delta: float) -> void:
 	if _mouse_recent:
 		gun.rotation = get_local_mouse_position().angle()
+
+
+func _heal_tick() -> void:
+	if damageable.health < maximum_health:
+		damageable.heal(1)
 
 
 func can_afford(costs: Array[int]) -> bool:
