@@ -9,6 +9,8 @@ extends Control
 func _ready():
 	if (player):
 		_on_player_update_resources()
+	else:
+		print("ResourcePanel: No player found")
 
 func _on_player_update_resources():
 	_r_label.text = str(player.r_resources)

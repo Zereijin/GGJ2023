@@ -25,7 +25,7 @@ func _ready():
 	if (player):
 		update_shop_items()
 	else:
-		print("No player found :(")
+		print("ShopPanel: No player found")
 	closeButton.grab_focus()
 
 func update_shop_items():
