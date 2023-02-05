@@ -5,6 +5,10 @@ extends RigidBody2D
 @onready
 var sprite := $Sprite
 
+## The damageable sub-node of this plant
+@onready
+var damageable : Damageable = $Damageable
+
 
 func _process(_delta: float) -> void:
 	if constant_force.is_zero_approx():
