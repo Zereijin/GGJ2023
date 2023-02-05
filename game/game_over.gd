@@ -11,3 +11,8 @@ func open():
 func close():
 	quitButton.release_focus()
 	visible = false
+	var main_menu := ResourceLoader.load("res://main_menu/main_menu.tscn") as PackedScene
+	var error := get_tree().change_scene_to_packed(main_menu)
+	if error != OK:
+		print(error)
+		get_tree().quit(1)

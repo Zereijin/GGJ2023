@@ -244,3 +244,4 @@ focus_neighbor_bottom = NodePath("../../GridContainer/BodyVBoxContainer/HealthSt
 text = "Quit Game"
 
 [connection signal="update_resources" from="Garden/Objects/Player" to="ShopLayer/ResourcePanel" method="_on_player_update_resources"]
+[connection signal="pressed" from="ShopLayer/GameOverPanel/PanelContainer/MarginContainer/VBoxContainer/QuitButton" to="ShopLayer/GameOverPanel" method="close"]
