@@ -1,5 +1,5 @@
 class_name Player
-extends RigidBody2D
+extends Plant
 
 ## The force, in Newtons, applied by a keypress or full joystick deflection
 @export_range(0, 100000)
