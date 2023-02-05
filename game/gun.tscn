@@ -21,4 +21,7 @@ process_callback = 0
 wait_time = 2.0
 autostart = true
 
+[node name="ShootPlayer" type="AudioStreamPlayer2D" parent="."]
+volume_db = -20.0
+
 [connection signal="timeout" from="Timer" to="." method="_fire"]

@@ -29,6 +29,13 @@ var normal_damage := 1
 ## The damage dealt during a critical hit
 var critical_damage := 1
 
+## Sounds
+@onready var shoot_player : AudioStreamPlayer2D = $ShootPlayer
+@export var shoot_sound : AudioStream
+
+func _ready():
+	shoot_player.stream = shoot_sound
+
 func update_attack_rate(newWaitTime : float):
 	$Timer.wait_time = newWaitTime
 	print(newWaitTime)
@@ -42,3 +49,4 @@ func _fire() -> void:
 		proj.damage = critical_damage if critical else normal_damage
 		firing.emit(proj)
 		plant.get_parent().add_child(proj)
+		shoot_player.play()

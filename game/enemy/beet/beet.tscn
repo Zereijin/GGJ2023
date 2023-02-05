@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://y2xwktkmii21"]
+[gd_scene load_steps=16 format=3 uid="uid://y2xwktkmii21"]
 
 [ext_resource type="PackedScene" uid="uid://lfdejkugen8w" path="res://game/enemy/avoider.tscn" id="1_sapjc"]
 [ext_resource type="Texture2D" uid="uid://db2wr63uibvsj" path="res://game/enemy/beet/sprites/beet_south1.png" id="2_rxd3m"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://2et51cegpw6w" path="res://game/enemy/beet/sprites/beet_north2.png" id="9_6ecx0"]
 [ext_resource type="PackedScene" uid="uid://be01k5t2bs5w0" path="res://game/enemy/beet/projectile.tscn" id="10_cpawm"]
 [ext_resource type="AudioStream" uid="uid://og6orwxdse3c" path="res://sound/beet_death.ogg" id="12_cvcx6"]
+[ext_resource type="AudioStream" uid="uid://dfg5wy2m1uin2" path="res://sound/beet_shoot.ogg" id="12_rcx5p"]
 [ext_resource type="AudioStream" uid="uid://c76epumychdpr" path="res://sound/beet_hit.ogg" id="13_am2ar"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hp6xl"]
@@ -73,6 +74,7 @@ animation = &"up"
 
 [node name="Gun" parent="." index="1"]
 projectile = ExtResource("10_cpawm")
+shoot_sound = ExtResource("12_rcx5p")
 
 [node name="Damageable" parent="." index="3"]
 death_sound = ExtResource("12_cvcx6")

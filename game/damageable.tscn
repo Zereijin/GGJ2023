@@ -8,6 +8,7 @@ script = ExtResource("1_8w4ax")
 [node name="AudioPlayers" type="Node" parent="."]
 
 [node name="DeathPlayer" type="AudioStreamPlayer2D" parent="AudioPlayers"]
+volume_db = -20.0
 
 [node name="DodgePlayer" type="AudioStreamPlayer2D" parent="AudioPlayers"]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://fsgx46hh0sib"]
+[gd_scene load_steps=34 format=3 uid="uid://fsgx46hh0sib"]
 
 [ext_resource type="PackedScene" path="res://game/plant.tscn" id="1_5nkbc"]
 [ext_resource type="Script" path="res://game/player/player.gd" id="2_8fw0q"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://d8mikm48bvyv" path="res://game/player/sprites/mandragora_dive.png" id="11_phebd"]
 [ext_resource type="Texture2D" uid="uid://derhq0leghc0j" path="res://game/player/sprites/burrow_dirt.png" id="12_u6f7m"]
 [ext_resource type="Texture2D" uid="uid://u7rkahh4honl" path="res://game/player/sprites/scream_indicator.png" id="14_k7jxa"]
+[ext_resource type="AudioStream" uid="uid://b5wkhor8h2nc2" path="res://sound/player_shoot.ogg" id="15_h4ymh"]
 [ext_resource type="Texture2D" uid="uid://ceiq078pmdlsk" path="res://game/player/sprites/mandragora_scream.png" id="15_xxtvb"]
 [ext_resource type="Texture2D" uid="uid://c0xqcgep6mu0l" path="res://game/player/sprites/mandragora_scream2.png" id="16_2qmgw"]
 [ext_resource type="Script" path="res://game/player/health_bar.gd" id="17_hktj1"]
@@ -425,6 +426,7 @@ offset = Vector2(0, -40)
 [node name="Gun" parent="." index="2"]
 projectile = ExtResource("5_excqi")
 projectile_speed = 3.0
+shoot_sound = ExtResource("15_h4ymh")
 
 [node name="ScreamIndicator" type="Node2D" parent="." index="3"]
 visible = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dbssse540sc70"]
+[gd_scene load_steps=17 format=3 uid="uid://dbssse540sc70"]
 
 [ext_resource type="PackedScene" uid="uid://bq2b7d3bnhwiv" path="res://game/enemy/enemy.tscn" id="1_84ehe"]
 [ext_resource type="Script" path="res://game/enemy/potato/potato.gd" id="2_jdyom"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://u4yk3q25l3vh" path="res://game/enemy/potato/sprites/potato_north1.png" id="8_1knd3"]
 [ext_resource type="Texture2D" uid="uid://cwoui1x8ktevd" path="res://game/enemy/potato/sprites/potato_north2.png" id="9_y7tmo"]
 [ext_resource type="PackedScene" path="res://game/enemy/potato/projectile.tscn" id="10_6expw"]
+[ext_resource type="AudioStream" uid="uid://w17mt3sefi1j" path="res://sound/potato_shoot.ogg" id="12_6kmqw"]
 [ext_resource type="AudioStream" uid="uid://dx5cff7p7bm2k" path="res://sound/potato_death.ogg" id="12_kkcud"]
 [ext_resource type="AudioStream" uid="uid://bqvw1hlx40e1a" path="res://sound/potato_hit.ogg" id="13_uc00j"]
 
@@ -77,6 +78,7 @@ offset = Vector2(0, -80)
 
 [node name="Gun" parent="." index="1"]
 projectile = ExtResource("10_6expw")
+shoot_sound = ExtResource("12_6kmqw")
 
 [node name="CollisionShape" parent="." index="2"]
 shape = SubResource("CapsuleShape2D_h84hw")
