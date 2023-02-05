@@ -236,37 +236,39 @@ func _ready() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	# Handle burrowing
-	if event.is_action_pressed("burrow"):
-		if burrower.get_queue().size() == 0:
-			burrowed = not burrowed
-			burrower.queue(&"burrow" if burrowed else &"unburrow")
-			if burrowed:
-				burrowPlayer.play()
-				heal_timer.start()
-			else:
-				unburrowPlayer.play()
-				heal_timer.stop()
+	if alive:
+		# Handle burrowing
+		if event.is_action_pressed("burrow"):
+			if burrower.get_queue().size() == 0:
+				burrowed = not burrowed
+				burrower.queue(&"burrow" if burrowed else &"unburrow")
+				if burrowed:
+					burrowPlayer.play()
+					heal_timer.start()
+				else:
+					unburrowPlayer.play()
+					heal_timer.stop()
 
-	# Handle movement, only if not burrowed or burrowing
-	constant_force = Input.get_vector("left", "right", "up", "down") * (force_multiplier + (300 * movement_speed_level))
-	freeze = burrowed or burrower.is_playing()
+		# Handle movement, only if not burrowed or burrowing
+		constant_force = Input.get_vector("left", "right", "up", "down") * (force_multiplier + (300 * movement_speed_level))
+		freeze = burrowed or burrower.is_playing()
 
-	# Handle aiming
-	var mouse := event as InputEventMouseMotion
-	if mouse != null:
-		_mouse_recent = true
-	var pad_aim := Input.get_vector("aim_left", "aim_right", "aim_up", "aim_down")
-	if not pad_aim.is_zero_approx():
-		_mouse_recent = false
-		gun.rotation = pad_aim.angle()
+		# Handle aiming
+		var mouse := event as InputEventMouseMotion
+		if mouse != null:
+			_mouse_recent = true
+		var pad_aim := Input.get_vector("aim_left", "aim_right", "aim_up", "aim_down")
+		if not pad_aim.is_zero_approx():
+			_mouse_recent = false
+			gun.rotation = pad_aim.angle()
 
 
 func _physics_process(delta: float) -> void:
-	if _mouse_recent:
-		gun.rotation = get_local_mouse_position().angle()
-	if burrowed:
-		_scream_charge = minf(_scream_charge + delta * _scream_charge_speed, _scream_charge_maximum)
+	if alive:
+		if _mouse_recent:
+			gun.rotation = get_local_mouse_position().angle()
+		if burrowed:
+			_scream_charge = minf(_scream_charge + delta * _scream_charge_speed, _scream_charge_maximum)
 
 
 func _process(delta: float) -> void:
@@ -275,7 +277,7 @@ func _process(delta: float) -> void:
 
 
 func _heal_tick() -> void:
-	if damageable.health < maximum_health:
+	if alive and damageable.health < maximum_health:
 		damageable.heal(1)
 
 func _start_screaming() -> void:
