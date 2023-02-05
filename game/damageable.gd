@@ -51,8 +51,6 @@ func damage(amount: int) -> void:
 	health -= max(1, amount - defense)
 	if health >= 0:
 		hurt_player.play()
-	else:
-		death_player.play()
 
 # Heals the entity
 func heal(amount: int) -> void:
@@ -63,3 +61,4 @@ func _maybe_die() -> void:
 	if health <= 0 and not _died:
 		_died = true
 		dead.emit()
+		death_player.play()
