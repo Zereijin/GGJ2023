@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://fsgx46hh0sib"]
+[gd_scene load_steps=28 format=3 uid="uid://fsgx46hh0sib"]
 
 [ext_resource type="PackedScene" path="res://game/plant.tscn" id="1_5nkbc"]
 [ext_resource type="Script" path="res://game/player/player.gd" id="2_8fw0q"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://derhq0leghc0j" path="res://game/player/sprites/burrow_dirt.png" id="12_u6f7m"]
 [ext_resource type="Texture2D" uid="uid://ceiq078pmdlsk" path="res://game/player/sprites/mandragora_scream.png" id="15_xxtvb"]
 [ext_resource type="Texture2D" uid="uid://c0xqcgep6mu0l" path="res://game/player/sprites/mandragora_scream2.png" id="16_2qmgw"]
+[ext_resource type="Script" path="res://game/player/health_bar.gd" id="17_hktj1"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_felws"]
 animations = [{
@@ -310,6 +311,12 @@ _data = {
 "unburrow": SubResource("Animation_kf7l3")
 }
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w6txq"]
+bg_color = Color(0.796078, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bg5qg"]
+bg_color = Color(0, 0.709804, 0, 1)
+
 [node name="Player" instance=ExtResource("1_5nkbc")]
 collision_layer = 1
 collision_mask = 26
@@ -375,3 +382,18 @@ lookahead = 100.0
 libraries = {
 "": SubResource("AnimationLibrary_g8t0n")
 }
+
+[node name="HealthBar" type="ProgressBar" parent="." index="7"]
+custom_minimum_size = Vector2(30, 5)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -15.0
+offset_top = 17.0
+offset_right = 15.0
+offset_bottom = 22.0
+grow_horizontal = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_w6txq")
+theme_override_styles/fill = SubResource("StyleBoxFlat_bg5qg")
+show_percentage = false
+script = ExtResource("17_hktj1")
