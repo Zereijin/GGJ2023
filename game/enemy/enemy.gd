@@ -28,6 +28,7 @@ var evolution_timer: EvolutionTimer
 ## Configures the enemy by attaching any needed references
 func configure(_player: Player, evolution_timer: EvolutionTimer):
 	self.evolution_timer = evolution_timer
+	$Damageable.health = $Damageable.health + (floorf(evolution_timer.run_time / 60.0) as int)
 
 
 ## Paralyzes the enemy for a period of time
