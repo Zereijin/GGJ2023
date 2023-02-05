@@ -1,5 +1,8 @@
 extends Node2D
 
+## Emitted just before firing a group of projectiles, so time-based configuration can be done
+signal pre_fire
+
 ## Emitted for each projectile fired just before adding it to the node tree
 signal firing(projectile: Projectile)
 
@@ -41,6 +44,7 @@ func update_attack_rate(newWaitTime : float):
 	print(newWaitTime)
 
 func _fire() -> void:
+	pre_fire.emit()
 	for i in range(projectile_count):
 		var critical := randf() < critical_probability
 		var proj := projectile.instantiate() as Projectile
