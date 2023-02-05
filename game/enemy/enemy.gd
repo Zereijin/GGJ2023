@@ -42,6 +42,10 @@ var gun : Gun = $Gun
 @onready
 var _base_normal_damage := gun.normal_damage
 
+## The base shooting period of the gun for an un-evolved enemy
+@onready
+var _base_attack_period := gun.period
+
 
 ## Configures the enemy by attaching any needed references
 func configure(_player: Player, evolution_timer: EvolutionTimer):
@@ -68,3 +72,4 @@ func _physics_process(delta: float) -> void:
 
 func _on_gun_pre_fire() -> void:
 	gun.normal_damage = _base_normal_damage + (floorf(evolution_timer.run_time / 60.0) as int)
+	gun.period = _base_attack_period / (evolution_timer.run_time / 10.0)
