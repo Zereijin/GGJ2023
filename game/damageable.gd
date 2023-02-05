@@ -3,6 +3,8 @@ extends Node
 
 ## Emitted when the object’s health drops to zero or below
 signal dead
+## Emitted when the object's health changes
+signal update_health
 
 @export_range(0, 1000)
 var health : int:
@@ -10,6 +12,7 @@ var health : int:
 		return health
 	set(value):
 		health = value
+		update_health.emit()
 		_maybe_die()
 
 ## Whether the dead signal has been emitted yet

@@ -397,3 +397,5 @@ theme_override_styles/background = SubResource("StyleBoxFlat_w6txq")
 theme_override_styles/fill = SubResource("StyleBoxFlat_bg5qg")
 show_percentage = false
 script = ExtResource("17_hktj1")
+
+[connection signal="update_health" from="Damageable" to="HealthBar" method="_on_damageable_update_health"]

@@ -73,7 +73,8 @@ var gun := $Gun
 # The player's healthbar.
 @onready
 var health_bar := $HealthBar
-var current_health = 1
+@onready
+var damageable := $Damageable
 
 # The burrowing animator.
 @onready
@@ -98,8 +99,9 @@ func _ready() -> void:
 	scream_charge_maximum_level = scream_charge_maximum_level
 	health_regen_level = health_regen_level
 
-	current_health = maximum_health_level #TODO: convert from level to value
-	health_bar.update_health(current_health, current_health)
+	damageable.health = maximum_health_level #TODO: convert from level to value
+	health_bar.update_health(damageable.health)
+	health_bar.update_max_health(damageable.health)
 
 
 func _unhandled_input(event: InputEvent) -> void:
