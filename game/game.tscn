@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://cxstjq63yeytk"]
 
-[ext_resource type="PackedScene" uid="uid://c633r1brs7w4a" path="res://game/player/player.tscn" id="1_tilxh"]
+[ext_resource type="PackedScene" path="res://game/player/player.tscn" id="1_tilxh"]
 [ext_resource type="Script" path="res://game/resource_panel.gd" id="3_jgv3g"]
 [ext_resource type="PackedScene" uid="uid://psqd6dx2lvfe" path="res://shop/shop_panel.tscn" id="3_xprnx"]
 [ext_resource type="Texture2D" uid="uid://1nyavrk80xgv" path="res://game/resources/sprites/red_triangle.png" id="5_46ofj"]
@@ -81,6 +81,9 @@ position = Vector2(-76, -139)
 target = NodePath("../Player")
 
 [node name="Player" parent="Garden/Objects" instance=ExtResource("1_tilxh")]
+r_resources = 50
+g_resources = 50
+b_resources = 50
 
 [node name="ShopLayer" type="CanvasLayer" parent="."]
 
