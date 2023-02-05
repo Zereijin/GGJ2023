@@ -85,6 +85,7 @@ b_resources = 50
 [node name="ShopLayer" type="CanvasLayer" parent="."]
 
 [node name="ShopPanel" parent="ShopLayer" node_paths=PackedStringArray("player") instance=ExtResource("3_xprnx")]
+visible = false
 player = NodePath("../../Garden/Objects/Player")
 
 [node name="ResourcePanel" type="Control" parent="ShopLayer" node_paths=PackedStringArray("player")]
