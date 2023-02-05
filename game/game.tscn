@@ -1,12 +1,12 @@
-[gd_scene load_steps=18 format=3 uid="uid://cxstjq63yeytk"]
+[gd_scene load_steps=16 format=3 uid="uid://cxstjq63yeytk"]
 
 [ext_resource type="Texture2D" uid="uid://bqtry2d3nvsou" path="res://game/stage/sprites/fenced_area.png" id="1_hgw6i"]
 [ext_resource type="PackedScene" uid="uid://fsgx46hh0sib" path="res://game/player/player.tscn" id="1_tilxh"]
 [ext_resource type="Script" path="res://game/resource_panel.gd" id="3_jgv3g"]
-[ext_resource type="PackedScene" uid="uid://psqd6dx2lvfe" path="res://shop/shop_panel.tscn" id="3_xprnx"]
+[ext_resource type="PackedScene" uid="uid://cgwhfduesoojv" path="res://shop/shop_panel.tscn" id="3_xprnx"]
 [ext_resource type="Texture2D" uid="uid://cg5adf1v7n2yh" path="res://game/stage/sprites/fence_south.png" id="4_x4qaj"]
 [ext_resource type="Texture2D" uid="uid://1nyavrk80xgv" path="res://game/resources/sprites/red_triangle.png" id="5_46ofj"]
-[ext_resource type="PackedScene" uid="uid://ba7ivojxn0clg" path="res://game/enemy/potato/potato.tscn" id="6_f1ll7"]
+[ext_resource type="PackedScene" uid="uid://dbssse540sc70" path="res://game/enemy/potato/potato.tscn" id="6_f1ll7"]
 [ext_resource type="Texture2D" uid="uid://0wmwqbb7ximl" path="res://game/resources/sprites/green_square.png" id="6_pn3i5"]
 [ext_resource type="Texture2D" uid="uid://dvutxcgcad6i5" path="res://game/resources/sprites/blue_star.png" id="7_2e3kl"]
 [ext_resource type="Script" path="res://game/game_over.gd" id="8_dnhqf"]
@@ -14,15 +14,6 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g6qmg"]
 size = Vector2(100, 2000)
-
-[sub_resource type="Gradient" id="Gradient_g3xyl"]
-interpolation_mode = 1
-offsets = PackedFloat32Array(0)
-colors = PackedColorArray(0.2, 0.2, 0.2, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_rfxx4"]
-gradient = SubResource("Gradient_g3xyl")
-width = 1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j6121"]
 size = Vector2(50, 50)
@@ -57,10 +48,6 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Garden/Objects/Walls/WestWall"]
 shape = SubResource("RectangleShape2D_g6qmg")
 
-[node name="Sprite" type="Sprite2D" parent="Garden/Objects/Walls/WestWall"]
-scale = Vector2(100, 2000)
-texture = SubResource("GradientTexture1D_rfxx4")
-
 [node name="EastWall" type="StaticBody2D" parent="Garden/Objects/Walls"]
 position = Vector2(633, 0)
 collision_layer = 16
@@ -68,10 +55,6 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Garden/Objects/Walls/EastWall"]
 shape = SubResource("RectangleShape2D_g6qmg")
-
-[node name="Sprite" type="Sprite2D" parent="Garden/Objects/Walls/EastWall"]
-scale = Vector2(100, 2000)
-texture = SubResource("GradientTexture1D_rfxx4")
 
 [node name="NorthWall" type="StaticBody2D" parent="Garden/Objects/Walls"]
 position = Vector2(0, -615)
@@ -82,11 +65,6 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Garden/Objects/Walls/NorthWall"]
 shape = SubResource("RectangleShape2D_g6qmg")
 
-[node name="Sprite" type="Sprite2D" parent="Garden/Objects/Walls/NorthWall"]
-position = Vector2(0, -9.31323e-10)
-scale = Vector2(100, 2000)
-texture = SubResource("GradientTexture1D_rfxx4")
-
 [node name="SouthWall" type="StaticBody2D" parent="Garden/Objects/Walls"]
 position = Vector2(0, 574)
 rotation = 1.5708
@@ -95,11 +73,6 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Garden/Objects/Walls/SouthWall"]
 shape = SubResource("RectangleShape2D_g6qmg")
-
-[node name="Sprite" type="Sprite2D" parent="Garden/Objects/Walls/SouthWall"]
-position = Vector2(0, -9.31323e-10)
-scale = Vector2(100, 2000)
-texture = SubResource("GradientTexture1D_rfxx4")
 
 [node name="Test Rock" type="StaticBody2D" parent="Garden/Objects"]
 position = Vector2(100, 0)
