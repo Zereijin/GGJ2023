@@ -66,7 +66,6 @@ collision_mask = 0
 shape = SubResource("RectangleShape2D_g6qmg")
 
 [node name="Player" parent="Garden/Objects" instance=ExtResource("1_tilxh")]
-projectile_attack_speed_level = 5
 
 [node name="Foreground" type="Sprite2D" parent="Garden"]
 position = Vector2(0, 506)

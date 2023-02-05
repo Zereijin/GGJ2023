@@ -4,3 +4,11 @@
 
 [node name="damageable" type="Node"]
 script = ExtResource("1_8w4ax")
+
+[node name="AudioPlayers" type="Node" parent="."]
+
+[node name="DeathPlayer" type="AudioStreamPlayer2D" parent="AudioPlayers"]
+
+[node name="DodgePlayer" type="AudioStreamPlayer2D" parent="AudioPlayers"]
+
+[node name="HurtPlayer" type="AudioStreamPlayer2D" parent="AudioPlayers"]

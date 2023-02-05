@@ -1,16 +1,18 @@
-[gd_scene load_steps=13 format=3 uid="uid://y2xwktkmii21"]
+[gd_scene load_steps=15 format=3 uid="uid://y2xwktkmii21"]
 
 [ext_resource type="PackedScene" uid="uid://lfdejkugen8w" path="res://game/enemy/avoider.tscn" id="1_sapjc"]
-[ext_resource type="Texture2D" uid="uid://bilwh22n2aegx" path="res://game/enemy/beet/sprites/beet_south1.png" id="2_rxd3m"]
+[ext_resource type="Texture2D" uid="uid://db2wr63uibvsj" path="res://game/enemy/beet/sprites/beet_south1.png" id="2_rxd3m"]
 [ext_resource type="Script" path="res://game/enemy/beet/beet.gd" id="2_xjsje"]
-[ext_resource type="Texture2D" uid="uid://bybir6yh5aj4s" path="res://game/enemy/beet/sprites/beet_south2.png" id="3_jawfq"]
-[ext_resource type="Texture2D" uid="uid://b48sonighaala" path="res://game/enemy/beet/sprites/beet_west1.png" id="4_jmtg4"]
-[ext_resource type="Texture2D" uid="uid://ddcje4tl424k8" path="res://game/enemy/beet/sprites/beet_west2.png" id="5_ik1pm"]
-[ext_resource type="Texture2D" uid="uid://cuf5b0bl6bwvu" path="res://game/enemy/beet/sprites/beet_east1.png" id="6_644hk"]
-[ext_resource type="Texture2D" uid="uid://1piv3002ebt" path="res://game/enemy/beet/sprites/beet_east2.png" id="7_vlkj7"]
-[ext_resource type="Texture2D" uid="uid://etdw287aivrh" path="res://game/enemy/beet/sprites/beet_north1.png" id="8_utlpn"]
-[ext_resource type="Texture2D" uid="uid://dhmq8akpwg3y3" path="res://game/enemy/beet/sprites/beet_north2.png" id="9_6ecx0"]
+[ext_resource type="Texture2D" uid="uid://dnxaqnqx1y6g0" path="res://game/enemy/beet/sprites/beet_south2.png" id="3_jawfq"]
+[ext_resource type="Texture2D" uid="uid://cf3chyqssxdmc" path="res://game/enemy/beet/sprites/beet_west1.png" id="4_jmtg4"]
+[ext_resource type="Texture2D" uid="uid://cy1riljebig7q" path="res://game/enemy/beet/sprites/beet_west2.png" id="5_ik1pm"]
+[ext_resource type="Texture2D" uid="uid://dg6fmdxy5nftk" path="res://game/enemy/beet/sprites/beet_east1.png" id="6_644hk"]
+[ext_resource type="Texture2D" uid="uid://b4oytetrheh1b" path="res://game/enemy/beet/sprites/beet_east2.png" id="7_vlkj7"]
+[ext_resource type="Texture2D" uid="uid://cji2v0qsj4dd" path="res://game/enemy/beet/sprites/beet_north1.png" id="8_utlpn"]
+[ext_resource type="Texture2D" uid="uid://2et51cegpw6w" path="res://game/enemy/beet/sprites/beet_north2.png" id="9_6ecx0"]
 [ext_resource type="PackedScene" uid="uid://be01k5t2bs5w0" path="res://game/enemy/beet/projectile.tscn" id="10_cpawm"]
+[ext_resource type="AudioStream" uid="uid://og6orwxdse3c" path="res://sound/beet_death.ogg" id="12_cvcx6"]
+[ext_resource type="AudioStream" uid="uid://c76epumychdpr" path="res://sound/beet_hit.ogg" id="13_am2ar"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hp6xl"]
 animations = [{
@@ -71,5 +73,9 @@ animation = &"up"
 
 [node name="Gun" parent="." index="1"]
 projectile = ExtResource("10_cpawm")
+
+[node name="Damageable" parent="." index="3"]
+death_sound = ExtResource("12_cvcx6")
+hurt_sound = ExtResource("13_am2ar")
 
 [connection signal="firing" from="Gun" to="." method="_on_gun_firing"]

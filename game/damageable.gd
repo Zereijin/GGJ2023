@@ -18,6 +18,15 @@ var health : int:
 @export var defense : int = 0
 @export var dodge_probability : float = 0
 
+## Sounds
+@onready var death_player : AudioStreamPlayer2D = $AudioPlayers/DeathPlayer
+@onready var dodge_player : AudioStreamPlayer2D = $AudioPlayers/DodgePlayer
+@onready var hurt_player : AudioStreamPlayer2D = $AudioPlayers/HurtPlayer
+
+@export var death_sound : AudioStream
+@export var dodge_sound : AudioStream
+@export var hurt_sound : AudioStream
+
 ## Whether the entity is alive
 var alive : bool:
 	get:
@@ -26,12 +35,21 @@ var alive : bool:
 ## Whether the dead signal has been emitted yet
 var _died := false
 
+func _ready():
+	death_player.stream = death_sound
+	dodge_player.stream = dodge_sound
+	hurt_player.stream = hurt_sound
+
 ## Deals damage to the entity
 func damage(amount: int) -> void:
 	if randf() < dodge_probability:
-		#TODO: Dodge sound
+		dodge_player.play()
 		return
 	health -= max(1, amount - defense)
+	if health >= 0:
+		hurt_player.play()
+	else:
+		death_player.play()
 
 # Heals the entity
 func heal(amount: int) -> void:

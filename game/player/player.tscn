@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://fsgx46hh0sib"]
+[gd_scene load_steps=33 format=3 uid="uid://fsgx46hh0sib"]
 
 [ext_resource type="PackedScene" path="res://game/plant.tscn" id="1_5nkbc"]
 [ext_resource type="Script" path="res://game/player/player.gd" id="2_8fw0q"]
@@ -19,6 +19,9 @@
 [ext_resource type="Texture2D" uid="uid://ceiq078pmdlsk" path="res://game/player/sprites/mandragora_scream.png" id="15_xxtvb"]
 [ext_resource type="Texture2D" uid="uid://c0xqcgep6mu0l" path="res://game/player/sprites/mandragora_scream2.png" id="16_2qmgw"]
 [ext_resource type="Script" path="res://game/player/health_bar.gd" id="17_hktj1"]
+[ext_resource type="AudioStream" uid="uid://bohwuxhpitvww" path="res://sound/dying.ogg" id="17_jk4io"]
+[ext_resource type="AudioStream" uid="uid://cfop02op2eahj" path="res://sound/dodge.ogg" id="18_nji7m"]
+[ext_resource type="AudioStream" uid="uid://p6df5ueh3myb" path="res://sound/hit.ogg" id="19_58cy2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_felws"]
 animations = [{
@@ -446,6 +449,11 @@ position_smoothing_enabled = true
 position_smoothing_speed = 2.0
 script = ExtResource("3_64l3u")
 lookahead = 100.0
+
+[node name="Damageable" parent="." index="6"]
+death_sound = ExtResource("17_jk4io")
+dodge_sound = ExtResource("18_nji7m")
+hurt_sound = ExtResource("19_58cy2")
 
 [node name="Burrower" type="AnimationPlayer" parent="." index="7"]
 libraries = {
