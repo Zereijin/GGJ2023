@@ -3,8 +3,12 @@ extends Node
 
 ## Emitted when the object’s health drops to zero or below
 signal dead
+
 ## Emitted when the object's health changes
 signal update_health
+
+## Emitted when the object takes damage
+signal damaged
 
 @export_range(0, 1000)
 var health : int:
@@ -19,6 +23,9 @@ var health : int:
 @export var defense_source : Node
 
 @export var dodge_probability : float = 0
+
+## How much longer the entity is invicible to damage, in seconds
+var invincible_time := 0.0
 
 ## Sounds
 @onready var death_player : AudioStreamPlayer2D = $AudioPlayers/DeathPlayer
@@ -44,6 +51,8 @@ func _ready():
 
 ## Deals damage to the entity
 func damage(amount: int) -> void:
+	if not is_zero_approx(invincible_time):
+		return
 	if randf() < dodge_probability:
 		dodge_player.play()
 		return
@@ -51,6 +60,7 @@ func damage(amount: int) -> void:
 	health -= max(1, amount - defense)
 	if health > 0:
 		hurt_player.play()
+		damaged.emit()
 
 # Heals the entity
 func heal(amount: int) -> void:
@@ -62,3 +72,6 @@ func _maybe_die() -> void:
 		_died = true
 		dead.emit()
 		death_player.play()
+
+func _physics_process(delta: float) -> void:
+	invincible_time = maxf(0.0, invincible_time - delta)

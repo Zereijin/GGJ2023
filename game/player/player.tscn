@@ -398,6 +398,7 @@ collision_layer = 1
 collision_mask = 26
 script = ExtResource("2_8fw0q")
 force_multiplier = 2000.0
+invincible_time = 0.75
 maximum_health_level = 0
 defense_level = 0
 movement_speed_level = 0
@@ -517,6 +518,7 @@ stream = ExtResource("25_bsocm")
 stream = ExtResource("26_kg6bf")
 
 [connection signal="start_screaming" from="." to="." method="_on_start_screaming"]
+[connection signal="damaged" from="Damageable" to="." method="_on_damaged"]
 [connection signal="dead" from="Damageable" to="." method="_dead"]
 [connection signal="update_health" from="Damageable" to="HealthBar" method="update"]
 [connection signal="animation_changed" from="Burrower" to="." method="_burrow_animation_finished" unbinds=1]

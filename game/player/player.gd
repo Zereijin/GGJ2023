@@ -14,6 +14,10 @@ signal dead
 @export_range(0, 100000)
 var force_multiplier: float
 
+## The time the player is invincible after each time they take damage, in seconds
+@export_range(0, 10)
+var invincible_time := 0.75
+
 @export_range(0, 10) var maximum_health_level: int = 0:
 	get:
 		return maximum_health_level
@@ -314,3 +318,7 @@ func _dead() -> void:
 	$Burrow.visible = false
 	gun.projectile_count = 0
 	dead.emit()
+
+
+func _on_damaged() -> void:
+	damageable.invincible_time = invincible_time
