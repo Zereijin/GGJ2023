@@ -8,6 +8,11 @@ var lookahead: float
 @onready
 var player: RigidBody2D = get_parent()
 
+
+func _ready() -> void:
+	make_current()
+
+
 func _unhandled_input(_event: InputEvent) -> void:
 	if player.freeze:
 		position = Vector2.ZERO
