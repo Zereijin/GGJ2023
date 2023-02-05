@@ -15,6 +15,11 @@ var player : Player
 var evolution_timer : EvolutionTimer
 
 
+func _ready() -> void:
+	var land_timer : Timer = $LandTimer
+	land_timer.start(land_timer.wait_time * maxf(1, evolution_timer.run_time / 100))
+
+
 func _on_damage_area_body_entered(raw_body: Node2D) -> void:
 	var body := raw_body as PhysicsBody2D
 	var damageable := body.get_node("Damageable")
