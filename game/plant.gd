@@ -36,6 +36,7 @@ func _on_dead() -> void:
 	collision_layer = 0
 	freeze = true
 	linear_velocity = Vector2.ZERO
+	constant_force = Vector2.ZERO
 	$CollisionShape.queue_free()
 
 	# Play the animation
