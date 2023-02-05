@@ -214,8 +214,7 @@ text = "[b][u]BODY UPGRADES:[/u][/b]
 [b]Health:[/b] increase max HP
 [b]Defense:[/b] take less damage
 [b]Speed:[/b] move faster
-[b]Dodge:[/b] raise chance of taking no damage from a hit
-[b]Luck:[/b] more gem drops"
+[b]Dodge:[/b] raise chance of taking no damage from a hit"
 autowrap_mode = 2
 
 [node name="InfoLabel2" type="RichTextLabel" parent="MainMenuControl/InfoPanel/MarginContainer/VBoxContainer/HBoxContainer"]

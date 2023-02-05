@@ -125,23 +125,6 @@ cost_icon = ExtResource("4_g50i0")
 [node name="BCostContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/BodyVBoxContainer/DodgeStatContainer/CostsContainer" index="2"]
 cost_icon = ExtResource("5_6fcpw")
 
-[node name="LuckStatContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/BodyVBoxContainer" instance=ExtResource("2_fqojv")]
-layout_mode = 2
-stat_name = "Luck"
-stat_level = 5
-upgrade_cost_r = Array[int]([15, 30, 45, 60, 75, 90, 105, 120, 135, 150])
-upgrade_cost_g = Array[int]([70, 140, 210, 280, 350, 420, 490, 560, 630, 700])
-upgrade_cost_b = Array[int]([15, 30, 45, 60, 75, 90, 105, 120, 135, 150])
-
-[node name="RCostContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/BodyVBoxContainer/LuckStatContainer/CostsContainer" index="0"]
-cost_icon = ExtResource("3_6pqwg")
-
-[node name="GCostContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/BodyVBoxContainer/LuckStatContainer/CostsContainer" index="1"]
-cost_icon = ExtResource("4_g50i0")
-
-[node name="BCostContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/BodyVBoxContainer/LuckStatContainer/CostsContainer" index="2"]
-cost_icon = ExtResource("5_6fcpw")
-
 [node name="GunVBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 
@@ -339,7 +322,6 @@ text = "Leave Shop"
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/GridContainer/BodyVBoxContainer/DefenseStatContainer/UpgradeButton" to="." method="_on_defense_upgrade_button_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/GridContainer/BodyVBoxContainer/MovementSpeedStatContainer/UpgradeButton" to="." method="_on_movement_speed_upgrade_button_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/GridContainer/BodyVBoxContainer/DodgeStatContainer/UpgradeButton" to="." method="_on_dodge_upgrade_button_pressed"]
-[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/GridContainer/BodyVBoxContainer/LuckStatContainer/UpgradeButton" to="." method="_on_luck_upgrade_button_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/GridContainer/GunVBoxContainer/ProjectileDamageStatContainer/UpgradeButton" to="." method="_on_projectile_damage_upgrade_button_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/GridContainer/GunVBoxContainer/AttackSpeedStatContainer/UpgradeButton" to="." method="_on_projectile_attack_speed_upgrade_button_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/GridContainer/GunVBoxContainer/CritStatContainer/UpgradeButton" to="." method="_on_projectile_crit_chance_upgrade_button_pressed"]
@@ -358,7 +340,6 @@ text = "Leave Shop"
 [editable path="PanelContainer/MarginContainer/VBoxContainer/GridContainer/BodyVBoxContainer/DefenseStatContainer"]
 [editable path="PanelContainer/MarginContainer/VBoxContainer/GridContainer/BodyVBoxContainer/MovementSpeedStatContainer"]
 [editable path="PanelContainer/MarginContainer/VBoxContainer/GridContainer/BodyVBoxContainer/DodgeStatContainer"]
-[editable path="PanelContainer/MarginContainer/VBoxContainer/GridContainer/BodyVBoxContainer/LuckStatContainer"]
 [editable path="PanelContainer/MarginContainer/VBoxContainer/GridContainer/GunVBoxContainer/ProjectileDamageStatContainer"]
 [editable path="PanelContainer/MarginContainer/VBoxContainer/GridContainer/GunVBoxContainer/AttackSpeedStatContainer"]
 [editable path="PanelContainer/MarginContainer/VBoxContainer/GridContainer/GunVBoxContainer/CritStatContainer"]

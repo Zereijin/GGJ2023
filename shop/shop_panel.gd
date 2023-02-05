@@ -6,7 +6,7 @@ extends Control
 @onready var defenseStatContainer : ShopStatContainer = $PanelContainer/MarginContainer/VBoxContainer/GridContainer/BodyVBoxContainer/DefenseStatContainer
 @onready var movementSpeedStatContainer : ShopStatContainer = $PanelContainer/MarginContainer/VBoxContainer/GridContainer/BodyVBoxContainer/MovementSpeedStatContainer
 @onready var dodgeStatContainer : ShopStatContainer = $PanelContainer/MarginContainer/VBoxContainer/GridContainer/BodyVBoxContainer/DodgeStatContainer
-@onready var luckStatContainer : ShopStatContainer = $PanelContainer/MarginContainer/VBoxContainer/GridContainer/BodyVBoxContainer/LuckStatContainer
+#@onready var luckStatContainer : ShopStatContainer = $PanelContainer/MarginContainer/VBoxContainer/GridContainer/BodyVBoxContainer/LuckStatContainer
 @onready var projectileDamageStatContainer : ShopStatContainer = $PanelContainer/MarginContainer/VBoxContainer/GridContainer/GunVBoxContainer/ProjectileDamageStatContainer
 @onready var projectileAttackSpeedStatContainer : ShopStatContainer = $PanelContainer/MarginContainer/VBoxContainer/GridContainer/GunVBoxContainer/AttackSpeedStatContainer
 @onready var projectileCritChanceStatContainer : ShopStatContainer = $PanelContainer/MarginContainer/VBoxContainer/GridContainer/GunVBoxContainer/CritStatContainer
@@ -48,7 +48,7 @@ func update_shop_items():
 	defenseStatContainer.set_level(player.defense_level)
 	movementSpeedStatContainer.set_level(player.movement_speed_level)
 	dodgeStatContainer.set_level(player.dodge_level)
-	luckStatContainer.set_level(player.luck_level)
+	#luckStatContainer.set_level(player.luck_level)
 	projectileDamageStatContainer.set_level(player.projectile_damage_level)
 	projectileAttackSpeedStatContainer.set_level(player.projectile_attack_speed_level)
 	projectileCritChanceStatContainer.set_level(player.projectile_crit_chance_level)
@@ -64,7 +64,7 @@ func update_shop_items():
 	defenseStatContainer.set_enabled(player.can_afford(defenseStatContainer.get_cost()))
 	movementSpeedStatContainer.set_enabled(player.can_afford(movementSpeedStatContainer.get_cost()))
 	dodgeStatContainer.set_enabled(player.can_afford(dodgeStatContainer.get_cost()))
-	luckStatContainer.set_enabled(player.can_afford(luckStatContainer.get_cost()))
+	#luckStatContainer.set_enabled(player.can_afford(luckStatContainer.get_cost()))
 	projectileDamageStatContainer.set_enabled(player.can_afford(projectileDamageStatContainer.get_cost()))
 	projectileAttackSpeedStatContainer.set_enabled(player.can_afford(projectileAttackSpeedStatContainer.get_cost()))
 	projectileCritChanceStatContainer.set_enabled(player.can_afford(projectileCritChanceStatContainer.get_cost()))
@@ -100,10 +100,10 @@ func _on_dodge_upgrade_button_pressed():
 		update_shop_items()
 
 
-func _on_luck_upgrade_button_pressed():
-	if (player.try_to_buy(luckStatContainer.get_cost())):
-		player.luck_level += 1
-		update_shop_items()
+#func _on_luck_upgrade_button_pressed():
+#	if (player.try_to_buy(luckStatContainer.get_cost())):
+#		player.luck_level += 1
+#		update_shop_items()
 
 
 func _on_projectile_damage_upgrade_button_pressed():
