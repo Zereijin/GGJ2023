@@ -1,26 +1,16 @@
-[gd_scene load_steps=15 format=3 uid="uid://fsgx46hh0sib"]
+[gd_scene load_steps=8 format=3 uid="uid://c633r1brs7w4a"]
 
-[ext_resource type="PackedScene" uid="uid://cu40kuw6mlex7" path="res://game/plant.tscn" id="1_5nkbc"]
+[ext_resource type="PackedScene" path="res://game/plant.tscn" id="1_5nkbc"]
 [ext_resource type="Script" path="res://game/player/player.gd" id="2_8fw0q"]
 [ext_resource type="Script" path="res://game/camera.gd" id="3_64l3u"]
-[ext_resource type="Texture2D" uid="uid://dlycheruv6rak" path="res://game/player/sprites/mandragora_south1.png" id="3_dsehg"]
-[ext_resource type="Texture2D" uid="uid://dfv5vbo8e48vc" path="res://game/player/sprites/mandragora_south2.png" id="4_hursm"]
-[ext_resource type="PackedScene" uid="uid://bepqps3b2gmbp" path="res://game/player/projectile.tscn" id="5_excqi"]
-[ext_resource type="Texture2D" uid="uid://4iss0aneuqqv" path="res://game/player/sprites/mandragora_west1.png" id="5_ho0xf"]
-[ext_resource type="Texture2D" uid="uid://cephcqkx8bynf" path="res://game/player/sprites/mandragora_west2.png" id="6_5fmav"]
-[ext_resource type="Texture2D" uid="uid://dbgd58qh3pkpu" path="res://game/player/sprites/mandragora_east1.png" id="7_iu2py"]
-[ext_resource type="Texture2D" uid="uid://qo23p7jboobt" path="res://game/player/sprites/mandragora_east2.png" id="8_0u8xp"]
-[ext_resource type="Texture2D" uid="uid://c4ox3ao58tx8h" path="res://game/player/sprites/mandragora_north1.png" id="9_kya83"]
-[ext_resource type="Texture2D" uid="uid://bevit5i00frxx" path="res://game/player/sprites/mandragora_north2.png" id="10_ypl3p"]
+[ext_resource type="Texture2D" uid="uid://b836w3h88y88o" path="res://icon.svg" id="3_fmx3n"]
+[ext_resource type="PackedScene" path="res://game/player/projectile.tscn" id="5_excqi"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_felws"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_dsehg")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_hursm")
+"texture": ExtResource("3_fmx3n")
 }],
 "loop": true,
 "name": &"down",
@@ -28,10 +18,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_ho0xf")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_5fmav")
+"texture": ExtResource("3_fmx3n")
 }],
 "loop": true,
 "name": &"left",
@@ -39,10 +26,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("7_iu2py")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_0u8xp")
+"texture": ExtResource("3_fmx3n")
 }],
 "loop": true,
 "name": &"right",
@@ -50,10 +34,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("9_kya83")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_ypl3p")
+"texture": ExtResource("3_fmx3n")
 }],
 "loop": true,
 "name": &"up",
@@ -84,6 +65,9 @@ scream_paralysis_duration_level = 0
 scream_charge_speed_level = 0
 scream_charge_maximum_level = 0
 health_regen_level = 0
+r_resources = 50
+g_resources = 50
+b_resources = 50
 
 [node name="Sprite" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_felws")
@@ -98,5 +82,6 @@ shape = SubResource("CapsuleShape2D_2658m")
 
 [node name="Camera" type="Camera2D" parent="." index="3"]
 position_smoothing_enabled = true
+position_smoothing_speed = 2.0
 script = ExtResource("3_64l3u")
 lookahead = 100.0
