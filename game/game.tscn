@@ -2,9 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://fsgx46hh0sib" path="res://game/player/player.tscn" id="1_tilxh"]
 [ext_resource type="Script" path="res://game/resource_panel.gd" id="3_jgv3g"]
-[ext_resource type="PackedScene" uid="uid://psqd6dx2lvfe" path="res://shop/shop_panel.tscn" id="3_xprnx"]
+[ext_resource type="PackedScene" uid="uid://cgwhfduesoojv" path="res://shop/shop_panel.tscn" id="3_xprnx"]
 [ext_resource type="Texture2D" uid="uid://1nyavrk80xgv" path="res://game/resources/sprites/red_triangle.png" id="5_46ofj"]
-[ext_resource type="PackedScene" uid="uid://ba7ivojxn0clg" path="res://game/enemy/potato/potato.tscn" id="6_f1ll7"]
+[ext_resource type="PackedScene" uid="uid://dbssse540sc70" path="res://game/enemy/potato/potato.tscn" id="6_f1ll7"]
 [ext_resource type="Texture2D" uid="uid://0wmwqbb7ximl" path="res://game/resources/sprites/green_square.png" id="6_pn3i5"]
 [ext_resource type="Texture2D" uid="uid://dvutxcgcad6i5" path="res://game/resources/sprites/blue_star.png" id="7_2e3kl"]
 [ext_resource type="Script" path="res://game/game_over.gd" id="8_dnhqf"]
