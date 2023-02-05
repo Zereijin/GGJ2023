@@ -5,10 +5,12 @@
 [ext_resource type="Texture2D" uid="uid://7wp4m0vo4iky" path="res://game/enemy/carrot/sprites/carrot_projectile.png" id="2_el6di"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_juglu"]
-height = 70.0
+radius = 5.0
+height = 35.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_78atj"]
-height = 70.0
+radius = 5.0
+height = 35.0
 
 [node name="Projectile" instance=ExtResource("1_iy46j")]
 collision_mask = 16
@@ -17,7 +19,7 @@ carrot_path = "res://game/enemy/carrot/carrot.tscn"
 
 [node name="Sprite" parent="." index="0"]
 rotation = -1.5708
-scale = Vector2(0.2, 0.2)
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_el6di")
 
 [node name="CollisionShape" parent="." index="1"]

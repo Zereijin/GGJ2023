@@ -1,9 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://dbssse540sc70"]
+[gd_scene load_steps=17 format=3 uid="uid://dbssse540sc70"]
 
 [ext_resource type="PackedScene" uid="uid://bq2b7d3bnhwiv" path="res://game/enemy/enemy.tscn" id="1_84ehe"]
 [ext_resource type="Script" path="res://game/enemy/potato/potato.gd" id="2_jdyom"]
 [ext_resource type="Texture2D" uid="uid://lnlh3jdyk5ah" path="res://game/enemy/potato/sprites/potato_south1.png" id="2_rlviq"]
-[ext_resource type="Texture2D" uid="uid://gaxjeek6q3sr" path="res://game/enemy/potato/sprites/potato_death.png" id="3_4srsg"]
 [ext_resource type="Texture2D" uid="uid://4afmh2o3eu23" path="res://game/enemy/potato/sprites/potato_south2.png" id="3_o7t3p"]
 [ext_resource type="Texture2D" uid="uid://c1uo5s12ssjsr" path="res://game/enemy/potato/sprites/potato_west1.png" id="4_13wln"]
 [ext_resource type="Texture2D" uid="uid://dj2utnogxgeaf" path="res://game/enemy/potato/sprites/potato_west2.png" id="5_fr4nd"]
@@ -11,21 +10,13 @@
 [ext_resource type="Texture2D" uid="uid://b6upkw8yivm5s" path="res://game/enemy/potato/sprites/potato_east2.png" id="7_dn1g0"]
 [ext_resource type="Texture2D" uid="uid://u4yk3q25l3vh" path="res://game/enemy/potato/sprites/potato_north1.png" id="8_1knd3"]
 [ext_resource type="Texture2D" uid="uid://cwoui1x8ktevd" path="res://game/enemy/potato/sprites/potato_north2.png" id="9_y7tmo"]
-[ext_resource type="PackedScene" uid="uid://bv1kbdhdtu1yt" path="res://game/enemy/potato/projectile.tscn" id="10_6expw"]
+[ext_resource type="PackedScene" path="res://game/enemy/potato/projectile.tscn" id="10_6expw"]
 [ext_resource type="AudioStream" uid="uid://w17mt3sefi1j" path="res://sound/potato_shoot.ogg" id="12_6kmqw"]
 [ext_resource type="AudioStream" uid="uid://dx5cff7p7bm2k" path="res://sound/potato_death.ogg" id="12_kkcud"]
 [ext_resource type="AudioStream" uid="uid://bqvw1hlx40e1a" path="res://sound/potato_hit.ogg" id="13_uc00j"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_61wl2"]
 animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_4srsg")
-}],
-"loop": true,
-"name": &"die",
-"speed": 5.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_rlviq")

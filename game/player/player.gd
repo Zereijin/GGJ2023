@@ -100,14 +100,14 @@ var projectile_accuracy_level: int = 0:
 		return scream_charge_speed_level
 	set(value):
 		scream_charge_speed_level = value
-		_scream_charge_speed = value * 2 + 1
+		_scream_charge_speed = value * 2 + 5
 
 @export_range(0, 10) var scream_charge_maximum_level: int = 0:
 	get:
 		return scream_charge_maximum_level
 	set(value):
 		scream_charge_maximum_level = value
-		_scream_charge_maximum = 5 + value * 3
+		_scream_charge_maximum = 10 + value * 3
 
 @export_range(0, 10) var health_regen_level: int = 0:
 	get:
@@ -115,7 +115,7 @@ var projectile_accuracy_level: int = 0:
 	set(value):
 		health_regen_level = value
 		if heal_timer != null:
-			heal_timer.wait_time = 5.0 / (value + 1)
+			heal_timer.wait_time = 3.0 / (value + 1)
 
 ## The scaling factor between scream charge level and scream circle size, in pixels per charge unit
 @export_range(0, 1000)
