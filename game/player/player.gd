@@ -45,7 +45,7 @@ var force_multiplier: float
 	set(value):
 		projectile_damage_level = value
 		if gun != null:
-			gun.normal_damage = value + 1
+			gun.normal_damage = value + 3
 			gun.critical_damage = gun.normal_damage * 2
 
 @export_range(0, 10) var projectile_attack_speed_level: int = 0:
@@ -70,7 +70,7 @@ var force_multiplier: float
 	set(value):
 		projectile_count_level = value
 		if gun != null:
-			gun.projectile_count = value + 1
+			gun.projectile_count = value + 3
 
 @export_range(0, 10)
 var projectile_accuracy_level: int = 0:

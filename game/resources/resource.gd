@@ -29,9 +29,9 @@ func _on_body_entered(body: Node2D) -> void:
 	collectPlayer.play()
 	match type:
 		Type.RED:
-			player.r_resources += 1
+			player.r_resources += 10
 		Type.GREEN:
-			player.g_resources += 1
+			player.g_resources += 10
 		Type.BLUE:
-			player.b_resources += 1
+			player.b_resources += 10
 	queue_free()
