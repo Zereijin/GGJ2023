@@ -187,7 +187,7 @@ tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
+"transitions": PackedFloat32Array(5, 1),
 "update": 0,
 "values": [Vector2(0, -170), Vector2(0, 160)]
 }
@@ -199,7 +199,7 @@ tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
+"transitions": PackedFloat32Array(5, 1),
 "update": 0,
 "values": [45.0, 30.0]
 }
@@ -211,7 +211,7 @@ tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
+"transitions": PackedFloat32Array(5, 1),
 "update": 0,
 "values": [Vector2(0, -10), Vector2(0, 5)]
 }
@@ -230,7 +230,6 @@ tracks/5/keys = {
 
 [sub_resource type="Animation" id="Animation_kf7l3"]
 resource_name = "unburrow"
-length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -238,7 +237,7 @@ tracks/0/path = NodePath("Sprite:visible")
 tracks/0/interp = 0
 tracks/0/loop_wrap = false
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -250,7 +249,7 @@ tracks/1/path = NodePath("Burrow:visible")
 tracks/1/interp = 0
 tracks/1/loop_wrap = false
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -263,7 +262,7 @@ tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
+"transitions": PackedFloat32Array(0.2, 1),
 "update": 0,
 "values": [Vector2(0, 160), Vector2(0, -170)]
 }
@@ -275,7 +274,7 @@ tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
+"transitions": PackedFloat32Array(0.2, 1),
 "update": 0,
 "values": [30.0, 45.0]
 }
@@ -287,7 +286,7 @@ tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
+"transitions": PackedFloat32Array(0.2, 1),
 "update": 0,
 "values": [Vector2(0, 5), Vector2(0, -10)]
 }
@@ -298,10 +297,10 @@ tracks/5/path = NodePath("Burrow/BurrowClip/BurrowBody:texture")
 tracks/5/interp = 0
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("11_phebd"), ExtResource("15_xxtvb"), ExtResource("16_2qmgw"), ExtResource("11_phebd")]
+"values": [ExtResource("11_phebd"), ExtResource("15_xxtvb"), ExtResource("16_2qmgw"), ExtResource("15_xxtvb"), ExtResource("16_2qmgw"), ExtResource("15_xxtvb"), ExtResource("16_2qmgw"), ExtResource("11_phebd")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_g8t0n"]
