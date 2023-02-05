@@ -1,3 +1,4 @@
+class_name Carrot
 extends Avoider
 
 ## The gun
@@ -13,4 +14,5 @@ func _physics_process(delta: float) -> void:
 
 func _on_gun_firing(projectile: Projectile) -> void:
 	projectile.player = player
+	projectile.evolution_timer = evolution_timer
 	queue_free()

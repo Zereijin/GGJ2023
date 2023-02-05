@@ -17,8 +17,8 @@ var dead_zone := 10.0
 var player: Node2D
 
 
-func configure(player: Player) -> void:
-	super(player)
+func configure(player: Player, evolution_timer: EvolutionTimer) -> void:
+	super(player, evolution_timer)
 	self.player = player
 
 

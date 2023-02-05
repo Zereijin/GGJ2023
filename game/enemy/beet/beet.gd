@@ -14,7 +14,6 @@ func _physics_process(delta: float) -> void:
 	var towards_player := player.position - position
 	gun.rotation = towards_player.angle()
 
-
 func _on_gun_firing(projectile: Projectile) -> void:
 	# Beet projectiles need a target position, not an aim direction, to work right
 	var offset_angle := randf_range(0, TAU)

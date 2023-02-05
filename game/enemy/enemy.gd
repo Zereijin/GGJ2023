@@ -17,10 +17,13 @@ var paralyzed : bool:
 ## How long the enemy is paralyzed for
 var _paralyzed_for := 0.0
 
+## The evolution timer
+var evolution_timer: EvolutionTimer
+
 
 ## Configures the enemy by attaching any needed references
-func configure(_player: Player):
-	pass
+func configure(_player: Player, evolution_timer: EvolutionTimer):
+	self.evolution_timer = evolution_timer
 
 
 ## Paralyzes the enemy for a period of time
