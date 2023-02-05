@@ -1,10 +1,6 @@
 class_name Carrot
 extends Avoider
 
-## The gun
-@onready
-var gun := $Gun
-
 
 func _physics_process(delta: float) -> void:
 	super(delta)

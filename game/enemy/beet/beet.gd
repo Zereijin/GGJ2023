@@ -4,10 +4,6 @@ extends Avoider
 @export_range(0, 1000)
 var target_distance := 100.0
 
-## The gun
-@onready
-var gun := $Gun
-
 
 func _physics_process(delta: float) -> void:
 	super(delta)

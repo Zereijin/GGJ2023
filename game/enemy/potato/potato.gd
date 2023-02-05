@@ -3,10 +3,6 @@ extends Enemy
 ## The object the potato tries to walk towards and shoot
 var _player: Node2D
 
-## The gun
-@onready
-var gun := $Gun
-
 
 func configure(player: Player, evolution_timer: EvolutionTimer) -> void:
 	super(player, evolution_timer)

@@ -34,6 +34,10 @@ var force_multiplier : float:
 ## How long the enemy is paralyzed for
 var _paralyzed_for := 0.0
 
+## The gun.
+@onready
+var gun : Gun = $Gun
+
 
 ## Configures the enemy by attaching any needed references
 func configure(_player: Player, evolution_timer: EvolutionTimer):
